@@ -7,6 +7,9 @@
   <%@ include file="_include/head.jsp"%>
 </head>
 <body>
+
+<%@ include file="_include/header.jsp"%>
+
 <h1>Derniers Sites ajoutés</h1>
 
 <ul>

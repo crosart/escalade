@@ -10,7 +10,7 @@
 <body>
 <h1><s:text name="home.welcome" /></h1>
 
-  [Se connecter]
+<s:a action="login">[Se connecter]</s:a>
 <s:a action="home">[Continuer en tant que visiteur]</s:a>
 
 

@@ -2,6 +2,7 @@ package fr.crosart.escalade.business.impl;
 
 import fr.crosart.escalade.business.contract.ManagerFactory;
 import fr.crosart.escalade.business.contract.managers.SiteManager;
+import fr.crosart.escalade.business.contract.managers.UserManager;
 
 import javax.inject.Inject;
 import javax.inject.Named;
@@ -10,14 +11,23 @@ import javax.inject.Named;
 public class ManagerFactoryImpl implements ManagerFactory {
 
     @Inject
-    private SiteManager projetManager;
-
+    private SiteManager siteManager;
     @Override
     public SiteManager getSiteManager() {
-        return this.projetManager;
+        return this.siteManager;
+    }
+    public void setSiteManager(SiteManager pSiteManager) {
+        siteManager = pSiteManager;
     }
 
-    public void setProjetManager(SiteManager pProjetManager) {
-        projetManager = pProjetManager;
+    @Inject
+    private UserManager userManager;
+
+    @Override
+    public UserManager getUserManager() {
+        return this.userManager;
+    }
+    public void setUserManager(UserManager pUserManager) {
+        userManager = pUserManager;
     }
 }

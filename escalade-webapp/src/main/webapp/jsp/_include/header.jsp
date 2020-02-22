@@ -1,16 +1,15 @@
-<%--
-  Created by IntelliJ IDEA.
-  User: crosa
-  Date: 22/02/2020
-  Time: 14:56
-  To change this template use File | Settings | File Templates.
---%>
-<%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<html>
-<head>
-  <title>Title</title>
-</head>
-<body>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
+<%@ taglib prefix="s" uri="/struts-tags" %>
 
-</body>
-</html>
+<header>
+  <s:if test="#session.user">
+    Utilisateur connecté :
+    <s:property value="#session.user.prenom" />
+    <s:property value="#session.user.nom" />
+
+    <s:a action="logout">[Déconnexion]</s:a>
+  </s:if>
+  <s:else>
+    <s:a action="login">[Connexion]</s:a>
+  </s:else>
+</header>

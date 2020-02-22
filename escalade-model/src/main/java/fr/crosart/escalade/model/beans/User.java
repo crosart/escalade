@@ -4,10 +4,12 @@ public class User {
 
     // Attributs
     private Integer id;
+    private String login;
+    private String password;
+    private String nickname;
     private String firstName;
     private String lastName;
     private String mail;
-    private String password;
     private String telephone;
     private boolean isMember;
 
@@ -65,6 +67,18 @@ public class User {
     }
     public void setTelephone(String telephone) {
         this.telephone = telephone;
+    }
+    public String getLogin() {
+        return login;
+    }
+    public void setLogin(String login) {
+        this.login = login;
+    }
+    public String getNickname() {
+        return nickname;
+    }
+    public void setNickname(String nickname) {
+        this.nickname = nickname;
     }
 
 }
