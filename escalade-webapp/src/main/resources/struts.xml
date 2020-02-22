@@ -11,5 +11,10 @@
         <action name="index">
             <result>/jsp/index.jsp</result>
         </action>
+
+        <!-- Action "home" -->
+        <action name="home" class="gestionSiteAction" method="doList">
+            <result>/jsp/home.jsp</result>
+        </action>
     </package>
 </struts>

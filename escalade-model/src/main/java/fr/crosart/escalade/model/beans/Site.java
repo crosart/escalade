@@ -9,8 +9,8 @@ public class Site {
     private String department;
     private String latitude;
     private String longitude;
-    private Integer height;
-    private Integer tracks;
+    private String height;
+    private String tracks;
     private String cotationMin;
     private String cotationMax;
     private String description;
@@ -41,16 +41,16 @@ public class Site {
     public void setName(String name) {
         this.name = name;
     }
-    public Integer getHeight() {
+    public String getHeight() {
         return height;
     }
-    public void setHeight(Integer height) {
+    public void setHeight(String height) {
         this.height = height;
     }
-    public Integer getTracks() {
+    public String getTracks() {
         return tracks;
     }
-    public void setTracks(Integer tracks) {
+    public void setTracks(String tracks) {
         this.tracks = tracks;
     }
     public String getCotationMin() {

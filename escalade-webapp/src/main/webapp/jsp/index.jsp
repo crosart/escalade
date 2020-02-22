@@ -8,7 +8,12 @@
 </head>
 
 <body>
-<h1>Bienvenue sur le site de l'association "Les amis de l'escalade !</h1>
+<h1><s:text name="home.welcome" /></h1>
+
+  [Se connecter]
+<s:a action="home">[Continuer en tant que visiteur]</s:a>
+
+
 
 </body>
 </html>
