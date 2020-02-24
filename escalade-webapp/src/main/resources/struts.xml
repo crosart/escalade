@@ -17,6 +17,11 @@
             <result>/jsp/home.jsp</result>
         </action>
 
+        <!-- Action Détail Site -->
+        <action name="site_detail" class="fr.crosart.escalade.webapp.actions.GestionSiteAction" method="doDetail">
+            <result name="success">/jsp/detail.jsp</result>
+        </action>
+
         <!-- Actions Login/Logout -->
         <action name="login" class="fr.crosart.escalade.webapp.actions.LoginAction" method="doLogin">
             <result name="input">/jsp/login.jsp</result>

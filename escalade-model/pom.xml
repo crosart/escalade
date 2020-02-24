@@ -31,7 +31,6 @@
             <artifactId>validation-api</artifactId>
         </dependency>
 
-
         <!-- ===== Tests ===== -->
         <dependency>
             <groupId>junit</groupId>

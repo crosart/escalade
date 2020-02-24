@@ -17,7 +17,10 @@
     <li>
       <s:param name="id" value="id" />
       <s:property value="id" /> :
-      <s:property value="name"/> -
+      <s:a action="site_detail">
+        <s:param name="id" value="id" />
+        <s:property value="name"/>
+      </s:a> -
       <s:property value="country" />
     </li>
   </s:iterator>
