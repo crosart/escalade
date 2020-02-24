@@ -12,6 +12,7 @@
 
 <h2>Connexion</h2>
 
+<s:actionerror>
 <s:form action="login">
   <s:textfield name="login" label="Identifiant" requiredLabel="true" />
   <s:password name="password" label="Mot de passe" requiredLabel="true" />

@@ -4,11 +4,11 @@
 
 <html>
 <head>
-  <%@ include file="_include/head.jsp"%>
+  <%@ include file="../_include/head.jsp"%>
 </head>
 <body>
 
-  <%@ include file="_include/header.jsp"%>
+  <%@ include file="../_include/header.jsp"%>
 
   <h1><s:property value="site.country" /> - <s:property value="site.department" /> - <s:property value="site.name" />
   <s:if test="site.isOfficial"><img src="${pageContext.request.contextPath}/resources/img/technical/official_stamp.png" alt="officialStamp" /></s:if>

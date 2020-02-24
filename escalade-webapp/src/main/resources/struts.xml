@@ -24,7 +24,7 @@
 
         <!-- Action Détail Site -->
         <action name="site_detail" class="fr.crosart.escalade.webapp.actions.GestionSiteAction" method="doDetail">
-            <result name="success">/jsp/detail.jsp</result>
+            <result name="success">/jsp/sites/detail.jsp</result>
         </action>
 
         <!-- Actions Login/Logout -->
