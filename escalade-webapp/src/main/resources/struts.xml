@@ -7,6 +7,11 @@
         <!-- Action par défaut -->
         <default-action-ref name="index" />
 
+        <!-- Results globaux -->
+        <global-results>
+            <result name="error">/jsp/error.jsp</result>
+        </global-results>
+
         <!-- Action "index" -->
         <action name="index">
             <result>/jsp/index.jsp</result>
