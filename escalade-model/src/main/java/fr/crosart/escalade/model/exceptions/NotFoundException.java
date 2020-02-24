@@ -17,7 +17,6 @@ public class NotFoundException extends Exception {
 
     /**
      * Constructeur.
-     *
      * @param pMessage -
      */
     public NotFoundException(String pMessage) {
@@ -27,7 +26,6 @@ public class NotFoundException extends Exception {
 
     /**
      * Constructeur.
-     *
      * @param pMessage -
      * @param pCause -
      */

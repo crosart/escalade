@@ -30,5 +30,10 @@
         <action name="logout" class="fr.crosart.escalade.webapp.actions.LoginAction" method="doLogout">
             <result type="redirectAction">home</result>
         </action>
+
+        <!-- Action afficher compte -->
+        <action name="account" class="fr.crosart.escalade.webapp.actions.GestionUserAction" method="doDetail">
+            <result name="success">/jsp/account.jsp</result>
+        </action>
     </package>
 </struts>

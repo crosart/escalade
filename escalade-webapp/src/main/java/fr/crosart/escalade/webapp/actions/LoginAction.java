@@ -60,7 +60,7 @@ public class LoginAction extends ActionSupport implements SessionAware {
             try {
                 User vUser
                         = managerFactory.getUserManager()
-                        .getUser(login, password);
+                                        .getUser(login, password);
 
                 // Ajout de l'utilisateur en session
                 this.session.put("user", vUser);

@@ -20,6 +20,8 @@
 
   <p><s:property value="site.description" /></p>
 
+  <p>Topo [[DISPONIBLE]] : Faire une demande de réservation</p>
+
 <hr>
 
 <h2>Commentaires</h2>

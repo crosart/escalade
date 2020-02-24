@@ -8,8 +8,21 @@
     <s:property value="#session.user.nom" />
 
     <s:a action="logout">[Déconnexion]</s:a>
+
   </s:if>
   <s:else>
     <s:a action="login">[Connexion]</s:a>
   </s:else>
+
+  <nav>
+    <s:a action="home">[Accueil]</s:a>
+    <s:if test="#session.user">
+      <s:a action="account">[Mon Compte]</s:a>
+    </s:if>
+
+    <!-- A CABLER -->
+    [Rechercher]
+
+
+  </nav>
 </header>
