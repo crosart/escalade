@@ -1,15 +1,21 @@
 package fr.crosart.escalade.business.impl.managers;
 
 import fr.crosart.escalade.business.contract.managers.SiteManager;
+import fr.crosart.escalade.consumer.contract.dao.SiteDao;
+import fr.crosart.escalade.consumer.impl.dao.SiteDaoImpl;
 import fr.crosart.escalade.model.beans.Site;
 import fr.crosart.escalade.model.exceptions.NotFoundException;
 
+import javax.inject.Inject;
 import javax.inject.Named;
 import java.util.ArrayList;
 import java.util.List;
 
 @Named
 public class SiteManagerImpl extends AbstractManager implements SiteManager {
+
+    @Inject
+    private SiteDao siteDao;
 
     @Override
     public Site getSite(Integer pId) throws NotFoundException {
@@ -22,11 +28,9 @@ public class SiteManagerImpl extends AbstractManager implements SiteManager {
 
     @Override
     public List<Site> getListSite() {
-        List<Site> vList = new ArrayList<>();
-        for (int vI = 0; vI < 4; vI++) {
-            Site vSite = newSite(vI);
-            vList.add(vSite);
-        }
+
+        List<Site> vList = siteDao.getLastSites();
+
         return vList;
     }
 

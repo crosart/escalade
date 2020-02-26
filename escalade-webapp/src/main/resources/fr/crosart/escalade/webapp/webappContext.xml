@@ -3,12 +3,35 @@
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
 
-    <bean id="dataSourceEscalade" class="org.springframework.jndi.JndiObjectFactoryBean">
-        <property name="jndiName" value="java:comp/env/jdbc/db_escalade" />
+    <bean id="dataSourceSite" class="org.springframework.jndi.JndiObjectFactoryBean">
+        <property name="jndiName" value="java:comp/env/jdbc/DB_ESCALADE" />
+        <property name="expectedType" value="javax.sql.DataSource" />
     </bean>
+
+    <bean id="siteDao"
+          class="fr.crosart.escalade.consumer.impl.dao.SiteDaoImpl"
+          scope="prototype" />
 
     <bean id="gestionSiteAction"
           class="fr.crosart.escalade.webapp.actions.GestionSiteAction"
           scope="prototype" />
+
+    <bean id="gestionUserAction"
+          class="fr.crosart.escalade.webapp.actions.GestionUserAction"
+          scope="prototype" />
+
+    <bean id="managerFactory"
+          class="fr.crosart.escalade.business.impl.ManagerFactoryImpl"
+          scope="prototype" />
+
+    <bean id="siteManager"
+          class="fr.crosart.escalade.business.impl.managers.SiteManagerImpl"
+          scope="prototype" />
+
+    <bean id="userManager"
+          class="fr.crosart.escalade.business.impl.managers.UserManagerImpl"
+          scope="prototype" />
+
+
 
 </beans>

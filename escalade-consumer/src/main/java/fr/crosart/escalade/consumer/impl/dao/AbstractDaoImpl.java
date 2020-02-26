@@ -7,7 +7,7 @@ import javax.sql.DataSource;
 public abstract class AbstractDaoImpl {
 
     @Inject
-    @Named("dataSourceEscalade")
+    @Named("dataSourceSite")
     private DataSource dataSource;
 
     protected DataSource getDataSource() {

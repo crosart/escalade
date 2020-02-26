@@ -147,6 +147,7 @@
         <version>1</version>
       </dependency>
 
+      <!-- JDBC PostgreSQL Drivers -->
       <dependency>
         <groupId>org.postgresql</groupId>
         <artifactId>postgresql</artifactId>
@@ -238,11 +239,8 @@
       <!-- ===== Rapport sur les tests ===== -->
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
-        <artifactId>maven-surefire-report-plugin</artifactId>
-        <version>2.20</version>
-        <configuration>
-          <linkXRef>false</linkXRef>
-        </configuration>
+        <artifactId>maven-project-info-reports-plugin</artifactId>
+        <version>2.7</version>
         <reportSets>
 
           <!-- reportSet d'agrégation des rapports des sous-projets (modules) -->
