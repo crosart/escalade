@@ -66,6 +66,7 @@ public class LoginAction extends ActionSupport implements SessionAware {
                 this.session.put("user", vUser);
 
                 vResult = ActionSupport.SUCCESS;
+
             } catch (NotFoundException pEx) {
                 this.addActionError("Identifiant ou mot de passe invalide !");
             }

@@ -18,6 +18,7 @@
     <s:a action="home">[Accueil]</s:a>
     <s:if test="#session.user">
       <s:a action="account">[Mon Compte]</s:a>
+      <s:a action="site_new">[Ajouter un Site]</s:a>
     </s:if>
 
     <!-- A CABLER -->

@@ -4,10 +4,14 @@ import fr.crosart.escalade.consumer.contract.dao.SiteDao;
 import fr.crosart.escalade.model.beans.Site;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.RowMapper;
+import org.springframework.jdbc.core.namedparam.MapSqlParameterSource;
+import org.springframework.jdbc.core.namedparam.NamedParameterJdbcTemplate;
+import org.springframework.transaction.annotation.Transactional;
 
 import javax.inject.Named;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.Date;
 import java.util.List;
 
 @Named
@@ -30,5 +34,32 @@ public class SiteDaoImpl extends AbstractDaoImpl implements SiteDao {
             }
 
         });
+    }
+
+    @Override
+    public void insertNewSite(Site pSite) {
+
+        NamedParameterJdbcTemplate vJdbcTemplate = new NamedParameterJdbcTemplate(getDataSource());
+        String vSQL = "INSERT INTO escalade.site (sitename, sitecountry, sitedepartment, sitelatitude, sitelongitude, siteheight, sitetracks, sitecotationmin, sitecotationmax, sitedescription, siteisofficial, sitecreationdate)" +
+                " VALUES (:sitename,:sitecountry,:sitedepartment,:sitelatitude,:sitelongitude,:siteheight,:sitetracks,:sitecotationmin,:sitecotationmax,:sitedescription,:siteisofficial,:sitecreationdate)";
+
+        MapSqlParameterSource vParams = new MapSqlParameterSource();
+
+       // vParams.addValue("siteid", null);
+        vParams.addValue("sitename", pSite.getName());
+        vParams.addValue("sitecountry", pSite.getCountry());
+        vParams.addValue("sitedepartment", pSite.getDepartment());
+        vParams.addValue("sitelatitude", pSite.getLatitude());
+        vParams.addValue("sitelongitude", pSite.getLongitude());
+        vParams.addValue("siteheight", pSite.getHeight());
+        vParams.addValue("sitetracks", pSite.getTracks());
+        vParams.addValue("sitecotationmin", pSite.getCotationMin());
+        vParams.addValue("sitecotationmax", pSite.getCotationMax());
+        vParams.addValue("sitedescription", pSite.getDescription());
+        vParams.addValue("siteisofficial", pSite.isOfficial());
+        vParams.addValue("sitecreationdate", pSite.getCreationDate());
+
+        vJdbcTemplate.update(vSQL, vParams);
+
     }
 }

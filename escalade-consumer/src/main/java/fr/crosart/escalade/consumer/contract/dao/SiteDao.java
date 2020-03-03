@@ -7,5 +7,6 @@ import java.util.List;
 public interface SiteDao {
 
     List<Site> getLastSites();
+    void insertNewSite(Site pSite);
 
 }

@@ -1,5 +1,8 @@
 package fr.crosart.escalade.model.beans;
 
+import java.time.LocalDate;
+import java.util.Date;
+
 public class Site {
 
     // Attributs
@@ -15,6 +18,7 @@ public class Site {
     private String cotationMax;
     private String description;
     private boolean isOfficial;
+    private LocalDate creationDate;
 
 
     // Constructeurs
@@ -101,5 +105,10 @@ public class Site {
     public void setOfficial(boolean official) {
         isOfficial = official;
     }
-
+    public LocalDate getCreationDate() {
+        return creationDate;
+    }
+    public void setCreationDate(LocalDate creationDate) {
+        this.creationDate = creationDate;
+    }
 }

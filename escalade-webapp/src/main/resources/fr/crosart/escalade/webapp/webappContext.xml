@@ -32,6 +32,10 @@
           class="fr.crosart.escalade.business.impl.managers.UserManagerImpl"
           scope="prototype" />
 
+    <bean id="site"
+          class="fr.crosart.escalade.model.beans.Site"
+          scope="prototype" />
+
 
 
 </beans>

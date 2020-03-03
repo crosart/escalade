@@ -29,6 +29,6 @@ public interface SiteManager {
      * @throws FunctionalException Site invalide
      * @throws TechnicalException Erreur technique
      */
-//    void insertSite(Site pSite) throws FunctionalException, TechnicalException;
 
+    void insertSite(Site pSite);
 }
