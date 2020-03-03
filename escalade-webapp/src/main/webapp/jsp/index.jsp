@@ -1,13 +1,12 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
-
+<%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 <!DOCTYPE html>
 
 <html>
-<head>
-  <%@ include file="_include/head.jsp"%>
-</head>
+
+<%@ include file="./_include/head.jsp"%>
 
 <body>
+
 <h1><s:text name="home.welcome" /></h1>
 
 <s:a action="login">[Se connecter]</s:a>

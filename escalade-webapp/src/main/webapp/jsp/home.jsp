@@ -1,14 +1,13 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
-
+<%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 <!DOCTYPE html>
 
 <html>
-<head>
-  <%@ include file="_include/head.jsp"%>
-</head>
+
+<%@ include file="./_include/head.jsp"%>
+
 <body>
 
-<%@ include file="_include/header.jsp"%>
+<%@ include file="./_include/header.jsp"%>
 
 <h1>Derniers Sites ajoutés</h1>
 

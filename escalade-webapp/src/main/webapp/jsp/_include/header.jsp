@@ -1,6 +1,4 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
-<%@ taglib prefix="s" uri="/struts-tags" %>
-
+<%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 <header>
   <s:if test="#session.user">
     Utilisateur connecté :
@@ -23,7 +21,5 @@
 
     <!-- A CABLER -->
     [Rechercher]
-
-
   </nav>
 </header>

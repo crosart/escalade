@@ -1,27 +1,32 @@
+<%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 <!DOCTYPE html>
+
 <html>
-  <%@ include file="../_include/head.jsp" %>
+
+<%@ include file="../_include/head.jsp"%>
 
 <body>
-<%@ include file="../_include/header.jsp" %>
 
-<h2>Ajouter un Site</h2>
+<%@ include file="../_include/header.jsp"%>
 
-<s:actionerror />
-<s:form action="site_new">
-  <s:textfield name="name" label="Nom" requiredLabel="true" />
+  <h2>Ajouter un Site</h2>
 
-  <s:textfield name="country" label="Pays" requiredLabel="true" />
-  <s:textfield name="department" label="D\u00e9partement" requiredLabel="true" />
-  <s:textfield name="latitude" label="Latitude" requiredLabel="true" />
-  <s:textfield name="longitude" label="Longitude" requiredLabel="true" />
-  <s:textfield name="height" label="Hauteur" requiredLabel="true" />
-  <s:textfield name="tracks" label="Voies" requiredLabel="true" />
-  <s:select list="cotations" name="cotationMin" label="Cotation Minimum" />
-  <s:select list="cotations" name="cotationMax" label="Cotation Maximum" />
-  <s:textarea name="description" label="Description" requiredLabel="true" />
+  <s:actionerror />
+  <s:form action="site_new">
+    <s:textfield name="name" label="Nom" requiredLabel="true" />
 
-  <s:submit value="Ajouter"/>
-</s:form>
+    <s:textfield name="country" label="Pays" requiredLabel="true" />
+    <s:textfield name="department" label="Département" requiredLabel="true" />
+    <s:textfield name="latitude" label="Latitude" requiredLabel="true" />
+    <s:textfield name="longitude" label="Longitude" requiredLabel="true" />
+    <s:textfield name="height" label="Hauteur" requiredLabel="true" />
+    <s:textfield name="tracks" label="Voies" requiredLabel="true" />
+    <s:select list="cotations" name="cotationMin" label="Cotation Minimum" />
+    <s:select list="cotations" name="cotationMax" label="Cotation Maximum" />
+    <s:textarea name="description" label="Description" requiredLabel="true" />
+
+    <s:submit value="Ajouter"/>
+  </s:form>
+
 </body>
 </html>
