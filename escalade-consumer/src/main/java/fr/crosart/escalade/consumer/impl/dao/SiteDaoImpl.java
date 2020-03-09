@@ -1,6 +1,7 @@
 package fr.crosart.escalade.consumer.impl.dao;
 
 import fr.crosart.escalade.consumer.contract.dao.SiteDao;
+import fr.crosart.escalade.consumer.mappers.SiteRowMapper;
 import fr.crosart.escalade.model.beans.Site;
 import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.jdbc.core.JdbcTemplate;
@@ -40,30 +41,10 @@ public class SiteDaoImpl extends AbstractDaoImpl implements SiteDao {
     @Override
     public Site getSite(Integer pId) {
         JdbcTemplate vJdbcTemplate = new JdbcTemplate(getDataSource());
+        String sql = "SELECT * FROM escalade.site WHERE siteid = " + pId;
 
-        List<Site> extractSite = vJdbcTemplate.query("SELECT * FROM escalade.site WHERE siteid = '" + pId + "'", new RowMapper<Site>() {
-            @Override
-            public Site mapRow(ResultSet rs, int rowNum) throws SQLException {
-                Site vSite = new Site();
-                vSite.setName(rs.getString(2));
-                vSite.setCountry(rs.getString(3));
-                vSite.setDepartment(rs.getString(4));
-                vSite.setLatitude(rs.getString(5));
-                vSite.setLongitude(rs.getString(6));
-                vSite.setHeight(rs.getString(7));
-                vSite.setTracks(rs.getString(8));
-                vSite.setCotationMin(rs.getString(9));
-                vSite.setCotationMax(rs.getString(10));
-                vSite.setDescription(rs.getString(11));
-                vSite.setOfficial(rs.getBoolean(12));
-                DateTimeFormatter dateFormatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
-                vSite.setCreationDate(LocalDate.parse(rs.getString(13), dateFormatter));
-                return vSite;
+        return vJdbcTemplate.queryForObject(sql, new SiteRowMapper());
 
-            }
-        });
-
-        return extractSite.get(0);
     }
 
 
