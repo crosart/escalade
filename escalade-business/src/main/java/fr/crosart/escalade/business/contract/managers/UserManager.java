@@ -33,6 +33,8 @@ public interface UserManager {
      */
     User getUser(String pLogin, String pPassword) throws NotFoundException;
 
+    User getUserDetail(Integer pId) throws NotFoundException;
+
 
 //    void insertUser(User pUser) throws FunctionalException, TechnicalException;
 

@@ -12,6 +12,10 @@
           class="fr.crosart.escalade.consumer.impl.dao.SiteDaoImpl"
           scope="prototype" />
 
+    <bean id="userDao"
+          class="fr.crosart.escalade.consumer.impl.dao.UserDaoImpl"
+          scope="prototype" />
+
     <bean id="gestionSiteAction"
           class="fr.crosart.escalade.webapp.actions.GestionSiteAction"
           scope="prototype" />
