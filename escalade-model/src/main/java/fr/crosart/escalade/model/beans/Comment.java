@@ -1,10 +1,15 @@
 package fr.crosart.escalade.model.beans;
 
+import java.time.LocalDate;
+
 public class Comment {
 
     // Attributes
     private Integer id;
     private String content;
+    private Integer siteId;
+    private Integer userId;
+    private LocalDate creationDate;
 
     // Constructeurs
     public Comment() {
