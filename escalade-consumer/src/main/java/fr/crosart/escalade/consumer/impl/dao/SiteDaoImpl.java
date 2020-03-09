@@ -3,7 +3,6 @@ package fr.crosart.escalade.consumer.impl.dao;
 import fr.crosart.escalade.consumer.contract.dao.SiteDao;
 import fr.crosart.escalade.consumer.mappers.SiteRowMapper;
 import fr.crosart.escalade.model.beans.Site;
-import fr.crosart.escalade.model.exceptions.NotFoundException;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.namedparam.MapSqlParameterSource;
 import org.springframework.jdbc.core.namedparam.NamedParameterJdbcTemplate;
@@ -47,7 +46,7 @@ public class SiteDaoImpl extends AbstractDaoImpl implements SiteDao {
 
     /**
      * Insère le {@link Site} renseigné dans lme formulaire
-     * @param pSite (Objet {@link Site} généré)
+     * @param pSite -
      */
 
     @Override

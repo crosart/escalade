@@ -8,7 +8,9 @@ import java.util.List;
 public interface SiteDao {
 
     List<Site> getLastSites();
-    void insertNewSite(Site pSite);
+
     Site getSite(Integer pId) throws NotFoundException;
+
+    void insertNewSite(Site pSite);
 
 }
