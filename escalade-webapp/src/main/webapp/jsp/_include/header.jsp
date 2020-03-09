@@ -2,8 +2,8 @@
 <header>
   <s:if test="#session.user">
     Utilisateur connecté :
-    <s:property value="#session.user.prenom" />
-    <s:property value="#session.user.nom" />
+    <s:property value="#session.user.firstname" />
+    <s:property value="#session.user.lastname" />
 
     <s:a action="logout">[Déconnexion]</s:a>
 

@@ -54,22 +54,25 @@ public class LoginAction extends ActionSupport implements SessionAware {
      * Action permettant la connexion d'un utilisateur
      * @return input / success
      */
-    public String doLogin() {
+    public String doLogin() throws NotFoundException {
         String vResult = ActionSupport.INPUT;
         if (!StringUtils.isAllEmpty(login, password)) {
-            try {
                 User vUser
                         = managerFactory.getUserManager()
-                                        .getUser(login, password);
+                                        .logUser(login);
 
-                // Ajout de l'utilisateur en session
-                this.session.put("user", vUser);
+                if (password.equals(vUser.getPassword())) {
 
-                vResult = ActionSupport.SUCCESS;
+                    // Ajout de l'utilisateur en session
+                    this.session.put("user", vUser);
 
-            } catch (NotFoundException pEx) {
+                    vResult = ActionSupport.SUCCESS;
+
+                } else {
+
                 this.addActionError("Identifiant ou mot de passe invalide !");
-            }
+
+                }
         }
         return vResult;
     }

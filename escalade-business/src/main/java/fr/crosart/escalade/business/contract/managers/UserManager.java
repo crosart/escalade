@@ -31,7 +31,7 @@ public interface UserManager {
      * @return Le {@link User}
      * @throws NotFoundException Si l'Utilisateur n'est pas trouvé
      */
-    User getUser(String pLogin, String pPassword) throws NotFoundException;
+    User logUser(String pLogin) throws NotFoundException;
 
     User getUserDetail(Integer pId) throws NotFoundException;
 

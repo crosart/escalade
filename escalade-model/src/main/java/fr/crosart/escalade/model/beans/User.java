@@ -34,6 +34,10 @@ public class User {
         id = pId;
     }
 
+    public User() {
+
+    }
+
     // Getters & Setters
     public Integer getId() {
         return id;
