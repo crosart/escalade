@@ -110,7 +110,7 @@ public class GestionSiteAction extends ActionSupport {
             this.addActionError(getText("error.site.missing.id"));
         } else {
             try {
-                site = managerFactory.getSiteManager().getSite(id);
+                site = managerFactory.getSiteManager().getDetailSite(id);
             } catch (NotFoundException pE) {
                 this.addActionError(getText("error.site.notfound", Collections.singletonList(id)));
             }

@@ -8,5 +8,6 @@ public interface SiteDao {
 
     List<Site> getLastSites();
     void insertNewSite(Site pSite);
+    Site getSite(Integer pId);
 
 }

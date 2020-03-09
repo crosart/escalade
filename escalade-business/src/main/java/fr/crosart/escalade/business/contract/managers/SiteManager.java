@@ -31,4 +31,7 @@ public interface SiteManager {
      */
 
     void insertSite(Site pSite);
+
+    Site getDetailSite(Integer pId) throws NotFoundException;
+
 }

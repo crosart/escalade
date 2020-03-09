@@ -39,6 +39,12 @@ public class SiteManagerImpl extends AbstractManager implements SiteManager {
         siteDao.insertNewSite(pSite);
     }
 
+    @Override
+    public Site getDetailSite(Integer pId) {
+        Site vSite = siteDao.getSite(pId);
+        return vSite;
+    }
+
     private Site newSite(Integer pId) {
         String[] vNames = { "Ablon", "Ailefroide", "Annot", "Antalia" };
         String[] vCountries = { "France", "France", "France", "Turquie" };

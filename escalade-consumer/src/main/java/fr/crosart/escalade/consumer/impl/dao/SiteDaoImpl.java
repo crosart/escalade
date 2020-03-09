@@ -2,16 +2,17 @@ package fr.crosart.escalade.consumer.impl.dao;
 
 import fr.crosart.escalade.consumer.contract.dao.SiteDao;
 import fr.crosart.escalade.model.beans.Site;
+import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.RowMapper;
 import org.springframework.jdbc.core.namedparam.MapSqlParameterSource;
 import org.springframework.jdbc.core.namedparam.NamedParameterJdbcTemplate;
-import org.springframework.transaction.annotation.Transactional;
 
 import javax.inject.Named;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.util.Date;
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 import java.util.List;
 
 @Named
@@ -22,11 +23,11 @@ public class SiteDaoImpl extends AbstractDaoImpl implements SiteDao {
     @Override
     public List<Site> getLastSites() {
         JdbcTemplate vJdbcTemplate = new JdbcTemplate(getDataSource());
-        return vJdbcTemplate.query("SELECT siteid,sitename,sitecountry FROM escalade.site ORDER BY siteid DESC LIMIT 2",new RowMapper<Site>() {
+        return vJdbcTemplate.query("SELECT siteid,sitename,sitecountry FROM escalade.site ORDER BY siteid DESC LIMIT 5",new RowMapper<Site>() {
 
             @Override
             public Site mapRow(ResultSet rs, int rownumber) throws SQLException {
-                Site e=new Site();
+                Site e = new Site();
                 e.setId(rs.getInt(1));
                 e.setName(rs.getString(2));
                 e.setCountry(rs.getString(3));
@@ -35,6 +36,39 @@ public class SiteDaoImpl extends AbstractDaoImpl implements SiteDao {
 
         });
     }
+
+    @Override
+    public Site getSite(Integer pId) {
+        JdbcTemplate vJdbcTemplate = new JdbcTemplate(getDataSource());
+
+        List<Site> extractSite = vJdbcTemplate.query("SELECT * FROM escalade.site WHERE siteid = '" + pId + "'", new RowMapper<Site>() {
+            @Override
+            public Site mapRow(ResultSet rs, int rowNum) throws SQLException {
+                Site vSite = new Site();
+                vSite.setName(rs.getString(2));
+                vSite.setCountry(rs.getString(3));
+                vSite.setDepartment(rs.getString(4));
+                vSite.setLatitude(rs.getString(5));
+                vSite.setLongitude(rs.getString(6));
+                vSite.setHeight(rs.getString(7));
+                vSite.setTracks(rs.getString(8));
+                vSite.setCotationMin(rs.getString(9));
+                vSite.setCotationMax(rs.getString(10));
+                vSite.setDescription(rs.getString(11));
+                vSite.setOfficial(rs.getBoolean(12));
+                DateTimeFormatter dateFormatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
+                vSite.setCreationDate(LocalDate.parse(rs.getString(13), dateFormatter));
+                return vSite;
+
+            }
+        });
+
+        return extractSite.get(0);
+    }
+
+
+
+
 
     @Override
     public void insertNewSite(Site pSite) {
