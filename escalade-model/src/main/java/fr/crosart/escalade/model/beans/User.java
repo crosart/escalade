@@ -14,7 +14,16 @@ public class User {
     private boolean isMember;
 
     // Constructeurs
-    public User() {
+    public User(Integer id, String login, String password, String nickname, String firstName, String lastName, String mail, String telephone, boolean isMember) {
+        this.id = id;
+        this.login = login;
+        this.password = password;
+        this.nickname = nickname;
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.mail = mail;
+        this.telephone = telephone;
+        this.isMember = isMember;
     }
 
     /**
