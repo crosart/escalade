@@ -2,6 +2,7 @@ package fr.crosart.escalade.webapp.actions;
 
 import com.opensymphony.xwork2.ActionSupport;
 import fr.crosart.escalade.business.contract.ManagerFactory;
+import fr.crosart.escalade.model.beans.Comment;
 import fr.crosart.escalade.model.beans.Site;
 import fr.crosart.escalade.model.exceptions.NotFoundException;
 import org.apache.commons.lang3.StringUtils;
@@ -41,6 +42,7 @@ public class GestionSiteAction extends ActionSupport {
 
     // -- Sortie
     private List<Site> listSite;
+    private List<Comment> listComment;
     private Site site;
 
     // ===== Getters & Setters
@@ -111,6 +113,7 @@ public class GestionSiteAction extends ActionSupport {
         } else {
             try {
                 site = managerFactory.getSiteManager().getDetailSite(id);
+                listComment = managerFactory.getCommentManager().getListComment(id);
             } catch (NotFoundException pE) {
                 this.addActionError(getText("error.site.notfound", Collections.singletonList(id)));
             }

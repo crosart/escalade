@@ -30,7 +30,7 @@
     <s:iterator value="listComment">
       <li>
         <s:param name="id" value="id" />
-        <s:property value="comment.date" /> :
+        <s:property value="comment.creationDate" /> :
         <s:a action="site_detail">
           <s:param name="id" value="id" />
           <s:property value="name"/>

@@ -9,7 +9,7 @@ public class Comment {
     private String content;
     private Integer siteId;
     private Integer userId;
-    private LocalDate creationDate;
+    private LocalDate date;
 
     // Constructeurs
     public Comment() {
@@ -36,5 +36,22 @@ public class Comment {
     public void setContent(String content) {
         this.content = content;
     }
-
+    public Integer getSiteId() {
+        return siteId;
+    }
+    public void setSiteId(Integer siteId) {
+        this.siteId = siteId;
+    }
+    public Integer getUserId() {
+        return userId;
+    }
+    public void setUserId(Integer userId) {
+        this.userId = userId;
+    }
+    public LocalDate getDate() {
+        return date;
+    }
+    public void setDate(LocalDate creationDate) {
+        this.date = creationDate;
+    }
 }
