@@ -3,6 +3,7 @@ package fr.crosart.escalade.consumer.impl.dao;
 import fr.crosart.escalade.consumer.contract.dao.UserDao;
 import fr.crosart.escalade.consumer.mappers.UserRowMapper;
 import fr.crosart.escalade.model.beans.User;
+import fr.crosart.escalade.model.exceptions.NotFoundException;
 import org.springframework.jdbc.core.JdbcTemplate;
 
 import javax.inject.Named;
@@ -30,9 +31,10 @@ public class UserDaoImpl extends AbstractDaoImpl implements UserDao {
     public User logUser(String pLogin) {
 
         JdbcTemplate vJdbcTemplate = new JdbcTemplate(getDataSource());
-        String vSQL = "SELECT * FROM escalade.registereduser WHERE userlogin = '" + pLogin + "'";
 
-        return vJdbcTemplate.queryForObject(vSQL, new UserRowMapper());
+            String vSQL = "SELECT * FROM escalade.registereduser WHERE userlogin = '" + pLogin + "'";
+
+            return vJdbcTemplate.queryForObject(vSQL, new UserRowMapper());
 
     }
 }

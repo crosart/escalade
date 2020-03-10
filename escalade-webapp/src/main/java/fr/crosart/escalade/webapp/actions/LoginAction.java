@@ -57,21 +57,24 @@ public class LoginAction extends ActionSupport implements SessionAware {
     public String doLogin() throws NotFoundException {
         String vResult = ActionSupport.INPUT;
         if (!StringUtils.isAllEmpty(login, password)) {
-                User vUser
-                        = managerFactory.getUserManager()
-                                        .logUser(login);
+                try {
 
-                if (password.equals(vUser.getPassword())) {
+                    User vUser = managerFactory.getUserManager().logUser(login);
 
-                    // Ajout de l'utilisateur en session
-                    this.session.put("user", vUser);
+                    if (password.equals(vUser.getPassword())) {
 
-                    vResult = ActionSupport.SUCCESS;
+                        // Ajout de l'utilisateur en session
+                        this.session.put("user", vUser);
 
-                } else {
+                        vResult = ActionSupport.SUCCESS;
 
-                this.addActionError("Identifiant ou mot de passe invalide !");
+                    } else {
 
+                        this.addActionError("Identifiant ou mot de passe invalide !");
+
+                    }
+                } catch (Exception vEx) {
+                    this.addActionError("Identifiant inconnu");
                 }
         }
         return vResult;
