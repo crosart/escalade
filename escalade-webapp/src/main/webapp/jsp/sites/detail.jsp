@@ -27,23 +27,15 @@
 <h2>Commentaires</h2>
 
   <ul>
-    <s:iterator value="listComment">
+    <s:iterator value="listComment" status="status">
       <li>
-        <s:param name="id" value="id" />
-        <s:property value="comment.creationDate" /> :
-        <s:a action="site_detail">
-          <s:param name="id" value="id" />
-          <s:property value="name"/>
-        </s:a> -
-        <s:property value="country" />
+
+        Posté par <s:property value="userNickname" /> le <s:property value="date"  />
+        <p><s:property value="content" /></p>
+
       </li>
     </s:iterator>
   </ul>
-
-  <p>Commentaire plus récent + Posté par [[COMMENT.USER]] le [[COMMENT.DATE]] à [[COMMENT.HEURE]]</p>
-  <p>[[Réponse au commentaire précédent en insultant sa génitrice]]</p>
-  <p>Commentaire plus ancien + Posté par [[COMMENT.USER]] le [[COMMENT.DATE]] à [[COMMENT.HEURE]]</p>
-  <p>[[Commentaire spirituel sur une expérience passée]]</p>
 
 </body>
 </html>

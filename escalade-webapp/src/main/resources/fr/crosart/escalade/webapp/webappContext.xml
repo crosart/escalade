@@ -16,6 +16,10 @@
           class="fr.crosart.escalade.consumer.impl.dao.UserDaoImpl"
           scope="prototype" />
 
+    <bean id="commentDao"
+          class="fr.crosart.escalade.consumer.impl.dao.CommentDaoImpl"
+          scope="prototype" />
+
     <bean id="gestionSiteAction"
           class="fr.crosart.escalade.webapp.actions.GestionSiteAction"
           scope="prototype" />
@@ -34,6 +38,10 @@
 
     <bean id="userManager"
           class="fr.crosart.escalade.business.impl.managers.UserManagerImpl"
+          scope="prototype" />
+
+    <bean id="commentManager"
+          class="fr.crosart.escalade.business.impl.managers.CommentManagerImpl"
           scope="prototype" />
 
     <bean id="site"

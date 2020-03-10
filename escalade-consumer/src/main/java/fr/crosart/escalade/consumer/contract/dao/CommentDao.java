@@ -6,6 +6,6 @@ import java.util.List;
 
 public interface CommentDao {
 
-    List<Comment> getListComments(Integer pSideId);
+    List<Comment> getListComments(Integer pSiteId);
 
 }

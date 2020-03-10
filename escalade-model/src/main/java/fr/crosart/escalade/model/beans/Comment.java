@@ -9,6 +9,7 @@ public class Comment {
     private String content;
     private Integer siteId;
     private Integer userId;
+    private String userNickname;
     private LocalDate date;
 
     // Constructeurs
@@ -54,4 +55,11 @@ public class Comment {
     public void setDate(LocalDate creationDate) {
         this.date = creationDate;
     }
+    public String getUserNickname() {
+        return userNickname;
+    }
+    public void setUserNickname(String userNickname) {
+        this.userNickname = userNickname;
+    }
+
 }

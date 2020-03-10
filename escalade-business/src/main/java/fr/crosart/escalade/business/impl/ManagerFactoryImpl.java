@@ -1,6 +1,7 @@
 package fr.crosart.escalade.business.impl;
 
 import fr.crosart.escalade.business.contract.ManagerFactory;
+import fr.crosart.escalade.business.contract.managers.CommentManager;
 import fr.crosart.escalade.business.contract.managers.SiteManager;
 import fr.crosart.escalade.business.contract.managers.UserManager;
 
@@ -12,6 +13,7 @@ public class ManagerFactoryImpl implements ManagerFactory {
 
     @Inject
     private SiteManager siteManager;
+
     @Override
     public SiteManager getSiteManager() {
         return this.siteManager;
@@ -30,4 +32,16 @@ public class ManagerFactoryImpl implements ManagerFactory {
     public void setUserManager(UserManager pUserManager) {
         userManager = pUserManager;
     }
+
+    @Inject
+    private CommentManager commentManager;
+
+    @Override
+    public CommentManager getCommentManager() {
+        return this.commentManager;
+    }
+    public void setCommentManager(CommentManager pCommentManager) {
+        commentManager = pCommentManager;
+    }
+
 }

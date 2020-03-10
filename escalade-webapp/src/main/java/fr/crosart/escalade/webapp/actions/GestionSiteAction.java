@@ -4,8 +4,11 @@ import com.opensymphony.xwork2.ActionSupport;
 import fr.crosart.escalade.business.contract.ManagerFactory;
 import fr.crosart.escalade.model.beans.Comment;
 import fr.crosart.escalade.model.beans.Site;
+import fr.crosart.escalade.model.beans.User;
 import fr.crosart.escalade.model.exceptions.NotFoundException;
 import org.apache.commons.lang3.StringUtils;
+import org.apache.struts2.views.jsp.IteratorStatus;
+
 
 import javax.inject.Inject;
 import javax.inject.Named;
@@ -25,6 +28,7 @@ public class GestionSiteAction extends ActionSupport {
     // -- Entrée
     private Integer id;
 
+
     private String name;
     private String country;
     private String department;
@@ -38,12 +42,15 @@ public class GestionSiteAction extends ActionSupport {
     private boolean isOfficial;
     private LocalDate creationDate;
 
+    private int currentUserId;
     private String[] cotations = new String[]{"1","2","3","4","5a","5b","5c","6a","6a+","6b","6b+","6c","6c+","7a","7a+","7b","7b+","7c","7c+","8a","8a+","8b","8b+","8c","8c+","9a","9a+","9b","9b+","9c","9c+"};
 
     // -- Sortie
     private List<Site> listSite;
     private List<Comment> listComment;
     private Site site;
+    private Comment currentComment = new Comment();
+    private User user = new User();
 
     // ===== Getters & Setters
     public void setId(Integer id) {
@@ -100,6 +107,10 @@ public class GestionSiteAction extends ActionSupport {
     public String[] getCotations() {
         return cotations;
     }
+    public List<Comment> getListComment() {
+        return listComment;
+    }
+
 
     // ===== Méthodes
     public String doList() {
@@ -114,6 +125,14 @@ public class GestionSiteAction extends ActionSupport {
             try {
                 site = managerFactory.getSiteManager().getDetailSite(id);
                 listComment = managerFactory.getCommentManager().getListComment(id);
+                for (int i = 0 ; i < listComment.size() ; i++)
+                {
+                    currentComment = listComment.get(i);
+                    user = managerFactory.getUserManager().getUserDetail(currentComment.getUserId());
+                    currentComment.setUserNickname(user.getNickname());
+                    listComment.set(i, currentComment);
+                }
+
             } catch (NotFoundException pE) {
                 this.addActionError(getText("error.site.notfound", Collections.singletonList(id)));
             }
