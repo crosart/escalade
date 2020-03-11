@@ -26,12 +26,24 @@
 
 <h2>Commentaires</h2>
 
+  Ajouter Commentaire :
+
+  <s:actionerror />
+  <s:form action="add_comment">
+    <s:hidden name="siteId" value="%{ site.id }" />
+    <s:textarea name="content" label="Commentaire" required="true" />
+    <s:submit value="Ajouter" />
+  </s:form>
+
   <ul>
     <s:iterator value="listComment" status="status">
       <li>
 
-        Posté par <s:property value="userNickname" /> le <s:property value="date"  />
-        <p><s:property value="content" /></p>
+      Posté par <s:a action="user_detail">
+        <s:param name="id" value="userId" />
+        <s:property value="userNickname" />
+      </s:a>&nbsp;le&nbsp;<s:property value="date"  />
+      <p><s:property value="content" /></p>
 
       </li>
     </s:iterator>

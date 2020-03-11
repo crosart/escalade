@@ -19,6 +19,9 @@ public class CommentManagerImpl extends AbstractManager implements CommentManage
         return commentDao.getListComments(pSiteId);
     }
 
-
+    @Override
+    public void insertComment(Comment pComment) {
+        commentDao.insertNewComment(pComment);
+    }
 
 }

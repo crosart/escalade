@@ -7,5 +7,6 @@ import java.util.List;
 public interface CommentManager {
 
     List<Comment> getListComment(Integer pSiteId);
+    void insertComment(Comment pComment);
 
 }

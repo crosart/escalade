@@ -27,9 +27,18 @@
             <result name="success">/jsp/sites/detail.jsp</result>
         </action>
 
+        <action name="user_detail" class="fr.crosart.escalade.webapp.actions.GestionUserAction" method="doDetail">
+            <result name="success">/jsp/users/detail.jsp</result>
+        </action>
+
         <!-- Action Créer Site -->
         <action name="site_new" class="fr.crosart.escalade.webapp.actions.GestionSiteAction" method="doCreate">
             <result name="input">/jsp/sites/new.jsp</result>
+            <result name="success">/jsp/home.jsp</result>
+        </action>
+
+        <action name="add_comment" class="fr.crosart.escalade.webapp.actions.GestionCommentAction" method="doCreate">
+            <result name="input">/jsp/error.jsp</result>
             <result name="success">/jsp/home.jsp</result>
         </action>
 

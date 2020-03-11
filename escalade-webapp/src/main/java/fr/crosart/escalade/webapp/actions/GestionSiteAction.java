@@ -7,7 +7,6 @@ import fr.crosart.escalade.model.beans.Site;
 import fr.crosart.escalade.model.beans.User;
 import fr.crosart.escalade.model.exceptions.NotFoundException;
 import org.apache.commons.lang3.StringUtils;
-import org.apache.struts2.views.jsp.IteratorStatus;
 
 
 import javax.inject.Inject;
@@ -125,13 +124,6 @@ public class GestionSiteAction extends ActionSupport {
             try {
                 site = managerFactory.getSiteManager().getDetailSite(id);
                 listComment = managerFactory.getCommentManager().getListComment(id);
-                for (int i = 0 ; i < listComment.size() ; i++)
-                {
-                    currentComment = listComment.get(i);
-                    user = managerFactory.getUserManager().getUserDetail(currentComment.getUserId());
-                    currentComment.setUserNickname(user.getNickname());
-                    listComment.set(i, currentComment);
-                }
 
             } catch (NotFoundException pE) {
                 this.addActionError(getText("error.site.notfound", Collections.singletonList(id)));

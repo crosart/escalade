@@ -53,7 +53,7 @@ public class GestionUserAction extends ActionSupport {
             this.addActionError(getText("error.user.missing.id"));
         } else {
             try {
-                user = managerFactory.getUserManager().getUser(id);
+                user = managerFactory.getUserManager().getUserDetail(id);
             } catch (NotFoundException pE) {
                 this.addActionError(getText("error.user.notfound", Collections.singletonList(id)));
             }

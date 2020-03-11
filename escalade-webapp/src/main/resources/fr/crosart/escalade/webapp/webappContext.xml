@@ -48,6 +48,10 @@
           class="fr.crosart.escalade.model.beans.Site"
           scope="prototype" />
 
+    <bean id="comment"
+          class="fr.crosart.escalade.model.beans.Comment"
+          scope="prototype" />
+
 
 
 </beans>
