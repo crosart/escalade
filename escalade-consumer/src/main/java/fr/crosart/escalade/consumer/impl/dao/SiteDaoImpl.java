@@ -32,12 +32,12 @@ public class SiteDaoImpl extends AbstractDaoImpl implements SiteDao {
     public List<Site> getSearchSites(String pSearch) {
 
         JdbcTemplate vJdbcTemplate = new JdbcTemplate(getDataSource());
-        String vSql = "SELECT * FROM escalade.site WHERE sitename LIKE '%" + pSearch +"%' " +
-                "OR sitecountry LIKE '%" + pSearch +"%' " +
-                "OR sitedepartment LIKE '%" + pSearch +"%' " +
-                "OR sitecotationmin LIKE '%" + pSearch +"%' " +
-                "OR sitecotationmax LIKE '%" + pSearch +"%' " +
-                "OR sitedescription LIKE '%" + pSearch +"%' ";
+        String vSql = "SELECT * FROM escalade.site WHERE sitename ILIKE '%" + pSearch +"%' " +
+                "OR sitecountry ILIKE '%" + pSearch +"%' " +
+                "OR sitedepartment ILIKE '%" + pSearch +"%' " +
+                "OR sitecotationmin ILIKE '%" + pSearch +"%' " +
+                "OR sitecotationmax ILIKE '%" + pSearch +"%' " +
+                "OR sitedescription ILIKE '%" + pSearch +"%' ";
 
         return vJdbcTemplate.query(vSql, new SiteRowMapper());
 
