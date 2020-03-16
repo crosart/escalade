@@ -13,7 +13,7 @@
   </s:else>
 
   <nav>
-    <s:a action="home">[Accueil]</s:a>
+    <s:a action="index">[Accueil]</s:a>
     <s:if test="#session.user">
       <s:a action="account">
         <s:param name="id" value="#session.user.id" />
