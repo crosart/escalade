@@ -7,12 +7,23 @@
 
 <body>
 
-<h1><s:text name="home.welcome" /></h1>
+<%@ include file="./_include/header.jsp"%>
 
-<s:a action="login">[Se connecter]</s:a>
-<s:a action="home">[Continuer en tant que visiteur]</s:a>
+<h1>Derniers Sites ajoutés</h1>
 
-
+<ul>
+  <s:iterator value="listSite">
+    <li>
+      <s:param name="id" value="id" />
+      <s:property value="id" /> :
+      <s:a action="site_detail">
+        <s:param name="id" value="id" />
+        <s:property value="name"/>
+      </s:a> -
+      <s:property value="country" />
+    </li>
+  </s:iterator>
+</ul>
 
 </body>
 </html>
