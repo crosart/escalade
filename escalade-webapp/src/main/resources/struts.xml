@@ -34,12 +34,20 @@
         <!-- Action Créer Site -->
         <action name="site_new" class="fr.crosart.escalade.webapp.actions.GestionSiteAction" method="doCreate">
             <result name="input">/jsp/sites/new.jsp</result>
-            <result name="success">/jsp/home.jsp</result>
+            <result name="success" type="redirectAction">home</result>
+        </action>
+
+        <!-- Action Rechercher Site -->
+        <action name="search" class="fr.crosart.escalade.webapp.actions.GestionSiteAction" method="doSearch">
+            <result name="success">/jsp/sites/search_results.jsp</result>
         </action>
 
         <action name="add_comment" class="fr.crosart.escalade.webapp.actions.GestionCommentAction" method="doCreate">
             <result name="input">/jsp/error.jsp</result>
-            <result name="success">/jsp/home.jsp</result>
+            <result name="success" type="redirectAction">
+                <param name="actionName">site_detail</param>
+                <param name="id">${id}</param>
+            </result>
         </action>
 
         <!-- Actions Login/Logout -->

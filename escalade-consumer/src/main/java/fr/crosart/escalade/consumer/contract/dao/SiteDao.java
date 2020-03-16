@@ -9,6 +9,8 @@ public interface SiteDao {
 
     List<Site> getLastSites();
 
+    List<Site> getSearchSites(String pSearch);
+
     Site getSite(Integer pId) throws NotFoundException;
 
     void insertNewSite(Site pSite);

@@ -23,6 +23,9 @@
     </s:if>
 
     <!-- A CABLER -->
-    [Rechercher]
+    <s:form action="search">
+      <s:textfield name="search" placeholder="Rechercher un site" />
+      <s:submit value="Rechercher" />
+    </s:form>
   </nav>
 </header>

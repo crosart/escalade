@@ -13,6 +13,9 @@
 
 <s:property value="#session.user.firstname" />
 <s:property value="#session.user.lastname" />
+<s:property value="#session.user.nickname" />
+
+
 
 </body>
 </html>

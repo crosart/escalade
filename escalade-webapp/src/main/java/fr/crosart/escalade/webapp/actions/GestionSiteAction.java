@@ -40,6 +40,7 @@ public class GestionSiteAction extends ActionSupport {
     private String description;
     private boolean isOfficial;
     private LocalDate creationDate;
+    private String search;
 
     private int currentUserId;
     private String[] cotations = new String[]{"1","2","3","4","5a","5b","5c","6a","6a+","6b","6b+","6c","6c+","7a","7a+","7b","7b+","7c","7c+","8a","8a+","8b","8b+","8c","8c+","9a","9a+","9b","9b+","9c","9c+"};
@@ -109,9 +110,19 @@ public class GestionSiteAction extends ActionSupport {
     public List<Comment> getListComment() {
         return listComment;
     }
+    public String getSearch() {
+        return search;
+    }
+    public void setSearch(String search) {
+        this.search = search;
+    }
+// ===== Méthodes
 
+    public String doSearch() {
+        listSite = managerFactory.getSiteManager().getListSite(search);
+        return ActionSupport.SUCCESS;
+    }
 
-    // ===== Méthodes
     public String doList() {
         listSite = managerFactory.getSiteManager().getListSite();
         return ActionSupport.SUCCESS;

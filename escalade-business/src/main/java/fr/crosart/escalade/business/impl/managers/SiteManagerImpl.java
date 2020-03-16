@@ -23,6 +23,13 @@ public class SiteManagerImpl extends AbstractManager implements SiteManager {
     }
 
     @Override
+    public List<Site> getListSite(String pSearch) {
+
+        return siteDao.getSearchSites(pSearch);
+
+    }
+
+    @Override
     public Site getDetailSite(Integer pId) throws NotFoundException {
         return siteDao.getSite(pId);
     }

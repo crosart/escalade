@@ -14,6 +14,8 @@ public interface SiteManager {
 
     List<Site> getListSite();
 
+    List<Site> getListSite(String pSearch);
+
     /**
      * Renvoie le {@link Site} demandé
      * @param pId (ID du site)
