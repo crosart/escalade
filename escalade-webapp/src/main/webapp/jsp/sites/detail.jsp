@@ -27,13 +27,14 @@
 <h2>Commentaires</h2>
 
   Ajouter Commentaire :
-
+<s:if test="#session.user.isMember">
   <s:actionerror />
   <s:form action="add_comment">
     <s:hidden name="siteId" value="%{ site.id }" />
     <s:textarea name="content" label="Commentaire" required="true" />
     <s:submit value="Ajouter" />
   </s:form>
+</s:if>
 
   <ul>
     <s:iterator value="listComment" status="status">
@@ -44,6 +45,8 @@
         <s:property value="userNickname" />
       </s:a>&nbsp;le&nbsp;<s:property value="date"  />
       <p><s:property value="content" /></p>
+
+
 
       </li>
     </s:iterator>

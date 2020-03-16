@@ -38,10 +38,10 @@
         </action>
 
         <action name="add_comment" class="fr.crosart.escalade.webapp.actions.GestionCommentAction" method="doCreate">
-            <result name="input">/jsp/error.jsp</result>
+            <result name="input" type="redirectAction">site_detail</result>
             <result name="success" type="redirectAction">
                 <param name="actionName">site_detail</param>
-                <param name="id">${id}</param>
+                <param name="id">${pId}</param>
             </result>
         </action>
 
