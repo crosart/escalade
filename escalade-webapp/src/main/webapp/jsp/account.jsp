@@ -15,7 +15,25 @@
 <s:property value="#session.user.lastname" />
 <s:property value="#session.user.nickname" />
 
+<hr>
 
+<h2>Mes topos :</h2>
+
+<ul>
+  <s:iterator value="listTopo">
+    <li>
+      <s:param name="id" value="id" />
+      <s:property value="siteName" /> :
+      <s:property value="siteDepartment"/>
+      <s:if test="isReserved == true">
+        Réservé par [UTILISATEUR]
+      </s:if>
+      <s:else>
+        Topo disponible
+      </s:else>
+    </li>
+  </s:iterator>
+</ul>
 
 </body>
 </html>

@@ -6,6 +6,7 @@ import fr.crosart.escalade.model.beans.Topo;
 
 import javax.inject.Inject;
 import javax.inject.Named;
+import java.util.List;
 
 @Named
 public class TopoManagerImpl extends AbstractManager implements TopoManager  {
@@ -18,6 +19,11 @@ public class TopoManagerImpl extends AbstractManager implements TopoManager  {
 
         return topoDao.getTopo(pSiteId);
 
+    }
+
+    @Override
+    public List<Topo> getListTopos(Integer pUserId) {
+        return topoDao.getListTopos(pUserId);
     }
 
 

@@ -4,6 +4,7 @@ import com.opensymphony.xwork2.Action;
 import com.opensymphony.xwork2.ActionSupport;
 import fr.crosart.escalade.business.contract.ManagerFactory;
 import fr.crosart.escalade.model.beans.Site;
+import fr.crosart.escalade.model.beans.Topo;
 import fr.crosart.escalade.model.beans.User;
 import fr.crosart.escalade.model.exceptions.NotFoundException;
 
@@ -24,6 +25,7 @@ public class GestionUserAction extends ActionSupport {
     // -- Sortie
     private List<User> listUser;
     private User user;
+    private List<Topo> listTopo;
 
     // ===== Getters & Setters
     public void setId(Integer id) {
@@ -41,6 +43,9 @@ public class GestionUserAction extends ActionSupport {
     public void setUser(User pUser) {
         user = pUser;
     }
+    public List<Topo> getListTopo() {
+        return listTopo;
+    }
 
     // ===== Méthodes
     public String doList() {
@@ -54,6 +59,7 @@ public class GestionUserAction extends ActionSupport {
         } else {
             try {
                 user = managerFactory.getUserManager().getUserDetail(id);
+                listTopo = managerFactory.getTopoManager().getListTopos(id);
             } catch (NotFoundException pE) {
                 this.addActionError(getText("error.user.notfound", Collections.singletonList(id)));
             }

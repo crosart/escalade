@@ -7,6 +7,7 @@ import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.jdbc.core.JdbcTemplate;
 
 import javax.inject.Named;
+import java.util.List;
 
 @Named
 public class TopoDaoImpl extends AbstractDaoImpl implements TopoDao {
@@ -19,6 +20,20 @@ public class TopoDaoImpl extends AbstractDaoImpl implements TopoDao {
 
         try {
             return vJdbcTemplate.queryForObject(vSQL, new TopoRowMapper());
+        } catch (EmptyResultDataAccessException e) {
+            return null;
+        }
+
+    }
+
+    @Override
+    public List<Topo> getListTopos(Integer pUserId) {
+
+        JdbcTemplate vJdbcTemplate = new JdbcTemplate(getDataSource());
+        String vSQL = "SELECT c.*, u.sitename, u.sitedepartment FROM escalade.topo c INNER JOIN escalade.site u ON u.siteid = c.siteid WHERE userid = " + pUserId + " ORDER BY topoid DESC";
+
+        try {
+            return vJdbcTemplate.query(vSQL, new TopoRowMapper());
         } catch (EmptyResultDataAccessException e) {
             return null;
         }
