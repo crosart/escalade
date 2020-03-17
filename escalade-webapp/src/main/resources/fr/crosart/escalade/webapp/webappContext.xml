@@ -20,6 +20,10 @@
           class="fr.crosart.escalade.consumer.impl.dao.CommentDaoImpl"
           scope="prototype" />
 
+    <bean id="topoDao"
+          class="fr.crosart.escalade.consumer.impl.dao.TopoDaoImpl"
+          scope="prototype" />
+
     <bean id="gestionSiteAction"
           class="fr.crosart.escalade.webapp.actions.GestionSiteAction"
           scope="prototype" />
@@ -52,6 +56,9 @@
           class="fr.crosart.escalade.model.beans.Comment"
           scope="prototype" />
 
+    <bean id="topo"
+          class="fr.crosart.escalade.model.beans.Topo"
+          scope="prototype" />
 
 
 </beans>

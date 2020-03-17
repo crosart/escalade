@@ -20,13 +20,29 @@
 
   <p><s:property value="site.description" /></p>
 
-  <p>Topo [[DISPONIBLE]] : Faire une demande de réservation</p>
+  <p>
+    <s:if test="topo == null">
+      Aucun topo n'est disponible !
+      <s:if test="#session.user">
+        Indiquer que vous pouvez en avez un à disposition
+      </s:if>
+    </s:if>
+    <s:else>
+      <s:if test="topo.isReserved">
+        Le topo est actuellement réservé !
+      </s:if>
+      <s:else>
+        Le topo est actuellement disponible (Publié le <s:property value="topo.publishingDate" />)
+        [RESERVER]
+      </s:else>
+    </s:else>
+  </p>
 
 <hr>
 
 <h2>Commentaires</h2>
 
-  Ajouter Commentaire :
+<p>Ajouter Commentaire :
 <s:if test="#session.user.isMember">
   <s:actionerror />
   <s:form action="add_comment">
@@ -35,6 +51,7 @@
     <s:submit value="Ajouter" />
   </s:form>
 </s:if>
+</p>
 
   <ul>
     <s:iterator value="listComment" status="status">
