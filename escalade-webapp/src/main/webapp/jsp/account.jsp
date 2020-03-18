@@ -9,6 +9,11 @@
 
 <%@ include file="./_include/header.jsp"%>
 
+<s:if test="user.id != #session.user.id">
+  ACCES INTERDIT
+</s:if>
+<s:else>
+
 <h1>ACCOUNT</h1>
 
 <s:property value="#session.user.firstname" />
@@ -33,6 +38,6 @@
     </li>
   </s:iterator>
 </ul>
-
+</s:else>
 </body>
 </html>
