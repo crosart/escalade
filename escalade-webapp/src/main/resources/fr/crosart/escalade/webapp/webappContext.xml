@@ -24,6 +24,10 @@
           class="fr.crosart.escalade.consumer.impl.dao.TopoDaoImpl"
           scope="prototype" />
 
+    <bean id="departmentDao"
+          class="fr.crosart.escalade.consumer.impl.dao.DepartmentDaoImpl"
+          scope="prototype" />
+
     <bean id="gestionSiteAction"
           class="fr.crosart.escalade.webapp.actions.GestionSiteAction"
           scope="prototype" />
