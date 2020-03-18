@@ -60,5 +60,8 @@
           class="fr.crosart.escalade.model.beans.Topo"
           scope="prototype" />
 
+    <bean id="department"
+          class="fr.crosart.escalade.model.beans.Department"
+          scope="prototype" />
 
 </beans>
