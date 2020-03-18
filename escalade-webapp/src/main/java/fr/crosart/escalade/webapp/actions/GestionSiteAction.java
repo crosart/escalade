@@ -39,7 +39,7 @@ public class GestionSiteAction extends ActionSupport {
     private String cotationMin;
     private String cotationMax;
     private String description;
-    private boolean isOfficial;
+    private boolean official;
     private LocalDate creationDate;
     private String search;
 
@@ -101,7 +101,7 @@ public class GestionSiteAction extends ActionSupport {
         this.description = description;
     }
     public void setOfficial(boolean official) {
-        isOfficial = official;
+        this.official = official;
     }
     public void setCreationDate(LocalDate creationDate) {
         this.creationDate = creationDate;

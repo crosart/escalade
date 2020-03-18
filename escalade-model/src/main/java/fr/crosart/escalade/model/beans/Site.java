@@ -17,7 +17,7 @@ public class Site {
     private String cotationMin;
     private String cotationMax;
     private String description;
-    private boolean isOfficial;
+    private boolean official;
     private LocalDate creationDate;
 
     // ===== Constructeurs
@@ -35,11 +35,11 @@ public class Site {
      * @param cotationMin SQL : sitecotationmin - Cotation minimum du {@link Site}
      * @param cotationMax SQL : sitecotationmax - Cotation maximum du {@link Site}
      * @param description SQL : sitedescription - Description du {@link Site}
-     * @param isOfficial SQL : siteisofficial - {@link Site} officiel de l'association
+     * @param official SQL : siteisofficial - {@link Site} officiel de l'association
      * @param creationDate SQL : sitecreationdate - Date de création du {@link Site}
      */
 
-    public Site(Integer id, String name, String country, String department, String latitude, String longitude, String height, String tracks, String cotationMin, String cotationMax, String description, boolean isOfficial, LocalDate creationDate) {
+    public Site(Integer id, String name, String country, String department, String latitude, String longitude, String height, String tracks, String cotationMin, String cotationMax, String description, boolean official, LocalDate creationDate) {
         this.id = id;
         this.name = name;
         this.country = country;
@@ -51,7 +51,7 @@ public class Site {
         this.cotationMin = cotationMin;
         this.cotationMax = cotationMax;
         this.description = description;
-        this.isOfficial = isOfficial;
+        this.official = official;
         this.creationDate = creationDate;
     }
 
@@ -146,13 +146,6 @@ public class Site {
         this.longitude = longitude;
     }
 
-    public boolean isOfficial() {
-        return isOfficial;
-    }
-    public void setOfficial(boolean official) {
-        isOfficial = official;
-    }
-
     public LocalDate getCreationDate() {
         return creationDate;
     }
@@ -160,4 +153,11 @@ public class Site {
         this.creationDate = creationDate;
     }
 
+    public boolean isOfficial() {
+        return official;
+    }
+
+    public void setOfficial(boolean official) {
+        this.official = official;
+    }
 }
