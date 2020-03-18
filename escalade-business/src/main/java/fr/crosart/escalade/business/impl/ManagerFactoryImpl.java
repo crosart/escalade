@@ -1,10 +1,7 @@
 package fr.crosart.escalade.business.impl;
 
 import fr.crosart.escalade.business.contract.ManagerFactory;
-import fr.crosart.escalade.business.contract.managers.CommentManager;
-import fr.crosart.escalade.business.contract.managers.SiteManager;
-import fr.crosart.escalade.business.contract.managers.TopoManager;
-import fr.crosart.escalade.business.contract.managers.UserManager;
+import fr.crosart.escalade.business.contract.managers.*;
 
 import javax.inject.Inject;
 import javax.inject.Named;
@@ -48,6 +45,14 @@ public class ManagerFactoryImpl implements ManagerFactory {
     @Override
     public TopoManager getTopoManager() {
         return this.topoManager;
+    }
+
+    @Inject
+    private DepartmentManager departmentManager;
+
+    @Override
+    public DepartmentManager getDepartmentManager() {
+        return this.departmentManager;
     }
 
     public void setCommentManager(CommentManager pCommentManager) {

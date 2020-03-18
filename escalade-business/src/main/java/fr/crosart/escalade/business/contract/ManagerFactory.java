@@ -1,9 +1,6 @@
 package fr.crosart.escalade.business.contract;
 
-import fr.crosart.escalade.business.contract.managers.CommentManager;
-import fr.crosart.escalade.business.contract.managers.SiteManager;
-import fr.crosart.escalade.business.contract.managers.TopoManager;
-import fr.crosart.escalade.business.contract.managers.UserManager;
+import fr.crosart.escalade.business.contract.managers.*;
 
 public interface ManagerFactory {
 
@@ -11,5 +8,6 @@ public interface ManagerFactory {
     UserManager getUserManager();
     CommentManager getCommentManager();
     TopoManager getTopoManager();
+    DepartmentManager getDepartmentManager();
 
 }
