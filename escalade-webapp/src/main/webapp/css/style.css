@@ -1,64 +1,10 @@
-@font-face {
-    font-family: 'Rubik-Medium';
-    src: url("../resources/font/Rubik-Medium.ttf");
-}
-
 * {
     font-family: Verdana, Arial, sans-serif;
     margin: 0;
     padding: 0;
 }
 
-.titre {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    font-family: 'Rubik-Medium', sans-serif;
-    color: white;
-    text-align: center;
-    height: 150px;
-}
-
-body {
-    background-image: url("../resources/img/style_resources/background.jpg");
-    background-repeat: no-repeat;
-    background-attachment: fixed;
-}
-
 header {
+    background-color: #212121;
     color: white;
-}
-
-#login {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    background-color: black;
-    text-align: right;
-    height: 50px;
-}
-
-#menu {
-    display: flex;
-    justify-content: space-between;
-}
-
-header a:hover {
-    color: grey;
-}
-
-header a:visited {
-    color: white;
-}
-
-article {
-    text-align: center;
-    border-radius: 10px;
-    background-color: white;
-    width: 900px;
-}
-
-.box {
-    display: flex;
-    justify-content: center;
 }
