@@ -9,6 +9,8 @@
 
 <%@ include file="./_include/header.jsp"%>
 
+<div class="box">
+<article>
 <h1>Derniers Sites ajoutés</h1>
 
 <ul>
@@ -24,6 +26,7 @@
     </li>
   </s:iterator>
 </ul>
-
+</article>
+</div>
 </body>
 </html>

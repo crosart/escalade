@@ -8,9 +8,11 @@ public class Topo {
     private Integer siteId;
     private Integer userId;
     private LocalDate publishingDate;
-    private boolean isReserved;
+    private boolean reserved;
     private String siteName;
     private String siteDepartment;
+    private Integer reservedUserId;
+    private String reservedUserName;
 
     public Topo(Integer pSiteId) {
         siteId = pSiteId;
@@ -43,24 +45,36 @@ public class Topo {
     public void setPublishingDate(LocalDate publishingDate) {
         this.publishingDate = publishingDate;
     }
-    public boolean isReserved() {
-        return isReserved;
-    }
-    public void setReserved(boolean reserved) {
-        isReserved = reserved;
-    }
     public String getSiteName() {
         return siteName;
     }
     public void setSiteName(String siteName) {
         this.siteName = siteName;
     }
-
+    public Integer getReservedUserId() {
+        return reservedUserId;
+    }
+    public void setReservedUserId(Integer reservedUserId) {
+        this.reservedUserId = reservedUserId;
+    }
     public String getSiteDepartment() {
         return siteDepartment;
     }
-
     public void setSiteDepartment(String siteDepartment) {
         this.siteDepartment = siteDepartment;
+    }
+    public String getReservedUserName() {
+        return reservedUserName;
+    }
+    public void setReservedUserName(String reservedUserName) {
+        this.reservedUserName = reservedUserName;
+    }
+
+    public boolean isReserved() {
+        return reserved;
+    }
+
+    public void setReserved(boolean reserved) {
+        this.reserved = reserved;
     }
 }

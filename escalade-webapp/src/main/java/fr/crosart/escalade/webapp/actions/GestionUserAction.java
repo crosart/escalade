@@ -1,9 +1,7 @@
 package fr.crosart.escalade.webapp.actions;
 
-import com.opensymphony.xwork2.Action;
 import com.opensymphony.xwork2.ActionSupport;
 import fr.crosart.escalade.business.contract.ManagerFactory;
-import fr.crosart.escalade.model.beans.Site;
 import fr.crosart.escalade.model.beans.Topo;
 import fr.crosart.escalade.model.beans.User;
 import fr.crosart.escalade.model.exceptions.NotFoundException;

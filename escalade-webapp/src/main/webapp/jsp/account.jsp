@@ -23,14 +23,13 @@
   <s:iterator value="listTopo">
     <li>
       <s:param name="id" value="id" />
-      <s:property value="siteName" /> :
-      <s:property value="siteDepartment"/>
-      <s:if test="isReserved == true">
-        Réservé par [UTILISATEUR]
+      <s:property value="siteName" /> - <s:property value="siteDepartment"/>
+      <s:if test="reserved">
+      TRUE
       </s:if>
-      <s:else>
-        Topo disponible
+      <s:else>FALSE
       </s:else>
+
     </li>
   </s:iterator>
 </ul>

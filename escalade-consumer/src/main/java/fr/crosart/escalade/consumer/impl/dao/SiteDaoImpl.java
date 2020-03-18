@@ -36,8 +36,7 @@ public class SiteDaoImpl extends AbstractDaoImpl implements SiteDao {
                 "OR sitecountry ILIKE '%" + pSearch +"%' " +
                 "OR sitedepartment ILIKE '%" + pSearch +"%' " +
                 "OR sitecotationmin ILIKE '%" + pSearch +"%' " +
-                "OR sitecotationmax ILIKE '%" + pSearch +"%' " +
-                "OR sitedescription ILIKE '%" + pSearch +"%' ";
+                "OR sitecotationmax ILIKE '%" + pSearch +"%' ";
 
         return vJdbcTemplate.query(vSql, new SiteRowMapper());
 

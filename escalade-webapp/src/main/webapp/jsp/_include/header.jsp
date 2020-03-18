@@ -1,19 +1,18 @@
 <%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 <header>
-  <s:if test="#session.user">
-    Utilisateur connecté :
-    <s:property value="#session.user.firstname" />
-    <s:property value="#session.user.lastname" />
 
-    <s:a action="logout">[Déconnexion]</s:a>
 
+  <div id="login"><s:if test="#session.user">
+    Connecté en tant que
+    <s:property value="#session.user.nickname" />
+    <s:a action="logout">[DECONNEXION]</s:a>
   </s:if>
   <s:else>
-    <s:a action="login">[Connexion]</s:a>
+    <s:a action="login">[CONNEXION]</s:a>
   </s:else>
-
-  <nav>
-    <s:a action="index">[Accueil]</s:a>
+  </div>
+  <div id="menu"><nav>
+    <s:a action="index">[ACCUEIL]</s:a>
     <s:if test="#session.user">
       <s:a action="account">
         <s:param name="id" value="#session.user.id" />
@@ -21,11 +20,13 @@
       </s:a>
       <s:a action="site_new">[Ajouter un Site]</s:a>
     </s:if>
-
-    <!-- A CABLER -->
-    <s:form action="search">
-      <s:textfield name="search" placeholder="Rechercher un site" />
-      <s:submit value="Rechercher" />
-    </s:form>
   </nav>
+
+  <div id="search">
+    <s:form action="search">
+      <s:textfield name="search" placeholder="Rechercher un site" theme="simple" /><s:submit value="Rechercher" theme="simple" />
+    </s:form>
+  </div>
+  </div>
+  <h1 class="titre">LES AMIS DE L'ESCALADE</h1>
 </header>
