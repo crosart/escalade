@@ -7,4 +7,6 @@
 header {
     background-color: #212121;
     color: white;
+    display: flex;
+    justify-content: space-between;
 }

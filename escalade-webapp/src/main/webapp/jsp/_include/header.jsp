@@ -12,9 +12,7 @@
     </s:form>
   </div>
 
-
-
-    <nav>
+  <nav>
     <s:if test="#session.user">
       <s:a action="account">
         <s:param name="id" value="#session.user.id" />
@@ -23,14 +21,14 @@
       <s:a action="site_new"><img src="${pageContext.request.contextPath}/resources/img/style_resources/icon_site.png" alt="ajouter_site" /></s:a>
     </s:if>
 
-      <div id="login"><s:if test="#session.user">
-        <em><s:property value="#session.user.nickname" /></em>
-        <s:a action="logout">Déconnexion</s:a>
-      </s:if>
-        <s:else>
-          <s:a action="login">Connexion</s:a>
-        </s:else>
-      </div>
+    <s:if test="#session.user">
+      <em><s:property value="#session.user.nickname" /></em>
+      <s:a action="logout">Déconnexion</s:a>
+    </s:if>
+    <s:else>
+      <s:a action="login">Connexion</s:a>
+    </s:else>
+
   </nav>
 
 </header>
