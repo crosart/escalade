@@ -52,6 +52,10 @@
           class="fr.crosart.escalade.business.impl.managers.CommentManagerImpl"
           scope="prototype" />
 
+    <bean id="departmentManager"
+          class="fr.crosart.escalade.business.impl.managers.DepartmentManagerImpl"
+          scope="prototype" />
+
     <bean id="site"
           class="fr.crosart.escalade.model.beans.Site"
           scope="prototype" />
