@@ -30,9 +30,13 @@
       <s:param name="id" value="id" />
       <s:property value="siteName" /> - <s:property value="siteDepartment"/>
       <s:if test="reserved">
-      TRUE
+        Réservé par : <s:a action="user_detail">
+          <s:param name="id" value="reservedUserId" />
+          <s:property value="reservedUserName" />
+        </s:a>
       </s:if>
-      <s:else>FALSE
+      <s:else>
+        Topo disponible
       </s:else>
 
     </li>
