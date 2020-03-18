@@ -2,10 +2,7 @@ package fr.crosart.escalade.webapp.actions;
 
 import com.opensymphony.xwork2.ActionSupport;
 import fr.crosart.escalade.business.contract.ManagerFactory;
-import fr.crosart.escalade.model.beans.Comment;
-import fr.crosart.escalade.model.beans.Site;
-import fr.crosart.escalade.model.beans.Topo;
-import fr.crosart.escalade.model.beans.User;
+import fr.crosart.escalade.model.beans.*;
 import fr.crosart.escalade.model.exceptions.NotFoundException;
 import org.apache.commons.lang3.StringUtils;
 
@@ -118,11 +115,9 @@ public class GestionSiteAction extends ActionSupport {
     public void setSearch(String search) {
         this.search = search;
     }
-
     public Topo getTopo() {
         return topo;
     }
-
     public void setTopo(Topo topo) {
         this.topo = topo;
     }
