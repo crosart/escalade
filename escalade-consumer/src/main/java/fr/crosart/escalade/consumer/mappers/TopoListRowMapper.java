@@ -8,7 +8,7 @@ import java.sql.SQLException;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 
-public class TopoRowMapper implements RowMapper<Topo> {
+public class TopoListRowMapper implements RowMapper<Topo> {
 
     @Override
     public Topo mapRow(ResultSet rs, int rownum) throws SQLException {
@@ -22,6 +22,9 @@ public class TopoRowMapper implements RowMapper<Topo> {
         topo.setPublishingDate(LocalDate.parse(rs.getString("topopublishingdate"), dateFormatter));
         topo.setReserved(rs.getBoolean("topoisreserved"));
         topo.setReservedUserId(rs.getInt("reserveduserid"));
+        topo.setReservedUserName(rs.getString("usernickname"));
+        topo.setSiteName(rs.getString("sitename"));
+        topo.setSiteDepartment(rs.getString("sitedepartment"));
 
         return topo;
 

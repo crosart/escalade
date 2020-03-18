@@ -1,6 +1,7 @@
 package fr.crosart.escalade.consumer.impl.dao;
 
 import fr.crosart.escalade.consumer.contract.dao.TopoDao;
+import fr.crosart.escalade.consumer.mappers.TopoListRowMapper;
 import fr.crosart.escalade.consumer.mappers.TopoRowMapper;
 import fr.crosart.escalade.model.beans.Topo;
 import org.springframework.dao.EmptyResultDataAccessException;
@@ -30,10 +31,11 @@ public class TopoDaoImpl extends AbstractDaoImpl implements TopoDao {
     public List<Topo> getListTopos(Integer pUserId) {
 
         JdbcTemplate vJdbcTemplate = new JdbcTemplate(getDataSource());
-        String vSQL = "SELECT c.*, u.sitename, u.sitedepartment FROM escalade.topo c INNER JOIN escalade.site u ON u.siteid = c.siteid WHERE userid = " + pUserId + " ORDER BY topoid DESC";
+        String vSQL = "SELECT c.*, u.sitename, u.sitedepartment, v.usernickname FROM escalade.topo c INNER JOIN escalade.site u ON u.siteid = c.siteid " +
+                "FULL OUTER JOIN escalade.registereduser v ON v.userid = c.reserveduserid WHERE c.userid = " + pUserId + " ORDER BY topoid DESC";
 
         try {
-            return vJdbcTemplate.query(vSQL, new TopoRowMapper());
+            return vJdbcTemplate.query(vSQL, new TopoListRowMapper());
         } catch (EmptyResultDataAccessException e) {
             return null;
         }
