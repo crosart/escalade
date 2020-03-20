@@ -3,21 +3,21 @@
     src: url("../resources/font/BalooChettan2-Regular.ttf");
 }
 
-
 * {
-    font-family: "Baloo Regular", "Roboto Light", Verdana, sans-serif;
+    font-family: "Baloo Regular", Verdana, sans-serif;
     color: #FFFFFF;
-    margin: 0;
-    padding: 0;
 }
 
 body {
     background-color: #FFFFFF;
+    margin: 0;
+    padding: 0;
 }
 
 .box {
     display: flex;
     justify-content: space-between;
+    padding-top: 7px;
 }
 
 header {
@@ -26,17 +26,20 @@ header {
     height: 50px;
     width: 100%;
     position: fixed;
+    top: 0;
+    left: 0;
 }
 
 header input[type=text] {
     color: dimgrey;
     border: none;
     border-bottom: 2px solid #D4B195;
-    background-color: #212121;
+    background-color: #303030;
     background-image: url("../resources/img/style_resources/icon_search.png");
     background-repeat: no-repeat;
+    margin-left: 6px;
     padding-left: 40px;
-    background-position: 5px 5px;
+    background-position: 10px 5px;
     height: 30px;
     font-size: 16px;
 }
@@ -44,6 +47,12 @@ header input[type=text] {
 header input[type=submit] {
     width: 0;
     visibility: hidden;
+    padding:0;
+    margin: 0;
+}
+
+nav {
+    padding-top: 6px;
 }
 
 a {
@@ -56,6 +65,7 @@ a:visited {
 
 #logo {
     height: 500px;
+    margin-top: 50px;
     background-image: url("../resources/img/style_resources/rock-climbing.jpg");
     background-attachment: fixed;
     background-position: center;
@@ -119,7 +129,20 @@ article h1 {
     border-radius: 4px;
     border: thin solid #D4B195;
     padding: 5px 10px 5px 10px;
-    margin-top: 6px;
     margin-right: 10px;
     font-weight: bold;
+}
+
+#signin_button {
+    color: #FFFFFF;
+    border-radius: 4px;
+    background-color: #D4B195;
+    border: thin solid #D4B195;
+    padding: 5px 10px 5px 10px;
+    margin-right: 10px;
+    font-weight: bold;
+}
+
+#signin_button a {
+    color: #212121;
 }

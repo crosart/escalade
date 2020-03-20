@@ -2,7 +2,7 @@
 <header>
 <div class="box">
   <div id="title">
-    <s:a action="index"><img src="${pageContext.request.contextPath}/resources/img/style_resources/logo_mini.png" alt="logo_mini" /></s:a>
+    <s:a action="index"><img src="${pageContext.request.contextPath}/resources/img/style_resources/logo_mini.png" alt="logo_mini" />&nbsp;LES AMIS DE L'ESCALADE</s:a>
   </div>
 
   <div id="search">
@@ -25,8 +25,8 @@
       <s:a action="logout">Déconnexion</s:a>
     </s:if>
     <s:else>
-      <div id="signin_button"><s:a action="signin">S'inscrire</s:a></div>
-      <div id="login_button"><s:a action="login">Se connecter</s:a></div>
+      <span id="login_button"><s:a action="login">Se connecter</s:a></span>
+      <span id="signin_button"><s:a action="signin">S'inscrire</s:a></span>
     </s:else>
 
 
