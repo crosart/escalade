@@ -42,6 +42,7 @@ header input[type=text] {
     background-position: 10px 5px;
     height: 30px;
     font-size: 16px;
+    width: 297px;
 }
 
 header input[type=submit] {
@@ -51,8 +52,19 @@ header input[type=submit] {
     margin: 0;
 }
 
+header #title {
+    padding-left: 10px;
+    width: 350px;
+}
+
+header #search {
+    width: 350px;
+}
+
 nav {
     padding-top: 6px;
+    width: 350px;
+    text-align: right;
 }
 
 a {

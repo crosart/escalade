@@ -2,7 +2,7 @@
 <header>
 <div class="box">
   <div id="title">
-    <s:a action="index"><img src="${pageContext.request.contextPath}/resources/img/style_resources/logo_mini.png" alt="logo_mini" />&nbsp;LES AMIS DE L'ESCALADE</s:a>
+    <s:a action="index"><img src="${pageContext.request.contextPath}/resources/img/style_resources/logo_title.png" alt="logo_titre" /></s:a>
   </div>
 
   <div id="search">
