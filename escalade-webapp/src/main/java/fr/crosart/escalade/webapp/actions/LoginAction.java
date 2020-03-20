@@ -21,12 +21,21 @@ public class LoginAction extends ActionSupport implements SessionAware {
     @Inject
     private ManagerFactory managerFactory;
 
+    @Inject
+    private User userBean;
+
     // ----- Paramètres en entrée
     private String login;
     private String password;
 
+
     // ----- Eléments Struts
     private Map<String, Object> session;
+    private String nickname;
+    private String firstname;
+    private String lastname;
+    private String mail;
+    private String telephone;
 
 
     // ==================== Getters/Setters ====================
@@ -42,6 +51,36 @@ public class LoginAction extends ActionSupport implements SessionAware {
     public void setPassword(String pPassword) {
         password = pPassword;
     }
+    public String getNickname() {
+        return nickname;
+    }
+    public void setNickname(String nickname) {
+        this.nickname = nickname;
+    }
+    public String getFirstname() {
+        return firstname;
+    }
+    public void setFirstname(String firstname) {
+        this.firstname = firstname;
+    }
+    public String getLastname() {
+        return lastname;
+    }
+    public void setLastname(String lastname) {
+        this.lastname = lastname;
+    }
+    public String getMail() {
+        return mail;
+    }
+    public void setMail(String mail) {
+        this.mail = mail;
+    }
+    public String getTelephone() {
+        return telephone;
+    }
+    public void setTelephone(String telephone) {
+        this.telephone = telephone;
+    }
 
     @Override
     public void setSession(Map<String, Object> pSession) {
@@ -54,7 +93,7 @@ public class LoginAction extends ActionSupport implements SessionAware {
      * Action permettant la connexion d'un utilisateur
      * @return input / success
      */
-    public String doLogin() throws NotFoundException {
+    public String doLogin() {
         String vResult = ActionSupport.INPUT;
         if (!StringUtils.isAllEmpty(login, password)) {
                 try {
@@ -91,4 +130,29 @@ public class LoginAction extends ActionSupport implements SessionAware {
 
         return ActionSupport.SUCCESS;
     }
+
+    public String doSignin() {
+        String vResult = ActionSupport.INPUT;
+        if (!StringUtils.isEmpty(login)) {
+            try {
+                userBean.setLogin(login);
+                userBean.setPassword(password);
+                userBean.setNickname(nickname);
+                userBean.setFirstName(firstname);
+                userBean.setLastName(lastname);
+                userBean.setMail(mail);
+                userBean.setTelephone(telephone);
+                userBean.setMember(false);
+
+                managerFactory.getUserManager().createUser(userBean);
+
+                vResult = ActionSupport.SUCCESS;
+            } catch (Exception vEx) {
+                vEx.printStackTrace();
+                this.addActionError("Erreur lors de l'ajout !");
+            }
+        }
+        return vResult;
+    }
+
 }

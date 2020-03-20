@@ -22,17 +22,7 @@ public class UserManagerImpl extends AbstractManager implements UserManager {
 
     @Override
     public User getUserDetail(Integer pId) throws NotFoundException {
-        User vUser = userDao.getUser(pId);
-        return vUser;
-    }
-
-    @Override
-    public User getUser(Integer pId) throws NotFoundException {
-        if (pId < 0) {
-            throw new NotFoundException("Utilisateur non trouvé : ID = " + pId);
-        }
-        User vUser = newUser(pId);
-        return vUser;
+        return userDao.getUser(pId);
     }
 
     @Override
@@ -43,28 +33,10 @@ public class UserManagerImpl extends AbstractManager implements UserManager {
     }
 
     @Override
-    public List<User> getListUser() {
-        List<User> vList = new ArrayList<>();
-        for (int vI = 0; vI < 9; vI++) {
-            User vUser = newUser(vI);
-            vList.add(vUser);
-        }
-        return vList;
+    public void createUser(User pUser) {
+        userDao.createUser(pUser);
     }
 
-    /**
-     * Renvoie l'{@link User} demandé
-     * @param pId -
-     * @return User
-     */
-    private User newUser(Integer pId) {
-        String[] vFirstName = {
-            "Pierre", "Paul", "Jacques"
-        };
-        User vUser = new User(pId);
-        vUser.setFirstName(vFirstName[Math.abs(pId) % vFirstName.length]);
-        vUser.setLastName("Dupont");
-        return vUser;
-    }
+
 
 }

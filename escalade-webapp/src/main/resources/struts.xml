@@ -32,8 +32,8 @@
             <result name="success" type="redirectAction">index</result>
         </action>
 
-        <!-- Action Rechercher Site -->
-        <action name="search" class="fr.crosart.escalade.webapp.actions.GestionSiteAction" method="doSearch">
+        <!-- Action Rechercher Rapide -->
+        <action name="quicksearch" class="fr.crosart.escalade.webapp.actions.GestionSiteAction" method="doQuickSearch">
             <result name="success">/jsp/sites/search_results.jsp</result>
         </action>
 
@@ -52,6 +52,12 @@
         </action>
         <action name="logout" class="fr.crosart.escalade.webapp.actions.LoginAction" method="doLogout">
             <result type="redirectAction">index</result>
+        </action>
+
+        <!-- Action Signin -->
+        <action name="signin" class="fr.crosart.escalade.webapp.actions.LoginAction" method="doSignin">
+            <result name="input">/jsp/users/signin.jsp</result>
+            <result name="success" type="redirectAction">index</result>
         </action>
 
         <!-- Action afficher compte -->

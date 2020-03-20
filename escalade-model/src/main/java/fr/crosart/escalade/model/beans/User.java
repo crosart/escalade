@@ -11,10 +11,10 @@ public class User {
     private String lastName;
     private String mail;
     private String telephone;
-    private boolean isMember;
+    private boolean member;
 
     // Constructeurs
-    public User(Integer id, String login, String password, String nickname, String firstName, String lastName, String mail, String telephone, boolean isMember) {
+    public User(Integer id, String login, String password, String nickname, String firstName, String lastName, String mail, String telephone, boolean member) {
         this.id = id;
         this.login = login;
         this.password = password;
@@ -23,13 +23,9 @@ public class User {
         this.lastName = lastName;
         this.mail = mail;
         this.telephone = telephone;
-        this.isMember = isMember;
+        this.member = member;
     }
 
-    /**
-     * Constructeur User
-     * @param pId
-     */
     public User(Integer pId) {
         id = pId;
     }
@@ -63,12 +59,6 @@ public class User {
     public void setMail(String mail) {
         this.mail = mail;
     }
-    public boolean isMember() {
-        return isMember;
-    }
-    public void setMember(boolean member) {
-        isMember = member;
-    }
     public String getPassword() {
         return password;
     }
@@ -93,5 +83,10 @@ public class User {
     public void setNickname(String nickname) {
         this.nickname = nickname;
     }
-
+    public boolean isMember() {
+        return member;
+    }
+    public void setMember(boolean member) {
+        this.member = member;
+    }
 }

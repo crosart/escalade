@@ -46,10 +46,6 @@ public class GestionUserAction extends ActionSupport {
     }
 
     // ===== Méthodes
-    public String doList() {
-        listUser = managerFactory.getUserManager().getListUser();
-        return ActionSupport.SUCCESS;
-    }
 
     public String doDetail() {
         if (id == null) {

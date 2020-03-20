@@ -25,8 +25,8 @@
       <s:a action="logout">Déconnexion</s:a>
     </s:if>
     <s:else>
-      <div id="signin_button"><s:a action="signin">Inscription</s:a></div>
-      <div id="login_button"><s:a action="login">Connexion</s:a></div>
+      <div id="signin_button"><s:a action="signin">S'inscrire</s:a></div>
+      <div id="login_button"><s:a action="login">Se connecter</s:a></div>
     </s:else>
 
 

@@ -5,6 +5,8 @@ import fr.crosart.escalade.consumer.mappers.UserRowMapper;
 import fr.crosart.escalade.model.beans.User;
 import fr.crosart.escalade.model.exceptions.NotFoundException;
 import org.springframework.jdbc.core.JdbcTemplate;
+import org.springframework.jdbc.core.namedparam.MapSqlParameterSource;
+import org.springframework.jdbc.core.namedparam.NamedParameterJdbcTemplate;
 
 import javax.inject.Named;
 
@@ -35,6 +37,28 @@ public class UserDaoImpl extends AbstractDaoImpl implements UserDao {
             String vSQL = "SELECT * FROM escalade.registereduser WHERE userlogin = '" + pLogin + "'";
 
             return vJdbcTemplate.queryForObject(vSQL, new UserRowMapper());
+
+    }
+
+    @Override
+    public void createUser(User pUser) {
+
+        NamedParameterJdbcTemplate vJdbcTemplate = new NamedParameterJdbcTemplate(getDataSource());
+        String vSQL = "INSERT INTO escalade.registereduser (userlogin, userpassword, usernickname, userfirstname, userlastname, usermail, usertelephone, userismember) " +
+                "VALUES (:userlogin, :userpassword, :usernickname, :userfirstname, :userlastname, :usermail, :usertelephone, :userismember)";
+
+        MapSqlParameterSource vParams = new MapSqlParameterSource();
+
+        vParams.addValue("userlogin", pUser.getLogin());
+        vParams.addValue("userpassword", pUser.getPassword());
+        vParams.addValue("usernickname", pUser.getNickname());
+        vParams.addValue("userfirstname", pUser.getFirstName());
+        vParams.addValue("userlastname", pUser.getLastName());
+        vParams.addValue("usermail", pUser.getMail());
+        vParams.addValue("usertelephone", pUser.getTelephone());
+        vParams.addValue("userismember", pUser.isMember());
+
+        vJdbcTemplate.update(vSQL, vParams);
 
     }
 }

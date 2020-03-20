@@ -9,4 +9,6 @@ public interface UserDao {
 
     User logUser(String pLogin) throws NotFoundException;
 
+    void createUser(User pUser);
+
 }
