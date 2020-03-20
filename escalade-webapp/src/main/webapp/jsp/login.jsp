@@ -9,14 +9,17 @@
 
 <%@ include file="./_include/header.jsp"%>
 
-<h2>Connexion</h2>
+<div id="login">
+  <p>
+    <s:actionerror />
+    <s:form action="login">
+      <s:textfield name="login" placeholder="Login" requiredLabel="true" />
+      <s:password name="password" placeholder="Mot de passe" requiredLabel="true" />
 
-<s:actionerror />
-<s:form action="login">
-  <s:textfield name="login" label="Identifiant" requiredLabel="true" />
-  <s:password name="password" label="Mot de passe" requiredLabel="true" />
+      <s:submit value="Connexion"/>
+    </s:form>
 
-  <s:submit value="Connexion"/>
-</s:form>
+  </p>
+</div>
 </body>
 </html>
