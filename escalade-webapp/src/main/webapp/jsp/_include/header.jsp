@@ -1,14 +1,13 @@
 <%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 <header>
-
+<div class="box">
   <div id="title">
     <s:a action="index"><img src="${pageContext.request.contextPath}/resources/img/style_resources/logo_mini.png" alt="logo_mini" /></s:a>
-    LES AMIS DE L'ESCALADE
   </div>
 
   <div id="search">
-    <s:form action="search">
-      <s:textfield name="search" placeholder="Rechercher un site" theme="simple" /><s:submit value="Rechercher" theme="simple" />
+    <s:form action="quicksearch">
+      <s:textfield name="search" placeholder="Recherche Rapide" theme="simple" /><s:submit value="Rechercher" theme="simple" />
     </s:form>
   </div>
 
@@ -26,9 +25,11 @@
       <s:a action="logout">Déconnexion</s:a>
     </s:if>
     <s:else>
-      <s:a action="login">Connexion</s:a>
+      <div id="signin_button"><s:a action="signin">Inscription</s:a></div>
+      <div id="login_button"><s:a action="login">Connexion</s:a></div>
     </s:else>
 
-  </nav>
 
+  </nav>
+</div>
 </header>

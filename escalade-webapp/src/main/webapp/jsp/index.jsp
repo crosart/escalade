@@ -9,20 +9,28 @@
 
 <%@ include file="./_include/header.jsp"%>
 
+<div id="logo">
+  <img class="img_logo" src="${pageContext.request.contextPath}/resources/img/style_resources/logo.png" alt="logo" />
+</div>
+
 <div class="box">
 <article>
 <h1>Derniers Sites ajoutés</h1>
 
-<ul>
+<ul class="liste">
   <s:iterator value="listSite">
-    <li>
+    <li class="site_card">
       <s:param name="id" value="id" />
-      <s:property value="id" /> :
       <s:a action="site_detail">
         <s:param name="id" value="id" />
         <s:property value="name"/>
       </s:a> -
       <s:property value="country" />
+      <s:if test="%{department != 'NC'}"><s:property value="department"  /></s:if>
+      <p><s:property value="description" /></p>
+      <p class="details"><s:a action="site_detail">
+        <s:param name="id" value="id" />Plus de détails
+      </s:a></p>
     </li>
   </s:iterator>
 </ul>
