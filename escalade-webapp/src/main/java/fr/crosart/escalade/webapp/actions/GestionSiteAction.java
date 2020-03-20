@@ -123,7 +123,7 @@ public class GestionSiteAction extends ActionSupport {
     }
     // ===== Méthodes
 
-    public String doSearch() {
+    public String doQuickSearch() {
         listSite = managerFactory.getSiteManager().getListSite(search);
         return ActionSupport.SUCCESS;
     }
