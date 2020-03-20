@@ -12,7 +12,7 @@ body {
     background-color: #FFFFFF;
     margin: 0;
     padding: 0;
-    overflow-y: scroll;
+    overflow-y: auto;
     overflow-x: hidden;
 }
 
@@ -126,7 +126,7 @@ a:visited {
     width: 200px;
     border-radius: 4px;
     border-width: 0;
-    background-color: #CCCCCC;
+    background-color: #EEEEEE;
     color: #212121;
     height: 40px;
     filter: none;
@@ -216,4 +216,45 @@ article h1 {
 
 #signin_button a {
     color: #212121;
+}
+
+#signin {
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    height: 100vh;
+    background-image: url("../resources/img/style_resources/background_signin.jpg");
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+#signin input {
+    width: 300px;
+    border-radius: 4px;
+    border-width: 0;
+    background-color: #EEEEEE;
+    color: #212121;
+    height: 40px;
+    filter: none;
+    padding-left: 10px;
+    padding-right: 10px;
+    font-size: 20px;
+}
+
+#signin input:required {
+    background-color: red;
+}
+
+#signin input[type=submit] {
+    background-color: #212121;
+    border: thin solid #D4B195;
+    color: #D4B195;
+    margin-top: 20px;
+    width: 50%;
+    margin-left: 25%;
+    margin-right: 25%;
+
 }

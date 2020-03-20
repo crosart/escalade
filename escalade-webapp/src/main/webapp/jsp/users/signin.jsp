@@ -9,19 +9,20 @@
 
 <%@ include file="../_include/header.jsp"%>
 
-<h2>Créer un compte</h2>
-
-<div class="debug"><s:actionerror />
-<s:form action="signin">
-  <s:textfield name="login" label="Login" requiredLabel="true" />
-  <s:password name="password" label="Mot de passe" requiredLabel="true" />
-  <s:textfield name="nickname" label="Pseudo" requiredLabel="true" />
-  <s:textfield name="firstname" label="Prénom" requiredLabel="true" />
-  <s:textfield name="lastname" label="Nom" requiredLabel="true" />
-  <s:textfield name="mail" label="E-Mail" requiredLabel="true" />
-  <s:textfield name="telephone" label="Téléphone" requiredLabel="false" />
-  <s:submit value="S'inscrire"/>
-</s:form>
+<div id="signin">
+<p>
+  <s:actionerror />
+  <s:form action="signin">
+    <s:textfield name="login" placeholder="Login" requiredLabel="true" />
+    <s:password name="password" placeholder="Mot de passe" requiredLabel="true" />
+    <s:textfield name="nickname" placeholder="Pseudo" requiredLabel="true" />
+    <s:textfield name="firstname" placeholder="Prénom" requiredLabel="true" />
+    <s:textfield name="lastname" placeholder="Nom" requiredLabel="true" />
+    <s:textfield name="mail" placeholder="E-Mail" requiredLabel="true" />
+    <s:textfield name="telephone" placeholder="Téléphone" requiredLabel="false" />
+    <s:submit value="S'inscrire"/>
+  </s:form>
+</p>
 </div>
 </body>
 </html>
