@@ -12,6 +12,22 @@ body {
     background-color: #FFFFFF;
     margin: 0;
     padding: 0;
+    overflow-y: scroll;
+    overflow-x: hidden;
+}
+
+::-webkit-scrollbar {
+    width: 10px;
+}
+
+::-webkit-scrollbar-track {
+    background-color: #212121;
+}
+
+::-webkit-scrollbar-thumb {
+    -webkit-border-radius: 10px;
+    border-radius: 10px;
+    background: #D4B195;
 }
 
 .box {
@@ -75,6 +91,10 @@ a:visited {
     color: #D4B195;
 }
 
+.content {
+    margin-top: 50px;
+}
+
 #logo {
     height: 500px;
     margin-top: 50px;
@@ -88,6 +108,44 @@ a:visited {
     justify-content: center;
 }
 
+
+#login {
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    height: 100vh;
+    background-image: url("../resources/img/style_resources/background_login.jpg");
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+#login input {
+    width: 200px;
+    border-radius: 4px;
+    border-width: 0;
+    background-color: #CCCCCC;
+    color: #212121;
+    height: 40px;
+    filter: none;
+    padding-left: 10px;
+    padding-right: 10px;
+    font-size: 20px;
+}
+
+#login input[type=submit] {
+    background-color: #212121;
+    border: thin solid #D4B195;
+    color: #D4B195;
+    margin-top: 20px;
+    width: 50%;
+    margin-left: 25%;
+    margin-right: 25%;
+
+}
+
 .img_logo {
     margin: 0;
 }
@@ -95,12 +153,13 @@ a:visited {
 .liste {
     min-width: 100%;
     display: flex;
+    flex-wrap: wrap;
     overflow-x: auto;
 }
 
 .site_card {
     background-color: #212121;
-    min-width: 500px;
+    width: 500px;
     height: 300px;
     margin: 20px;
     padding: 30px;
