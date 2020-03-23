@@ -1,10 +1,13 @@
 @font-face {
-    font-family: 'Baloo Regular';
-    src: url("../resources/font/BalooChettan2-Regular.ttf") format("truetype");
+    font-family: 'Baloo 2 Regular';
+    src: url("../resources/font/baloo-2-v1-latin_latin-ext-regular.eot") format("embedded-opentype");
+    src: url("../resources/font/baloo-2-v1-latin_latin-ext-regular.ttf") format("truetype");
+    src: url("../resources/font/baloo-2-v1-latin_latin-ext-regular.woff") format("woff");
+    src: url("../resources/font/baloo-2-v1-latin_latin-ext-regular.woff2") format("woff2");
 }
 
 * {
-    font-family: "Baloo Regular", Verdana, sans-serif;
+    font-family: "Baloo 2 Regular", Verdana, sans-serif;
     color: #FFFFFF;
 }
 
@@ -81,6 +84,7 @@ nav {
     padding-top: 6px;
     width: 350px;
     text-align: right;
+    padding-right: 10px;
 }
 
 a {
@@ -166,7 +170,6 @@ a:visited {
     background-color: #D4B195;
     border: thin solid #D4B195;
     padding: 5px 10px 5px 10px;
-    margin-right: 10px;
     font-weight: bold;
 }
 

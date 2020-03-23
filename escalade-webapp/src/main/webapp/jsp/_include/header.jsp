@@ -12,16 +12,18 @@
     </div>
 
     <nav>
+      <s:a action="advanced_search">[RECHERCHE]</s:a>
       <s:if test="#session.user">
-        <s:a action="account">
-          <s:param name="id" value="#session.user.id" />
-          <img src="${pageContext.request.contextPath}/resources/img/style_resources/icon_account.png" alt="mon_compte" />
-        </s:a>
+
+
         <s:a action="site_new"><img src="${pageContext.request.contextPath}/resources/img/style_resources/icon_site.png" alt="ajouter_site" /></s:a>
       </s:if>
 
       <s:if test="#session.user">
+        <s:a action="account">
+        <s:param name="id" value="#session.user.id" />
         <em><s:property value="#session.user.nickname" /></em>
+        </s:a>
         <s:a action="logout">Déconnexion</s:a>
       </s:if>
       <s:else>
