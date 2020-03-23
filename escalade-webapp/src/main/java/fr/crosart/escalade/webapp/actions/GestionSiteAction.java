@@ -22,6 +22,9 @@ public class GestionSiteAction extends ActionSupport {
     @Inject
     private Site siteBean;
 
+    @Inject
+    private Research researchBean;
+
     // -- Entrée
     private Integer id;
 
@@ -40,12 +43,16 @@ public class GestionSiteAction extends ActionSupport {
     private LocalDate creationDate;
     private String search;
 
+
+    private String[] departments = new String[102];
+
     private int currentUserId;
     private String[] cotations = new String[]{"1","2","3","4","5a","5b","5c","6a","6a+","6b","6b+","6c","6c+","7a","7a+","7b","7b+","7c","7c+","8a","8a+","8b","8b+","8c","8c+","9a","9a+","9b","9b+","9c","9c+"};
 
     // -- Sortie
     private List<Site> listSite;
     private List<Comment> listComment;
+    private List<Department> listDepartment;
     private Site site;
     private Comment currentComment = new Comment();
     private Topo topo;
@@ -121,11 +128,56 @@ public class GestionSiteAction extends ActionSupport {
     public void setTopo(Topo topo) {
         this.topo = topo;
     }
+    public Research getResearchBean() {
+        return researchBean;
+    }
+    public void setResearchBean(Research researchBean) {
+        this.researchBean = researchBean;
+    }
+    public String[] getDepartments() {
+        return departments;
+    }
+
+    public void setDepartments(String[] departments) {
+        this.departments = departments;
+    }
+
     // ===== Méthodes
 
     public String doQuickSearch() {
         listSite = managerFactory.getSiteManager().getListSite(search);
         return ActionSupport.SUCCESS;
+    }
+
+    public String doSearch() {
+
+        listDepartment = managerFactory.getDepartmentManager().getListDepartments();
+        departments[0] = "Département";
+        for (int i = 0; i < listDepartment.size(); i++) {
+            departments[i+1] = listDepartment.get(i).getName();
+        }
+
+        String vResult = ActionSupport.INPUT;
+        if (!StringUtils.isEmpty(search) || !StringUtils.isEmpty(country) || !StringUtils.isEmpty(department) || !StringUtils.isEmpty(cotationMin) || !StringUtils.isEmpty(cotationMax)) {
+            try {
+                researchBean.setTextSearch(search);
+                researchBean.setCountry(country);
+                researchBean.setDepartment(department);
+                researchBean.setCotationMin(cotationMin);
+                researchBean.setCotationMax(cotationMax);
+
+                managerFactory.getSiteManager().getListSite(researchBean);
+
+                vResult = ActionSupport.SUCCESS;
+
+            } catch (Exception vEx) {
+                vEx.printStackTrace();
+                this.addActionError("Erreur lors de la recherche");
+            }
+            return vResult;
+        }
+
+        return vResult;
     }
 
     public String doList() {

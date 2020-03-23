@@ -2,6 +2,7 @@ package fr.crosart.escalade.consumer.impl.dao;
 
 import fr.crosart.escalade.consumer.contract.dao.SiteDao;
 import fr.crosart.escalade.consumer.mappers.SiteRowMapper;
+import fr.crosart.escalade.model.beans.Research;
 import fr.crosart.escalade.model.beans.Site;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.namedparam.MapSqlParameterSource;
@@ -9,6 +10,8 @@ import org.springframework.jdbc.core.namedparam.NamedParameterJdbcTemplate;
 
 import javax.inject.Named;
 import java.util.List;
+
+
 
 @Named
 public class SiteDaoImpl extends AbstractDaoImpl implements SiteDao {
@@ -39,6 +42,42 @@ public class SiteDaoImpl extends AbstractDaoImpl implements SiteDao {
                 "OR sitecotationmax ILIKE '%" + pSearch +"%' ";
 
         return vJdbcTemplate.query(vSql, new SiteRowMapper());
+
+    }
+
+    @Override
+    public List<Site> getSearchSites(Research pResearch) {
+
+        String textSearch;
+        String country;
+        String department;
+
+        if (pResearch.getTextSearch().equals("")) {
+            textSearch = "";
+        } else {
+            textSearch = pResearch.getTextSearch();
+        }
+
+        if (pResearch.getCountry() == null) {
+            country = "*";
+        } else {
+            country = "'" + pResearch.getCountry() + "'";
+        }
+
+        if (pResearch.getDepartment().equals("Département")) {
+            department = "*";
+        } else {
+            department = "'" + pResearch.getDepartment() + "'";
+        }
+
+        JdbcTemplate vJdbcTemplate = new JdbcTemplate(getDataSource());
+        String vSQL = "SELECT * FROM escalade.site WHERE sitename ILIKE '%" + textSearch +"%'" +
+                " AND sitecountry = " + country +
+                " AND sitedepartment = " + department +
+                " AND sitecotationmin >= '" + pResearch.getCotationMin() + "'" +
+                " AND sitecotationmax <= '" + pResearch.getCotationMax() + "'";
+
+        return vJdbcTemplate.query(vSQL, new SiteRowMapper());
 
     }
 

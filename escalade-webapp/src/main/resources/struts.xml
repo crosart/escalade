@@ -37,6 +37,12 @@
             <result name="success">/jsp/sites/search_results.jsp</result>
         </action>
 
+        <!-- Action Recherche Avancée -->
+        <action name="advanced_search" class="fr.crosart.escalade.webapp.actions.GestionSiteAction" method="doSearch">
+            <result name="input">/jsp/sites/search_results.jsp</result>
+            <result name="success">/jsp/sites/search_results.jsp</result>
+        </action>
+
         <action name="add_comment" class="fr.crosart.escalade.webapp.actions.GestionCommentAction" method="doCreate">
             <result name="input" type="redirectAction">site_detail</result>
             <result name="success" type="redirectAction">

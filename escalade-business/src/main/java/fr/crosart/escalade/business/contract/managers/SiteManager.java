@@ -1,5 +1,6 @@
 package fr.crosart.escalade.business.contract.managers;
 
+import fr.crosart.escalade.model.beans.Research;
 import fr.crosart.escalade.model.beans.Site;
 import fr.crosart.escalade.model.exceptions.NotFoundException;
 
@@ -15,6 +16,8 @@ public interface SiteManager {
     List<Site> getListSite();
 
     List<Site> getListSite(String pSearch);
+
+    List<Site> getListSite(Research pResearch);
 
     /**
      * Renvoie le {@link Site} demandé

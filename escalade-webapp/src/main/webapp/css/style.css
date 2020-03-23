@@ -274,3 +274,16 @@ ul {
 p {
     margin-top: 15px;
 }
+
+.search {
+    margin-top: 50px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.search form {
+    color: #212121;
+}
+
+.search input

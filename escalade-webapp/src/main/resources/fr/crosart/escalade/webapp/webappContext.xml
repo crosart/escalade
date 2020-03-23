@@ -76,4 +76,8 @@
           class="fr.crosart.escalade.model.beans.Department"
           scope="prototype" />
 
+    <bean id="research"
+          class="fr.crosart.escalade.model.beans.Research"
+          scope="prototype" />
+
 </beans>

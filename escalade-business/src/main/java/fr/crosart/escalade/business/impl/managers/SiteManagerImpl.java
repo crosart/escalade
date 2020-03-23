@@ -2,6 +2,7 @@ package fr.crosart.escalade.business.impl.managers;
 
 import fr.crosart.escalade.business.contract.managers.SiteManager;
 import fr.crosart.escalade.consumer.contract.dao.SiteDao;
+import fr.crosart.escalade.model.beans.Research;
 import fr.crosart.escalade.model.beans.Site;
 import fr.crosart.escalade.model.exceptions.NotFoundException;
 
@@ -27,6 +28,11 @@ public class SiteManagerImpl extends AbstractManager implements SiteManager {
 
         return siteDao.getSearchSites(pSearch);
 
+    }
+
+    @Override
+    public List<Site> getListSite(Research pResearch) {
+        return siteDao.getSearchSites(pResearch);
     }
 
     @Override
