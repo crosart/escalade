@@ -13,9 +13,8 @@
   <img class="img_logo" src="${pageContext.request.contextPath}/resources/img/style_resources/logo.png" alt="logo" />
 </div>
 
-<div class="box">
   <article>
-    <h1>Derniers Sites ajoutés</h1>
+    <h1 class="center">Derniers Sites ajoutés</h1>
 
     <ul class="liste">
       <s:iterator value="listSite">
@@ -35,6 +34,5 @@
       </s:iterator>
     </ul>
   </article>
-</div>
 </body>
 </html>
