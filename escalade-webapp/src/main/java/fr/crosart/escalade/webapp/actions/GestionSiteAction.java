@@ -176,6 +176,12 @@ public class GestionSiteAction extends ActionSupport {
         String vResult = ActionSupport.INPUT;
         if (!StringUtils.isEmpty(search) || !StringUtils.isEmpty(country) || !StringUtils.isEmpty(department) || !StringUtils.isEmpty(cotationMin) || !StringUtils.isEmpty(cotationMax)) {
             try {
+                if (cotationMin == null) {
+                    cotationMin = "1";
+                    cotationMax = "9c+";
+                    country = "Pays";
+                    department = "Département";
+                }
                 researchBean.setTextSearch(search);
                 researchBean.setCountry(country);
                 researchBean.setDepartment(department);

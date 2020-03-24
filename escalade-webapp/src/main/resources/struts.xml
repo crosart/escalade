@@ -32,13 +32,8 @@
             <result name="success" type="redirectAction">index</result>
         </action>
 
-        <!-- Action Rechercher Rapide -->
-        <action name="quicksearch" class="fr.crosart.escalade.webapp.actions.GestionSiteAction" method="doQuickSearch">
-            <result name="success">/jsp/sites/search_results.jsp</result>
-        </action>
-
         <!-- Action Recherche Avancée -->
-        <action name="advanced_search" class="fr.crosart.escalade.webapp.actions.GestionSiteAction" method="doSearch">
+        <action name="search" class="fr.crosart.escalade.webapp.actions.GestionSiteAction" method="doSearch">
             <result name="input">/jsp/sites/search_results.jsp</result>
             <result name="success">/jsp/sites/search_results.jsp</result>
         </action>

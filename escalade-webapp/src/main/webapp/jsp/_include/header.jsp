@@ -6,7 +6,7 @@
     </div>
 
     <div id="search">
-      <s:form action="quicksearch">
+      <s:form action="search">
         <s:textfield name="search" placeholder="Recherche Rapide" theme="simple" autocomplete="off" /><s:submit value="Rechercher" theme="simple" />
       </s:form>
 
@@ -14,7 +14,7 @@
 
     <nav>
       <span id="search_button">
-        <s:a action="advanced_search">
+        <s:a action="search">
           Recherche avancée
         </s:a>
       </span>

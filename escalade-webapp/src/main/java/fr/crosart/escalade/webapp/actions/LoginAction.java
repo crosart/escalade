@@ -7,8 +7,12 @@ import fr.crosart.escalade.model.beans.User;
 import fr.crosart.escalade.model.exceptions.NotFoundException;
 import org.apache.commons.lang3.StringUtils;
 import org.apache.struts2.interceptor.SessionAware;
+import org.springframework.dao.DuplicateKeyException;
 
 import javax.inject.Inject;
+import java.io.PrintStream;
+import java.io.PrintWriter;
+import java.io.StringWriter;
 import java.util.Map;
 
 /**
@@ -147,6 +151,15 @@ public class LoginAction extends ActionSupport implements SessionAware {
                 managerFactory.getUserManager().createUser(userBean);
 
                 vResult = ActionSupport.SUCCESS;
+            } catch (DuplicateKeyException vEx) {
+                StringWriter stringException = new StringWriter();
+                vEx.printStackTrace(new PrintWriter(stringException));
+                String exception = stringException.toString();
+                if (exception.contains("registereduser_userlogin")) {
+                    this.addActionError("Ce login existe déjà");
+                } else if (exception.contains("registereduser_usernickname")) {
+                    this.addActionError("Ce nickname est déjà utilisé");
+                }
             } catch (Exception vEx) {
                 vEx.printStackTrace();
                 this.addActionError("Erreur lors de l'ajout !");
