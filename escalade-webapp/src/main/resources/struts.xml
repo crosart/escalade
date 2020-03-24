@@ -71,6 +71,14 @@
             <result name="success">/jsp/account.jsp</result>
         </action>
 
+        <action name="own_topo" class="fr.crosart.escalade.webapp.actions.GestionTopoAction" method="doClaim">
+            <result name="success" type="redirectAction">
+            <param name="actionName">site_detail</param>
+            <param name="id">${id}</param>
+            </result>
+
+        </action>
+
 
     </package>
 </struts>

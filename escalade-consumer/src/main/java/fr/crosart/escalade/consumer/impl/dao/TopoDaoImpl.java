@@ -6,8 +6,11 @@ import fr.crosart.escalade.consumer.mappers.TopoRowMapper;
 import fr.crosart.escalade.model.beans.Topo;
 import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.jdbc.core.JdbcTemplate;
+import org.springframework.jdbc.core.namedparam.MapSqlParameterSource;
+import org.springframework.jdbc.core.namedparam.NamedParameterJdbcTemplate;
 
 import javax.inject.Named;
+import java.time.LocalDate;
 import java.util.List;
 
 @Named
@@ -41,5 +44,22 @@ public class TopoDaoImpl extends AbstractDaoImpl implements TopoDao {
         }
 
     }
+
+    @Override
+    public void insertTopo(Integer pSiteId, Integer pUserId) {
+
+        NamedParameterJdbcTemplate vJdbcTemplate = new NamedParameterJdbcTemplate(getDataSource());
+        String vSQL = "INSERT INTO escalade.topo (siteid, userid, topopublishingdate) VALUES (:siteid, :userid, :topopublishingdate)";
+
+        MapSqlParameterSource vParams = new MapSqlParameterSource();
+
+        vParams.addValue("siteid", pSiteId);
+        vParams.addValue("userid", pUserId);
+        vParams.addValue("topopublishingdate", LocalDate.now());
+
+        vJdbcTemplate.update(vSQL, vParams);
+
+    }
+
 
 }

@@ -10,4 +10,6 @@ public interface TopoDao {
     Topo getTopo(Integer pSiteId);
 
     List<Topo> getListTopos(Integer pUserId);
+
+    void insertTopo(Integer pSiteId, Integer pUserId);
 }
