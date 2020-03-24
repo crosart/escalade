@@ -105,18 +105,20 @@ nav {
     justify-content: center;
 }
 
-
-#login {
+#login, #signin {
     margin: 0 auto;
     display: flex;
     flex-direction: column;
     justify-content: center;
     height: 100vh;
-    background-image: url("../resources/img/style_resources/background_login.jpg");
     background-attachment: fixed;
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
+}
+
+#login {
+    background-image: url("../resources/img/style_resources/background_login.jpg");
 }
 
 #login input {
@@ -141,6 +143,52 @@ nav {
     margin-left: 25%;
     margin-right: 25%;
 
+}
+
+#search_page {
+    margin-top: 25px;
+    display: flex;
+    justify-content: space-evenly;
+}
+
+#search_page input[type=text] {
+    width: 186px;
+    border-radius: 4px;
+    border-width: 0;
+    background-color: #EEEEEE;
+    color: #212121;
+    height: 38px;
+    filter: none;
+    padding-left: 10px;
+    padding-right: 10px;
+    font-size: 20px;
+}
+
+#search_page input[type=submit] {
+    width: 1040px;
+    border-radius: 4px;
+    border-width: thin;
+    border-color: #D4B195;
+    color: #D4B195;
+    background-color: #303030;
+    height: 38px;
+    font-size: 20px;
+    padding-bottom: 5px;
+
+}
+
+#search_page select {
+    width: 200px;
+    margin-left: 10px;
+    border-radius: 4px;
+    border-width: 0;
+    background-color: #EEEEEE;
+    color: #212121;
+    height: 40px;
+    filter: none;
+    padding-left: 10px;
+    padding-right: 10px;
+    font-size: 20px;
 }
 
 .img_logo {
@@ -185,16 +233,8 @@ nav {
 
 
 #signin {
-    margin: 0 auto;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    height: 100vh;
     background-image: url("../resources/img/style_resources/background_signin.jpg");
-    background-attachment: fixed;
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
+
 }
 
 #signin input {

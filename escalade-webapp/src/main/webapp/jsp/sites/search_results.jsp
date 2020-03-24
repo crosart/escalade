@@ -9,15 +9,17 @@
 <article class="search">
 <%@ include file="../_include/header.jsp"%>
 
-  <div class="form">
+  <div id="search_page">
 <s:actionerror />
 <s:form action="search">
-  <s:textfield name="search" placeholder="Rechercher" requiredLabel="false" />
-  <s:select list="countries" name="country" requiredLabel="false" />
-  <s:select list="departments" name="department" requiredLabel="false" />
-  <s:select list="cotations" name="cotationMin" requiredLabel="false" />
-  <s:select list="reversedcotations" name="cotationMax" requiredLabel="false" value="9c+" />
+
+  <s:textfield name="search" placeholder="Nom du site" requiredLabel="false" theme="simple" />
+  <s:select list="countries" name="country" requiredLabel="false" theme="simple" />
+  <s:select list="departments" name="department" requiredLabel="false" theme="simple" />
+  <s:select list="cotations" name="cotationMin" requiredLabel="false" theme="simple" />
+  <s:select list="reversedcotations" name="cotationMax" requiredLabel="false" theme="simple" />
   <s:submit value="Rechercher" />
+
 </s:form>
   </div>
 
