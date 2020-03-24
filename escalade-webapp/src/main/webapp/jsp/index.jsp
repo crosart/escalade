@@ -13,7 +13,7 @@
     <img class="img_logo" src="${pageContext.request.contextPath}/resources/img/style_resources/logo.png" alt="logo" />
   </div>
 
-  <article>
+  <article class="article_index">
     <h1 class="center">Derniers Sites ajoutés</h1>
 
     <ul class="liste">

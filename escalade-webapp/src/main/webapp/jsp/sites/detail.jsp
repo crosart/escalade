@@ -5,10 +5,16 @@
 <%@ include file="../_include/head.jsp"%>
 <body>
 <%@ include file="../_include/header.jsp"%>
-<div class="contenu">
-  <h1><s:property value="site.country" /> - <s:property value="site.department" /> - <s:property value="site.name" />
+<div class="contenu detail">
+  <div id="site_title">
+    <h1 class="center sitename"><s:property value="site.name" /></h1>
+    <h1 class="center sitelocation"><s:property value="site.country" />
+    <s:if test="site.country == 'France'">
+    &nbsp;-&nbsp;<s:property value="site.department" />
+    </s:if></h1>
+  </div>
     <s:if test="site.isOfficial"><img src="${pageContext.request.contextPath}/resources/img/technical/official_stamp.png" alt="officialStamp" /></s:if>
-  </h1>
+<div id="site_detail">
   <p>Ajouté le : <s:property value="site.creationDate" /></p>
   <p>Coordonnées GPS : <s:property value="site.latitude" /> - <s:property value="site.longitude" /></p>
   <p>Hauteur maximum : <s:property value="site.height" /></p>
@@ -44,7 +50,7 @@
       </s:else>
     </s:else>
   </p>
-</div>
+
 <hr>
 
 <h2>Commentaires</h2>
@@ -75,6 +81,7 @@
     </li>
   </s:iterator>
 </ul>
-
+</div>
+</div>
 </body>
 </html>
