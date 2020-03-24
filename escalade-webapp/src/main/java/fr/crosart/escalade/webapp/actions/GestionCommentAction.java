@@ -6,7 +6,6 @@ import fr.crosart.escalade.business.contract.ManagerFactory;
 import fr.crosart.escalade.model.beans.Comment;
 import fr.crosart.escalade.model.beans.User;
 import org.apache.commons.lang3.StringUtils;
-import org.apache.struts2.dispatcher.HttpParameters;
 import org.apache.struts2.dispatcher.Parameter;
 import org.apache.struts2.interceptor.SessionAware;
 
