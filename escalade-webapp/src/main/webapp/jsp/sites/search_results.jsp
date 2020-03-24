@@ -11,7 +11,7 @@
 
   <div class="form">
 <s:actionerror />
-<s:form action="advanced_search">
+<s:form action="search">
   <s:textfield name="search" placeholder="Rechercher" requiredLabel="false" />
   <s:select list="countries" name="country" requiredLabel="false" />
   <s:select list="departments" name="department" requiredLabel="false" />
