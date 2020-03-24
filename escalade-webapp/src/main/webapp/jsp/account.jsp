@@ -31,6 +31,7 @@
       <s:property value="siteName" /> - <s:property value="siteDepartment"/>
       <s:if test="reserved">
         Réservé par : <s:a action="user_detail">
+          <s:param name="topoOwner" value="true" />
           <s:param name="id" value="reservedUserId" />
           <s:property value="reservedUserName" />
         </s:a>

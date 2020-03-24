@@ -24,6 +24,8 @@ public class GestionUserAction extends ActionSupport {
     private List<User> listUser;
     private User user;
     private List<Topo> listTopo;
+    private boolean topoOwner;
+
 
     // ===== Getters & Setters
     public void setId(Integer id) {
@@ -43,6 +45,12 @@ public class GestionUserAction extends ActionSupport {
     }
     public List<Topo> getListTopo() {
         return listTopo;
+    }
+    public boolean isTopoOwner() {
+        return topoOwner;
+    }
+    public void setTopoOwner(boolean topoOwner) {
+        this.topoOwner = topoOwner;
     }
 
     // ===== Méthodes
