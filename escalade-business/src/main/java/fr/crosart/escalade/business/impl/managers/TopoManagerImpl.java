@@ -36,5 +36,10 @@ public class TopoManagerImpl extends AbstractManager implements TopoManager  {
         topoDao.reserveTopo(pSiteId, pUserId);
     }
 
+    @Override
+    public void unlockTopo(Integer pTopoId) {
+        topoDao.unlockTopo(pTopoId);
+    }
+
 
 }

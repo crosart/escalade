@@ -34,6 +34,10 @@
           <s:param name="id" value="reservedUserId" />
           <s:property value="reservedUserName" />
         </s:a>
+        <s:a action="unlock_topo">
+          <s:param name="id" value="id" />
+          Remettre ce topo à disposition
+        </s:a>
       </s:if>
       <s:else>
         Topo disponible

@@ -21,6 +21,7 @@ public class GestionTopoAction extends ActionSupport implements SessionAware {
     private User vUser;
     private Parameter pId;
     private Integer id;
+    private Integer userId;
 
     public String doClaim() {
 
@@ -36,6 +37,16 @@ public class GestionTopoAction extends ActionSupport implements SessionAware {
         vUser = (User) this.session.get("user");
 
         managerFactory.getTopoManager().reserveTopo(id, vUser.getId());
+
+        return ActionSupport.SUCCESS;
+
+    }
+
+    public String doUnlock() {
+
+        vUser = (User) this.session.get("user");
+        userId = vUser.getId();
+        managerFactory.getTopoManager().unlockTopo(id);
 
         return ActionSupport.SUCCESS;
 
@@ -57,5 +68,11 @@ public class GestionTopoAction extends ActionSupport implements SessionAware {
     }
     public void setId(Integer id) {
         this.id = id;
+    }
+    public Integer getUserId() {
+        return userId;
+    }
+    public void setUserId(Integer userId) {
+        this.userId = userId;
     }
 }
