@@ -16,7 +16,7 @@
 
   <s:select list="departments" name="department" requiredLabel="false" />
   <s:select list="cotations" name="cotationMin" requiredLabel="false" />
-  <s:select list="cotations" name="cotationMax" requiredLabel="false" value="9c+" />
+  <s:select list="reversedcotations" name="cotationMax" requiredLabel="false" value="9c+" />
   <s:submit value="Rechercher" />
 </s:form>
   </div>

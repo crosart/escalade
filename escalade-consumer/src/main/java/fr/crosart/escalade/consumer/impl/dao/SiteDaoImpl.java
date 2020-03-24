@@ -10,7 +10,7 @@ import org.springframework.jdbc.core.namedparam.NamedParameterJdbcTemplate;
 
 import javax.inject.Named;
 import java.util.List;
-
+import java.util.Map;
 
 
 @Named
@@ -48,36 +48,28 @@ public class SiteDaoImpl extends AbstractDaoImpl implements SiteDao {
     @Override
     public List<Site> getSearchSites(Research pResearch) {
 
-        String textSearch;
-        String country;
-        String department;
+        NamedParameterJdbcTemplate vJdbcTemplate = new NamedParameterJdbcTemplate(getDataSource());
+        StringBuilder vSQL = new StringBuilder("SELECT * FROM escalade.site WHERE sitecotationmin >= :sitecotationmin AND sitecotationmax <= :sitecotationmax");
+        MapSqlParameterSource vParams = new MapSqlParameterSource();
 
-        if (pResearch.getTextSearch().equals("")) {
-            textSearch = "";
-        } else {
-            textSearch = pResearch.getTextSearch();
+        vParams.addValue("sitecotationmin", pResearch.getCotationMin());
+        vParams.addValue("sitecotationmax", pResearch.getCotationMax());
+
+        if (!pResearch.getTextSearch().equals("")) {
+            vSQL.append(" AND sitename ILIKE '%").append(pResearch.getTextSearch()).append("%'");
         }
 
-        if (pResearch.getCountry() == null) {
-            country = "*";
-        } else {
-            country = "'" + pResearch.getCountry() + "'";
+        if (pResearch.getCountry() != null) {
+            vSQL.append(" AND sitecountry = :sitecountry");
+            vParams.addValue("sitecountry", pResearch.getCountry());
         }
 
-        if (pResearch.getDepartment().equals("Département")) {
-            department = "*";
-        } else {
-            department = "'" + pResearch.getDepartment() + "'";
+        if (!pResearch.getDepartment().equals("Département")) {
+            vSQL.append(" AND sitedepartment = :sitedepartment");
+            vParams.addValue("sitedepartment", pResearch.getDepartment());
         }
 
-        JdbcTemplate vJdbcTemplate = new JdbcTemplate(getDataSource());
-        String vSQL = "SELECT * FROM escalade.site WHERE sitename ILIKE '%" + textSearch +"%'" +
-                " AND sitecountry = " + country +
-                " AND sitedepartment = " + department +
-                " AND sitecotationmin >= '" + pResearch.getCotationMin() + "'" +
-                " AND sitecotationmax <= '" + pResearch.getCotationMax() + "'";
-
-        return vJdbcTemplate.query(vSQL, new SiteRowMapper());
+        return vJdbcTemplate.query(vSQL.toString(), vParams, new SiteRowMapper());
 
     }
 

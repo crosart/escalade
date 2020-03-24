@@ -10,6 +10,7 @@ import org.apache.commons.lang3.StringUtils;
 import javax.inject.Inject;
 import javax.inject.Named;
 import java.time.LocalDate;
+import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
 
@@ -48,11 +49,12 @@ public class GestionSiteAction extends ActionSupport {
 
     private int currentUserId;
     private String[] cotations = new String[]{"1","2","3","4","5a","5b","5c","6a","6a+","6b","6b+","6c","6c+","7a","7a+","7b","7b+","7c","7c+","8a","8a+","8b","8b+","8c","8c+","9a","9a+","9b","9b+","9c","9c+"};
+    private String[] reversedcotations = new String[]{"9c+","9c","9b+","9b","9a+","9a","8c+","8c","8b+","8b","8a+","8a","7c+","7c","7b+","7b","7a+","7a","6c+","6c","6b+","6b","6a+","6a","5c","5b","5a","4","3","2","1"};
+
 
     // -- Sortie
     private List<Site> listSite;
     private List<Comment> listComment;
-    private List<Department> listDepartment;
     private Site site;
     private Comment currentComment = new Comment();
     private Topo topo;
@@ -113,6 +115,9 @@ public class GestionSiteAction extends ActionSupport {
     public String[] getCotations() {
         return cotations;
     }
+    public String[] getReversedcotations() {
+        return reversedcotations;
+    }
     public List<Comment> getListComment() {
         return listComment;
     }
@@ -151,11 +156,13 @@ public class GestionSiteAction extends ActionSupport {
 
     public String doSearch() {
 
-        listDepartment = managerFactory.getDepartmentManager().getListDepartments();
+        List<Department> listDepartment = managerFactory.getDepartmentManager().getListDepartments();
         departments[0] = "Département";
         for (int i = 0; i < listDepartment.size(); i++) {
             departments[i+1] = listDepartment.get(i).getName();
         }
+
+        String[] listCountries = new String[]{""} ;
 
         String vResult = ActionSupport.INPUT;
         if (!StringUtils.isEmpty(search) || !StringUtils.isEmpty(country) || !StringUtils.isEmpty(department) || !StringUtils.isEmpty(cotationMin) || !StringUtils.isEmpty(cotationMax)) {
@@ -166,7 +173,7 @@ public class GestionSiteAction extends ActionSupport {
                 researchBean.setCotationMin(cotationMin);
                 researchBean.setCotationMax(cotationMax);
 
-                managerFactory.getSiteManager().getListSite(researchBean);
+                listSite = managerFactory.getSiteManager().getListSite(researchBean);
 
                 vResult = ActionSupport.SUCCESS;
 
