@@ -28,7 +28,7 @@ public class SiteDaoImpl extends AbstractDaoImpl implements SiteDao {
     public List<Site> getLastSites() {
 
         JdbcTemplate vJdbcTemplate = new JdbcTemplate(getDataSource());
-        String vSql = "SELECT * FROM escalade.site ORDER BY siteid DESC LIMIT 5";
+        String vSql = "SELECT * FROM escalade.site ORDER BY siteid DESC LIMIT 6";
 
         return vJdbcTemplate.query(vSql, new SiteRowMapper());
 
