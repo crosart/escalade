@@ -1,11 +1,11 @@
 <%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 <header>
-  <div class="box">
+
     <div id="title">
       <s:a action="index"><img src="${pageContext.request.contextPath}/resources/img/style_resources/logo_title.png" alt="logo_titre" /></s:a>
     </div>
 
-    <div id="search">
+    <div id="quicksearch">
       <s:form action="search">
         <s:textfield name="search" placeholder="Recherche Rapide" theme="simple" autocomplete="off" /><s:submit value="Rechercher" theme="simple" />
       </s:form>
@@ -38,5 +38,4 @@
 
 
     </nav>
-  </div>
 </header>

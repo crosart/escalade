@@ -33,23 +33,29 @@ body {
     background: #D4B195;
 }
 
-.box {
-    display: flex;
-    justify-content: space-between;
-    padding-top: 7px;
+a {
+    color: #D4B195;
+    text-decoration: none;
+}
+
+a:visited {
+    color: #D4B195;
 }
 
 header {
+    display: flex;
+    justify-content: space-between;
+    padding-top: 7px;
     background-color: #212121;
     color: #FFFFFF;
-    height: 50px;
+    max-height: 50px;
     width: 100%;
     position: fixed;
     top: 0;
     left: 0;
 }
 
-header input[type=text] {
+#quicksearch input[type=text] {
     color: dimgrey;
     border: none;
     border-bottom: 2px solid #D4B195;
@@ -64,19 +70,19 @@ header input[type=text] {
     width: 297px;
 }
 
-header input[type=submit] {
+#quicksearch input[type=submit] {
     width: 0;
     visibility: hidden;
     padding:0;
     margin: 0;
 }
 
-header #title {
+#title {
     padding-left: 10px;
     width: 500px;
 }
 
-header #search {
+#quicksearch {
     width: 350px;
 }
 
@@ -87,21 +93,8 @@ nav {
     padding-right: 10px;
 }
 
-a {
-    color: #D4B195;
-    text-decoration: none;
-}
-a:visited {
-    color: #D4B195;
-}
-
-.content {
-    margin-top: 50px;
-}
-
-#logo {
+#logo_home {
     height: 500px;
-    margin-top: 50px;
     background-image: url("../resources/img/style_resources/rock-climbing.jpg");
     background-attachment: fixed;
     background-position: center;
@@ -232,13 +225,14 @@ a:visited {
 
 }
 
-h1.center {
-    text-align: center;
-}
-
 article h1 {
     color: #D4B195;
     font-weight: bold;
+    padding-top: 15px;
+}
+
+h1.center {
+    text-align: center;
 }
 
 article {
@@ -300,4 +294,6 @@ p {
     color: #212121;
 }
 
-.search input
+.contenu {
+    margin-top: 50px;
+}

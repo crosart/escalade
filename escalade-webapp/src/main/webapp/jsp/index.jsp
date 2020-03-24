@@ -8,10 +8,10 @@
 <body>
 
 <%@ include file="./_include/header.jsp"%>
-
-<div id="logo">
-  <img class="img_logo" src="${pageContext.request.contextPath}/resources/img/style_resources/logo.png" alt="logo" />
-</div>
+<div class="contenu">
+  <div id="logo_home">
+    <img class="img_logo" src="${pageContext.request.contextPath}/resources/img/style_resources/logo.png" alt="logo" />
+  </div>
 
   <article>
     <h1 class="center">Derniers Sites ajoutés</h1>
@@ -34,5 +34,6 @@
       </s:iterator>
     </ul>
   </article>
+</div>
 </body>
 </html>
