@@ -61,5 +61,20 @@ public class TopoDaoImpl extends AbstractDaoImpl implements TopoDao {
 
     }
 
+    @Override
+    public void reserveTopo(Integer pSiteId, Integer pUserId) {
+
+        NamedParameterJdbcTemplate vJdbcTemplate = new NamedParameterJdbcTemplate(getDataSource());
+        String vSQL = "UPDATE escalade.topo SET reserveduserid = :reserveduserid, topoisreserved = :isreserved WHERE siteid = :siteid";
+
+        MapSqlParameterSource vParams = new MapSqlParameterSource();
+        vParams.addValue("reserveduserid", pUserId);
+        vParams.addValue("siteid", pSiteId);
+        vParams.addValue("isreserved", true);
+
+        vJdbcTemplate.update(vSQL, vParams);
+
+    }
+
 
 }

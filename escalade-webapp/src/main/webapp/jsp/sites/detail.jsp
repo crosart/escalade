@@ -38,7 +38,12 @@
     </s:if>
     <s:else>
       Le topo est actuellement disponible (Publié le <s:property value="topo.publishingDate" />)
-      [RESERVER]
+      <s:if test="#session.user">
+        <s:a action="reserve_topo">
+          <s:param name="id" value="%{ site.id }" />
+          RESERVER LE TOPO
+        </s:a>
+      </s:if>
     </s:else>
   </s:else>
 </p>

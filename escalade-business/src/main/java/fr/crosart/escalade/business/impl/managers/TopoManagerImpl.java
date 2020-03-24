@@ -31,5 +31,10 @@ public class TopoManagerImpl extends AbstractManager implements TopoManager  {
         topoDao.insertTopo(pSiteId, pUserId);
     }
 
+    @Override
+    public void reserveTopo(Integer pSiteId, Integer pUserId) {
+        topoDao.reserveTopo(pSiteId, pUserId);
+    }
+
 
 }

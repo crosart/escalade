@@ -10,4 +10,6 @@ public interface TopoManager {
     List<Topo> getListTopos(Integer pUserId);
 
     void insertTopo(Integer pSiteId, Integer pUserId);
+
+    void reserveTopo(Integer pSiteId, Integer pUserId);
 }

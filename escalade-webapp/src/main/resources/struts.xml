@@ -76,9 +76,14 @@
             <param name="actionName">site_detail</param>
             <param name="id">${id}</param>
             </result>
-
         </action>
 
+        <action name="reserve_topo" class="fr.crosart.escalade.webapp.actions.GestionTopoAction" method="doReserve">
+            <result name="success" type="redirectAction">
+                <param name="actionName">site_detail</param>
+                <param name="id">${id}</param>
+            </result>
+        </action>
 
     </package>
 </struts>

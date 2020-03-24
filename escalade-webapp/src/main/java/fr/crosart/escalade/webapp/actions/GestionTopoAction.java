@@ -31,6 +31,15 @@ public class GestionTopoAction extends ActionSupport implements SessionAware {
         return ActionSupport.SUCCESS;
     }
 
+    public String doReserve() {
+
+        vUser = (User) this.session.get("user");
+
+        managerFactory.getTopoManager().reserveTopo(id, vUser.getId());
+
+        return ActionSupport.SUCCESS;
+
+    }
 
     @Override
     public void setSession(Map<String, Object> pSession) {
@@ -40,15 +49,12 @@ public class GestionTopoAction extends ActionSupport implements SessionAware {
     public User getvUser() {
         return vUser;
     }
-
     public void setvUser(User vUser) {
         this.vUser = vUser;
     }
-
     public Integer getId() {
         return id;
     }
-
     public void setId(Integer id) {
         this.id = id;
     }
