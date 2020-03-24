@@ -9,10 +9,15 @@
       <s:form action="quicksearch">
         <s:textfield name="search" placeholder="Recherche Rapide" theme="simple" autocomplete="off" /><s:submit value="Rechercher" theme="simple" />
       </s:form>
+
     </div>
 
     <nav>
-      <s:a action="advanced_search">[RECHERCHE]</s:a>
+      <span id="search_button">
+        <s:a action="advanced_search">
+          Recherche avancée
+        </s:a>
+      </span>
       <s:if test="#session.user">
 
 
@@ -21,8 +26,8 @@
 
       <s:if test="#session.user">
         <s:a action="account">
-        <s:param name="id" value="#session.user.id" />
-        <em><s:property value="#session.user.nickname" /></em>
+          <s:param name="id" value="#session.user.id" />
+          <em><s:property value="#session.user.nickname" /></em>
         </s:a>
         <s:a action="logout">Déconnexion</s:a>
       </s:if>
