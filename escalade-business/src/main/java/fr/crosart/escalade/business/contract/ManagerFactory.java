@@ -9,5 +9,6 @@ public interface ManagerFactory {
     CommentManager getCommentManager();
     TopoManager getTopoManager();
     DepartmentManager getDepartmentManager();
+    CountryManager getCountryManager();
 
 }

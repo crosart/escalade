@@ -5,10 +5,13 @@ import fr.crosart.escalade.consumer.mappers.SiteRowMapper;
 import fr.crosart.escalade.model.beans.Research;
 import fr.crosart.escalade.model.beans.Site;
 import org.springframework.jdbc.core.JdbcTemplate;
+import org.springframework.jdbc.core.RowMapper;
 import org.springframework.jdbc.core.namedparam.MapSqlParameterSource;
 import org.springframework.jdbc.core.namedparam.NamedParameterJdbcTemplate;
 
 import javax.inject.Named;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.List;
 import java.util.Map;
 
@@ -59,7 +62,7 @@ public class SiteDaoImpl extends AbstractDaoImpl implements SiteDao {
             vSQL.append(" AND sitename ILIKE '%").append(pResearch.getTextSearch()).append("%'");
         }
 
-        if (pResearch.getCountry() != null) {
+        if (!pResearch.getCountry().equals("Pays")) {
             vSQL.append(" AND sitecountry = :sitecountry");
             vParams.addValue("sitecountry", pResearch.getCountry());
         }
@@ -117,6 +120,40 @@ public class SiteDaoImpl extends AbstractDaoImpl implements SiteDao {
         vParams.addValue("sitecreationdate", pSite.getCreationDate());
 
         vJdbcTemplate.update(vSQL, vParams);
+
+    }
+
+    @Override
+    public List<Site> getSiteCountries() {
+
+        JdbcTemplate vJdbcTemplate = new JdbcTemplate(getDataSource());
+        String vSQL = "SELECT DISTINCT sitecountry FROM escalade.site WHERE sitecountry IS NOT NULL";
+        RowMapper<Site> vRowMapper = new RowMapper<Site>() {
+            public Site mapRow(ResultSet rs, int rowNum) throws SQLException {
+                Site vSite = new Site();
+                vSite.setCountry(rs.getString("sitecountry"));
+                return vSite;
+            }
+        };
+
+        return vJdbcTemplate.query(vSQL, vRowMapper);
+
+    }
+
+    @Override
+    public List<Site> getSiteDepartments() {
+
+        JdbcTemplate vJdbcTemplate = new JdbcTemplate(getDataSource());
+        String vSQL = "SELECT DISTINCT sitedepartment FROM escalade.site WHERE sitedepartment IS NOT NULL";
+        RowMapper<Site> vRowMapper = new RowMapper<Site>() {
+            public Site mapRow(ResultSet rs, int rowNum) throws SQLException {
+                Site vSite = new Site();
+                vSite.setDepartment(rs.getString("sitedepartment"));
+                return vSite;
+            }
+        };
+
+        return vJdbcTemplate.query(vSQL, vRowMapper);
 
     }
 }

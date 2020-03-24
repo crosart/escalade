@@ -35,4 +35,7 @@ public interface SiteManager {
 
     void insertSite(Site pSite);
 
+    List<Site> getSiteCountries();
+
+    List<Site> getSiteDepartments();
 }

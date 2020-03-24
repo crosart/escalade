@@ -18,4 +18,7 @@ public interface SiteDao {
 
     void insertNewSite(Site pSite);
 
+    List<Site> getSiteCountries();
+
+    List<Site> getSiteDepartments();
 }

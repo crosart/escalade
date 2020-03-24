@@ -28,6 +28,10 @@
           class="fr.crosart.escalade.consumer.impl.dao.DepartmentDaoImpl"
           scope="prototype" />
 
+    <bean id="countryDao"
+          class="fr.crosart.escalade.consumer.impl.dao.CountryDaoImpl"
+          scope="prototype" />
+
     <bean id="gestionSiteAction"
           class="fr.crosart.escalade.webapp.actions.GestionSiteAction"
           scope="prototype" />
@@ -56,6 +60,10 @@
           class="fr.crosart.escalade.business.impl.managers.DepartmentManagerImpl"
           scope="prototype" />
 
+    <bean id="countryManager"
+          class="fr.crosart.escalade.business.impl.managers.CountryManagerImpl"
+          scope="prototype" />
+
     <bean id="site"
           class="fr.crosart.escalade.model.beans.Site"
           scope="prototype" />
@@ -74,6 +82,10 @@
 
     <bean id="department"
           class="fr.crosart.escalade.model.beans.Department"
+          scope="prototype" />
+
+    <bean id="country"
+          class="fr.crosart.escalade.model.beans.Country"
           scope="prototype" />
 
     <bean id="research"

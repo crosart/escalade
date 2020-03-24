@@ -45,4 +45,14 @@ public class SiteManagerImpl extends AbstractManager implements SiteManager {
         siteDao.insertNewSite(pSite);
     }
 
+    @Override
+    public List<Site> getSiteCountries() {
+        return siteDao.getSiteCountries();
+    }
+
+    @Override
+    public List<Site> getSiteDepartments() {
+        return siteDao.getSiteDepartments();
+    }
+
 }

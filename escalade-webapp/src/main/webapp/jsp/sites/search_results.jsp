@@ -13,7 +13,7 @@
 <s:actionerror />
 <s:form action="advanced_search">
   <s:textfield name="search" placeholder="Rechercher" requiredLabel="false" />
-
+  <s:select list="countries" name="country" requiredLabel="false" />
   <s:select list="departments" name="department" requiredLabel="false" />
   <s:select list="cotations" name="cotationMin" requiredLabel="false" />
   <s:select list="reversedcotations" name="cotationMax" requiredLabel="false" value="9c+" />

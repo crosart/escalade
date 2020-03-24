@@ -10,7 +10,6 @@ import org.apache.commons.lang3.StringUtils;
 import javax.inject.Inject;
 import javax.inject.Named;
 import java.time.LocalDate;
-import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
 
@@ -45,7 +44,8 @@ public class GestionSiteAction extends ActionSupport {
     private String search;
 
 
-    private String[] departments = new String[102];
+    private String[] departments;
+    private String[] countries;
 
     private int currentUserId;
     private String[] cotations = new String[]{"1","2","3","4","5a","5b","5c","6a","6a+","6b","6b+","6c","6c+","7a","7a+","7b","7b+","7c","7c+","8a","8a+","8b","8b+","8c","8c+","9a","9a+","9b","9b+","9c","9c+"};
@@ -142,6 +142,9 @@ public class GestionSiteAction extends ActionSupport {
     public String[] getDepartments() {
         return departments;
     }
+    public String[] getCountries() {
+        return countries;
+    }
 
     public void setDepartments(String[] departments) {
         this.departments = departments;
@@ -156,13 +159,19 @@ public class GestionSiteAction extends ActionSupport {
 
     public String doSearch() {
 
-        List<Department> listDepartment = managerFactory.getDepartmentManager().getListDepartments();
+        List<Site> listDepartment = managerFactory.getSiteManager().getSiteDepartments();
+        departments = new String[listDepartment.size()+1];
         departments[0] = "Département";
         for (int i = 0; i < listDepartment.size(); i++) {
-            departments[i+1] = listDepartment.get(i).getName();
+            departments[i+1] = listDepartment.get(i).getDepartment();
         }
 
-        String[] listCountries = new String[]{""} ;
+        List<Site> listCountry = managerFactory.getSiteManager().getSiteCountries();
+        countries = new String[listCountry.size()+1];
+        countries[0] = "Pays";
+        for (int i = 0; i < listCountry.size(); i++) {
+            countries[i+1] = listCountry.get(i).getCountry();
+        }
 
         String vResult = ActionSupport.INPUT;
         if (!StringUtils.isEmpty(search) || !StringUtils.isEmpty(country) || !StringUtils.isEmpty(department) || !StringUtils.isEmpty(cotationMin) || !StringUtils.isEmpty(cotationMax)) {

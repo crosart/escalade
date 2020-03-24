@@ -16,9 +16,6 @@ public class ManagerFactoryImpl implements ManagerFactory {
     public SiteManager getSiteManager() {
         return this.siteManager;
     }
-    public void setSiteManager(SiteManager pSiteManager) {
-        siteManager = pSiteManager;
-    }
 
     @Inject
     private UserManager userManager;
@@ -26,9 +23,6 @@ public class ManagerFactoryImpl implements ManagerFactory {
     @Override
     public UserManager getUserManager() {
         return this.userManager;
-    }
-    public void setUserManager(UserManager pUserManager) {
-        userManager = pUserManager;
     }
 
     @Inject
@@ -55,8 +49,11 @@ public class ManagerFactoryImpl implements ManagerFactory {
         return this.departmentManager;
     }
 
-    public void setCommentManager(CommentManager pCommentManager) {
-        commentManager = pCommentManager;
-    }
+    @Inject
+    private CountryManager countryManager;
 
+    @Override
+    public CountryManager getCountryManager() {
+        return this.countryManager;
+    }
 }
