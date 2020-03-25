@@ -44,12 +44,11 @@ public class UserDaoImpl extends AbstractDaoImpl implements UserDao {
     public void createUser(User pUser) {
 
         NamedParameterJdbcTemplate vJdbcTemplate = new NamedParameterJdbcTemplate(getDataSource());
-        String vSQL = "INSERT INTO escalade.registereduser (userlogin, userpassword, usernickname, userfirstname, userlastname, usermail, usertelephone, userismember) " +
-                "VALUES (:userlogin, :userpassword, :usernickname, :userfirstname, :userlastname, :usermail, :usertelephone, :userismember)";
+        String vSQL = "INSERT INTO escalade.registereduser (userpassword, usernickname, userfirstname, userlastname, usermail, usertelephone, userismember) " +
+                "VALUES (:userpassword, :usernickname, :userfirstname, :userlastname, :usermail, :usertelephone, :userismember)";
 
         MapSqlParameterSource vParams = new MapSqlParameterSource();
 
-        vParams.addValue("userlogin", pUser.getLogin());
         vParams.addValue("userpassword", pUser.getPassword());
         vParams.addValue("usernickname", pUser.getNickname());
         vParams.addValue("userfirstname", pUser.getFirstName());

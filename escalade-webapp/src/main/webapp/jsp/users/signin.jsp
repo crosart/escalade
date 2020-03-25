@@ -13,12 +13,11 @@
 <p>
   <s:actionerror />
   <s:form action="signin">
-    <s:textfield name="login" placeholder="Login" requiredLabel="true" />
+    <s:textfield name="mail" placeholder="E-Mail" requiredLabel="true" />
     <s:password name="password" placeholder="Mot de passe" requiredLabel="true" />
     <s:textfield name="nickname" placeholder="Pseudo" requiredLabel="true" />
-    <s:textfield name="firstname" placeholder="Prénom" requiredLabel="true" />
-    <s:textfield name="lastname" placeholder="Nom" requiredLabel="true" />
-    <s:textfield name="mail" placeholder="E-Mail" requiredLabel="true" />
+    <s:textfield name="firstname" placeholder="Prénom" requiredLabel="false" />
+    <s:textfield name="lastname" placeholder="Nom" requiredLabel="false" />
     <s:textfield name="telephone" placeholder="Téléphone" requiredLabel="false" />
     <s:submit value="S'inscrire"/>
   </s:form>

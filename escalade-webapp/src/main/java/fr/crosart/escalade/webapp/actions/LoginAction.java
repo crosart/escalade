@@ -140,12 +140,11 @@ public class LoginAction extends ActionSupport implements SessionAware {
         String vResult = ActionSupport.INPUT;
         if (!StringUtils.isEmpty(login)) {
             try {
-                userBean.setLogin(login);
                 userBean.setPassword(password);
                 userBean.setNickname(nickname);
                 userBean.setFirstName(firstname);
                 userBean.setLastName(lastname);
-                userBean.setMail(mail);
+                userBean.setMail(mail.toLowerCase());
                 userBean.setTelephone(telephone);
                 userBean.setMember(false);
 
@@ -154,10 +153,10 @@ public class LoginAction extends ActionSupport implements SessionAware {
                 vResult = ActionSupport.SUCCESS;
             } catch (DuplicateKeyException vEx) {
                 String exception = vEx.getMessage();
-                if (exception.contains("(userlogin)")) {
-                    this.addActionError("Ce login existe déjà");
-                } else if (exception.contains("(usernickname)")) {
-                    this.addActionError("Ce nickname est déjà utilisé");
+                if (exception.contains("(usernickname)")) {
+                    this.addActionError("Ce pseudo est déjà utilisé");
+                } else if (exception.contains("(usermail)")) {
+                    this.addActionError("Ce mail est déjà utilisé");
                 }
             } catch (Exception vEx) {
                 vEx.printStackTrace();
