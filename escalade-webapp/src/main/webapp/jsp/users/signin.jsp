@@ -15,7 +15,8 @@
   <s:form action="signin">
     <s:textfield name="mail" placeholder="E-Mail" requiredLabel="true" />
     <s:password name="password" placeholder="Mot de passe" requiredLabel="true" />
-    <s:textfield name="nickname" placeholder="Pseudo" requiredLabel="true" />
+    <s:password name="confirmPassword" placeholder="Confirmation du mot de passe" requiredLabel="true" />
+    <s:textfield name="nickname" placeholder="Nom d'utilisateur" requiredLabel="true" />
     <s:textfield name="firstname" placeholder="Prénom" requiredLabel="false" />
     <s:textfield name="lastname" placeholder="Nom" requiredLabel="false" />
     <s:textfield name="telephone" placeholder="Téléphone" requiredLabel="false" />

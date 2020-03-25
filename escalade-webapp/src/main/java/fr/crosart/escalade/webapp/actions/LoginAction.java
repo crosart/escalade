@@ -32,6 +32,7 @@ public class LoginAction extends ActionSupport implements SessionAware {
     // ----- Paramètres en entrée
     private String login;
     private String password;
+    private String confirmPassword;
 
 
     // ----- Eléments Struts
@@ -85,6 +86,12 @@ public class LoginAction extends ActionSupport implements SessionAware {
     }
     public void setTelephone(String telephone) {
         this.telephone = telephone;
+    }
+    public String getConfirmPassword() {
+        return confirmPassword;
+    }
+    public void setConfirmPassword(String confirmPassword) {
+        this.confirmPassword = confirmPassword;
     }
 
     @Override
@@ -141,6 +148,11 @@ public class LoginAction extends ActionSupport implements SessionAware {
         String vResult = ActionSupport.INPUT;
         if (!StringUtils.isEmpty(mail)) {
             try {
+
+                if (!confirmPassword.equals(password)) {
+                    throw new Exception("password mismatch");
+                }
+
                 userBean.setPassword(password);
                 userBean.setNickname(nickname);
                 userBean.setFirstName(firstname);
@@ -152,6 +164,7 @@ public class LoginAction extends ActionSupport implements SessionAware {
                 managerFactory.getUserManager().createUser(userBean);
 
                 vResult = ActionSupport.SUCCESS;
+
             } catch (DuplicateKeyException vEx) {
                 String exception = vEx.getMessage();
                 if (exception.contains("(usernickname)")) {
@@ -171,8 +184,13 @@ public class LoginAction extends ActionSupport implements SessionAware {
                     this.addActionError("Votre mot de passe ne peut contenir que des caractères alphanumériques et les caractères spéciaux : !\"#$%&()*+,-./:;<=>?@[\\]^_`{|}~");
                 }
             } catch (Exception vEx) {
-                vEx.printStackTrace();
-                this.addActionError("Erreur lors de l'ajout !");
+                String exception = vEx.getMessage();
+                if (exception.contains("password mismatch")) {
+                    this.addActionError("Le mot de passe et la confirmation ne sont pas identiques");
+                } else {
+                    vEx.printStackTrace();
+                    this.addActionError("Erreur lors de l'ajout !");
+                }
             }
         }
         return vResult;
