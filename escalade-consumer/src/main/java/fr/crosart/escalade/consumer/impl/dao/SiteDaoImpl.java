@@ -59,7 +59,8 @@ public class SiteDaoImpl extends AbstractDaoImpl implements SiteDao {
         vParams.addValue("sitecotationmax", pResearch.getCotationMax());
 
         if (!pResearch.getTextSearch().equals("")) {
-            vSQL.append(" AND sitename ILIKE '%").append(pResearch.getTextSearch()).append("%'");
+            vSQL.append(" AND sitename ILIKE :textsearch");
+            vParams.addValue("textsearch", "%" + pResearch.getTextSearch() + "%");
         }
 
         if (!pResearch.getCountry().equals("Pays")) {

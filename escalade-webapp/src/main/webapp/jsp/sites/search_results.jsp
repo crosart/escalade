@@ -13,11 +13,11 @@
 <s:actionerror />
 <s:form action="search">
 
-  <s:textfield name="search" placeholder="Nom du site" requiredLabel="false" theme="simple" />
-  <s:select list="countries" name="country" requiredLabel="false" theme="simple" />
-  <s:select list="departments" name="department" requiredLabel="false" theme="simple" />
-  <s:select list="cotations" name="cotationMin" requiredLabel="false" theme="simple" />
-  <s:select list="reversedcotations" name="cotationMax" requiredLabel="false" theme="simple" />
+  <s:textfield name="search" placeholder="Nom du site" requiredLabel="false" theme="simple" value="%{ researchBean.textSearch }" />
+  <s:select list="countries" name="country" requiredLabel="false" theme="simple" value="%{ researchBean.country }"/>
+  <s:select list="departments" name="department" requiredLabel="false" theme="simple" value="%{ researchBean.department }" />
+  <s:select list="cotations" name="cotationMin" requiredLabel="false" theme="simple" value="%{ researchBean.cotationMin }" />
+  <s:select list="reversedcotations" name="cotationMax" requiredLabel="false" theme="simple" value="%{ researchBean.cotationMax }" />
   <s:submit value="Rechercher" />
 
 </s:form>
