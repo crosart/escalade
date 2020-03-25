@@ -7,6 +7,7 @@ import fr.crosart.escalade.model.beans.User;
 import fr.crosart.escalade.model.exceptions.NotFoundException;
 import org.apache.commons.lang3.StringUtils;
 import org.apache.struts2.interceptor.SessionAware;
+import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.dao.DuplicateKeyException;
 
 import javax.inject.Inject;
@@ -100,10 +101,10 @@ public class LoginAction extends ActionSupport implements SessionAware {
 
     public String doLogin() {
         String vResult = ActionSupport.INPUT;
-        if (!StringUtils.isAllEmpty(login, password)) {
+        if (!StringUtils.isAllEmpty(mail, password)) {
                 try {
 
-                    User vUser = managerFactory.getUserManager().logUser(login);
+                    User vUser = managerFactory.getUserManager().logUser(mail.toLowerCase());
 
                     if (password.equals(vUser.getPassword())) {
 
@@ -114,11 +115,11 @@ public class LoginAction extends ActionSupport implements SessionAware {
 
                     } else {
 
-                        this.addActionError("Identifiant ou mot de passe invalide !");
+                        this.addActionError("Mail ou mot de passe invalide !");
 
                     }
                 } catch (Exception vEx) {
-                    this.addActionError("Identifiant inconnu");
+                    this.addActionError("Mail inconnu");
                 }
         }
         return vResult;
@@ -138,7 +139,7 @@ public class LoginAction extends ActionSupport implements SessionAware {
 
     public String doSignin() {
         String vResult = ActionSupport.INPUT;
-        if (!StringUtils.isEmpty(login)) {
+        if (!StringUtils.isEmpty(mail)) {
             try {
                 userBean.setPassword(password);
                 userBean.setNickname(nickname);
@@ -157,6 +158,17 @@ public class LoginAction extends ActionSupport implements SessionAware {
                     this.addActionError("Ce pseudo est déjà utilisé");
                 } else if (exception.contains("(usermail)")) {
                     this.addActionError("Ce mail est déjà utilisé");
+                }
+            } catch (DataIntegrityViolationException vEx){
+                String exception = vEx.getMessage();
+                if (exception.contains("registereduser_usermail_check")) {
+                    this.addActionError("Veuillez saisir une adresse mail valide");
+                }
+                if (exception.contains("registereduser_usernickname_check")) {
+                    this.addActionError("Votre nom d'utilisateur ne peut comporter que des caractères alphanumériques");
+                }
+                if (exception.contains("registereduser_userpassword_check")) {
+                    this.addActionError("Votre mot de passe ne peut contenir que des caractères alphanumériques et les caractères spéciaux : !\"#$%&()*+,-./:;<=>?@[\\]^_`{|}~");
                 }
             } catch (Exception vEx) {
                 vEx.printStackTrace();

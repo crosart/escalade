@@ -30,11 +30,11 @@ public class UserDaoImpl extends AbstractDaoImpl implements UserDao {
     }
 
     @Override
-    public User logUser(String pLogin) {
+    public User logUser(String pMail) {
 
         JdbcTemplate vJdbcTemplate = new JdbcTemplate(getDataSource());
 
-            String vSQL = "SELECT * FROM escalade.registereduser WHERE userlogin = '" + pLogin + "'";
+            String vSQL = "SELECT * FROM escalade.registereduser WHERE usermail = '" + pMail + "'";
 
             return vJdbcTemplate.queryForObject(vSQL, new UserRowMapper());
 

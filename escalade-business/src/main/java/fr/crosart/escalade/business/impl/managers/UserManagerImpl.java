@@ -26,9 +26,9 @@ public class UserManagerImpl extends AbstractManager implements UserManager {
     }
 
     @Override
-    public User logUser(String pLogin) throws NotFoundException {
+    public User logUser(String pMail) throws NotFoundException {
 
-        return userDao.logUser(pLogin);
+        return userDao.logUser(pMail);
        // throw new NotFoundException("Aucun utilisateur ne correspond au couple login/password saisi");
     }
 

@@ -7,7 +7,7 @@ public interface UserDao {
 
     User getUser(Integer pId) throws NotFoundException;
 
-    User logUser(String pLogin) throws NotFoundException;
+    User logUser(String pMail) throws NotFoundException;
 
     void createUser(User pUser);
 

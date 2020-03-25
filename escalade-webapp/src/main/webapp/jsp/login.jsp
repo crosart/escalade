@@ -13,7 +13,7 @@
   <p>
     <s:actionerror />
     <s:form action="login">
-      <s:textfield name="login" placeholder="Login" requiredLabel="true" />
+      <s:textfield name="mail" placeholder="E-Mail" requiredLabel="true" />
       <s:password name="password" placeholder="Mot de passe" requiredLabel="true" />
 
       <s:submit value="Connexion"/>

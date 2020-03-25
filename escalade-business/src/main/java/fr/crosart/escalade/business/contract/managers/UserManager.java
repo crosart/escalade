@@ -12,11 +12,11 @@ public interface UserManager {
     /**
      * Renvoie l'{@link User} correspondant au couple login / mot de passe
      *
-     * @param pLogin le login de l'Utilisateur
+     * @param pMail le mail de l'Utilisateur
      * @return Le {@link User}
      * @throws NotFoundException Si l'Utilisateur n'est pas trouvé
      */
-    User logUser(String pLogin) throws NotFoundException;
+    User logUser(String pMail) throws NotFoundException;
 
     User getUserDetail(Integer pId) throws NotFoundException;
 
