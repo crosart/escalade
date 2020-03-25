@@ -97,6 +97,7 @@ public class LoginAction extends ActionSupport implements SessionAware {
      * Action permettant la connexion d'un utilisateur
      * @return input / success
      */
+
     public String doLogin() {
         String vResult = ActionSupport.INPUT;
         if (!StringUtils.isAllEmpty(login, password)) {
@@ -152,12 +153,10 @@ public class LoginAction extends ActionSupport implements SessionAware {
 
                 vResult = ActionSupport.SUCCESS;
             } catch (DuplicateKeyException vEx) {
-                StringWriter stringException = new StringWriter();
-                vEx.printStackTrace(new PrintWriter(stringException));
-                String exception = stringException.toString();
-                if (exception.contains("registereduser_userlogin")) {
+                String exception = vEx.getMessage();
+                if (exception.contains("(userlogin)")) {
                     this.addActionError("Ce login existe déjà");
-                } else if (exception.contains("registereduser_usernickname")) {
+                } else if (exception.contains("(usernickname)")) {
                     this.addActionError("Ce nickname est déjà utilisé");
                 }
             } catch (Exception vEx) {
