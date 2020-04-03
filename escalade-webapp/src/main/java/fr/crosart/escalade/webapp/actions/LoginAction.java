@@ -109,25 +109,25 @@ public class LoginAction extends ActionSupport implements SessionAware {
     public String doLogin() {
         String vResult = ActionSupport.INPUT;
         if (!StringUtils.isAllEmpty(mail, password)) {
-                try {
+            try {
 
-                    User vUser = managerFactory.getUserManager().logUser(mail.toLowerCase());
+                User vUser = managerFactory.getUserManager().logUser(mail.toLowerCase());
 
-                    if (password.equals(vUser.getPassword())) {
+                if (password.equals(vUser.getPassword())) {
 
-                        // Ajout de l'utilisateur en session
-                        this.session.put("user", vUser);
+                    // Ajout de l'utilisateur en session
+                    this.session.put("user", vUser);
 
-                        vResult = ActionSupport.SUCCESS;
+                    vResult = ActionSupport.SUCCESS;
 
-                    } else {
+                } else {
 
-                        this.addActionError("Mail ou mot de passe invalide !");
+                    this.addActionError("Mail ou mot de passe invalide !");
 
-                    }
-                } catch (Exception vEx) {
-                    this.addActionError("Mail inconnu");
                 }
+            } catch (Exception vEx) {
+                this.addActionError("Mail inconnu");
+            }
         }
         return vResult;
     }
@@ -150,7 +150,8 @@ public class LoginAction extends ActionSupport implements SessionAware {
             try {
 
                 if (!confirmPassword.equals(password)) {
-                    throw new Exception("password mismatch");
+                    this.addActionError("Le mot de passe et la confirmation ne sont pas identiques");
+                    return vResult;
                 }
 
                 userBean.setPassword(password);
@@ -184,13 +185,8 @@ public class LoginAction extends ActionSupport implements SessionAware {
                     this.addActionError("Votre mot de passe ne peut contenir que des caractères alphanumériques et les caractères spéciaux : !\"#$%&()*+,-./:;<=>?@[\\]^_`{|}~");
                 }
             } catch (Exception vEx) {
-                String exception = vEx.getMessage();
-                if (exception.contains("password mismatch")) {
-                    this.addActionError("Le mot de passe et la confirmation ne sont pas identiques");
-                } else {
-                    vEx.printStackTrace();
-                    this.addActionError("Erreur lors de l'ajout !");
-                }
+                vEx.printStackTrace();
+                this.addActionError("Erreur lors de l'ajout !");
             }
         }
         return vResult;
