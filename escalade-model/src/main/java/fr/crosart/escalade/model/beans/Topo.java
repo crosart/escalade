@@ -9,6 +9,7 @@ public class Topo {
     private Integer userId;
     private LocalDate publishingDate;
     private boolean reserved;
+    private boolean pending;
     private String siteName;
     private String siteDepartment;
     private Integer reservedUserId;
@@ -69,12 +70,17 @@ public class Topo {
     public void setReservedUserName(String reservedUserName) {
         this.reservedUserName = reservedUserName;
     }
-
     public boolean isReserved() {
         return reserved;
     }
-
     public void setReserved(boolean reserved) {
         this.reserved = reserved;
     }
+    public boolean isPending() {
+        return pending;
+    }
+    public void setPending(boolean pending) {
+        this.pending = pending;
+    }
+
 }

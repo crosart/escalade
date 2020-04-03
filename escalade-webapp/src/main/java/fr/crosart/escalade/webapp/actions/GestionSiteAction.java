@@ -226,6 +226,20 @@ public class GestionSiteAction extends ActionSupport {
     public String doCreate() {
         LocalDate vDate = LocalDate.now();
 
+        List<Department> listDepartment = managerFactory.getDepartmentManager().getListDepartments();
+        departments = new String[listDepartment.size()+1];
+        departments[0] = "Département";
+        for (int i = 0; i < listDepartment.size(); i++) {
+            departments[i+1] = listDepartment.get(i).getName();
+        }
+
+        List<Country> listCountry = managerFactory.getCountryManager().getListCountries();
+        countries = new String[listCountry.size()+1];
+        countries[0] = "Pays";
+        for (int i = 0; i < listCountry.size(); i++) {
+            countries[i+1] = listCountry.get(i).getName();
+        }
+
         String vResult = ActionSupport.INPUT;
         if (!StringUtils.isEmpty(name)) {
             try {
@@ -253,8 +267,6 @@ public class GestionSiteAction extends ActionSupport {
 
             return vResult;
         }
-
-
 
         return vResult;
     }

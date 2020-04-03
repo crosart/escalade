@@ -21,6 +21,7 @@ public class TopoListRowMapper implements RowMapper<Topo> {
         DateTimeFormatter dateFormatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
         topo.setPublishingDate(LocalDate.parse(rs.getString("topopublishingdate"), dateFormatter));
         topo.setReserved(rs.getBoolean("topoisreserved"));
+        topo.setPending(rs.getBoolean("topoispending"));
         topo.setReservedUserId(rs.getInt("reserveduserid"));
         topo.setReservedUserName(rs.getString("usernickname"));
         topo.setSiteName(rs.getString("sitename"));
