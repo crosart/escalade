@@ -31,7 +31,7 @@
         <s:property value="siteName" /> - <s:property value="siteDepartment"/>
         <s:if test="pending && !reserved">
           <s:property value="reservedUserName" />&nbsp;a demandé l'accès au topo :&nbsp;
-          [<s:a action="accept_topo">CONFIRMER</s:a>]
+          [<s:a action="accept_topo"><s:param name="topoId" value="id" />CONFIRMER</s:a>]
         </s:if>
         <s:elseif test="!pending && reserved">
           Réservé par : <s:property value="reservedUserName" />&nbsp;
