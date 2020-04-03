@@ -23,7 +23,7 @@ public class GestionTopoAction extends ActionSupport implements SessionAware {
     private Integer id;
     private Integer userId;
     private Integer topoId;
-    private Integer siteId;
+    private Integer sId;
 
     public String doClaim() {
 
@@ -94,11 +94,11 @@ public class GestionTopoAction extends ActionSupport implements SessionAware {
         this.topoId = topoId;
     }
 
-    public Integer getSiteId() {
-        return siteId;
+    public Integer getsId() {
+        return sId;
     }
 
-    public void setSiteId(Integer siteId) {
-        this.siteId = siteId;
+    public void setsId(Integer sId) {
+        this.sId = sId;
     }
 }

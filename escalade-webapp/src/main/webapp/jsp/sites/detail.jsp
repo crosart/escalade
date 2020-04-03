@@ -16,7 +16,7 @@
   <s:if test="site.isOfficial"><img src="${pageContext.request.contextPath}/resources/img/technical/official_stamp.png" alt="officialStamp" /></s:if>
   <s:elseif test="!site.isofficial && #session.user.isMember">
     [<s:a action="official_site">
-    <s:param name="siteId" value="site.id" />
+    <s:param name="sId" value="site.id" />
     <s:param name="id" value="site.id" />
     RENDRE OFFICIEL</s:a>]
   </s:elseif>
@@ -32,7 +32,7 @@
       Aucun topo n'est disponible !
       <s:if test="#session.user">
         <s:a action="claim_topo">
-          <s:param name="siteId" value="siteId" />
+          <s:param name="sId" value="sId" />
           Indiquer que vous le possédez !
         </s:a>
       </s:if>
@@ -53,7 +53,7 @@
                 &nbsp;&gt;&gt;&gt;&nbsp;
                 <s:a action="reserve_topo">
                   <s:param name="topoId" value="id" />
-                  <s:param name="siteId" value="siteId" />
+                  <s:param name="sId" value="sId" />
                   RESERVER LE TOPO
                 </s:a>
               </s:if>
@@ -81,7 +81,6 @@
     <ul>
       <s:iterator value="listComment" status="status">
         <li>
-          <s:set var="sId" value="siteId" />
           Posté par <s:a action="user_detail">
           <s:param name="id" value="userId" />
           <s:property value="userNickname" />
@@ -94,9 +93,8 @@
           </p>
           <p>
             [<s:a action="delete_comment">
-
+            <s:param name="sId" value="%{ site.id }" />
             <s:param name="commentId" value="id" />
-            <s:param name="sId" value="sId" />
             supprimer le commentaire
             </s:a>]
           </p>

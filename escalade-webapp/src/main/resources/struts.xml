@@ -49,7 +49,7 @@
         <action name="delete_comment" class="fr.crosart.escalade.webapp.actions.GestionCommentAction" method="doDelete">
             <result name="success" type="redirectAction">
                 <param name="actionName">site_detail</param>
-                <param name="id">${ sId }</param>
+                <param name="id">${sId}</param>
             </result>
         </action>
 

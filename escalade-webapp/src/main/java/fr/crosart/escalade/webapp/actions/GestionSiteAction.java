@@ -29,7 +29,7 @@ public class GestionSiteAction extends ActionSupport {
 
     // -- Entrée
     private Integer id;
-    private Integer siteId;
+    private Integer sId;
 
 
     private String name;
@@ -67,11 +67,11 @@ public class GestionSiteAction extends ActionSupport {
 
     // ===== Getters & Setters
 
-    public Integer getSiteId() {
-        return siteId;
+    public Integer getsId() {
+        return sId;
     }
-    public void setSiteId(Integer siteId) {
-        this.siteId = siteId;
+    public void setsId(Integer sId) {
+        this.sId = sId;
     }
 
     public void setId(Integer id) {
@@ -233,7 +233,7 @@ public class GestionSiteAction extends ActionSupport {
                 listComment = managerFactory.getCommentManager().getListComment(id);
                 listTopo = managerFactory.getTopoManager().getListTopoSite(id);
 
-                siteId = site.getId();
+                sId = site.getId();
 
             } catch (NotFoundException pE) {
                 this.addActionError(getText("error.site.notfound", Collections.singletonList(id)));
