@@ -14,6 +14,8 @@ public class Topo {
     private String siteDepartment;
     private Integer reservedUserId;
     private String reservedUserName;
+    private String reservedUserTelephone;
+    private String reservedUserMail;
 
     public Topo(Integer pSiteId) {
         siteId = pSiteId;
@@ -82,5 +84,16 @@ public class Topo {
     public void setPending(boolean pending) {
         this.pending = pending;
     }
-
+    public String getReservedUserTelephone() {
+        return reservedUserTelephone;
+    }
+    public void setReservedUserTelephone(String reservedUserTelephone) {
+        this.reservedUserTelephone = reservedUserTelephone;
+    }
+    public String getReservedUserMail() {
+        return reservedUserMail;
+    }
+    public void setReservedUserMail(String reservedUserMail) {
+        this.reservedUserMail = reservedUserMail;
+    }
 }

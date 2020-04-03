@@ -42,6 +42,16 @@ public class GestionTopoAction extends ActionSupport implements SessionAware {
 
     }
 
+    public String doAccept() {
+
+        vUser = (User) this.session.get("user");
+        userId = vUser.getId();
+        managerFactory.getTopoManager().acceptTopo(id);
+
+        return ActionSupport.SUCCESS;
+
+    }
+
     public String doUnlock() {
 
         vUser = (User) this.session.get("user");

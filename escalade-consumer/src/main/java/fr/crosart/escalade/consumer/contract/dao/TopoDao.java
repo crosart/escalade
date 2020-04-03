@@ -15,5 +15,7 @@ public interface TopoDao {
 
     void reserveTopo(Integer pSiteId, Integer pUserId);
 
+    void acceptTopo(Integer pTopoId);
+
     void unlockTopo(Integer pTopoId);
 }

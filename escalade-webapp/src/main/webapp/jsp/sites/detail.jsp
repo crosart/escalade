@@ -27,14 +27,14 @@
     <s:if test="topo == null">
       Aucun topo n'est disponible !
       <s:if test="#session.user">
-        <s:a action="own_topo">
+        <s:a action="claim_topo">
           <s:param name="id" value="%{ site.id }" />
           Indiquer que vous le possédez !
         </s:a>
       </s:if>
     </s:if>
     <s:else>
-      <s:if test="topo.isReserved">
+      <s:if test="topo.isPending || topo.isReserved">
 
         Le topo est actuellement réservé !
 

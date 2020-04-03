@@ -24,6 +24,8 @@ public class TopoListRowMapper implements RowMapper<Topo> {
         topo.setPending(rs.getBoolean("topoispending"));
         topo.setReservedUserId(rs.getInt("reserveduserid"));
         topo.setReservedUserName(rs.getString("usernickname"));
+        topo.setReservedUserMail(rs.getString("usermail"));
+        topo.setReservedUserTelephone(rs.getString("usertelephone"));
         topo.setSiteName(rs.getString("sitename"));
         topo.setSiteDepartment(rs.getString("sitedepartment"));
 

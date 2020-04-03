@@ -14,4 +14,6 @@ public interface TopoManager {
     void reserveTopo(Integer pSiteId, Integer pUserId);
 
     void unlockTopo(Integer pTopoId);
+
+    void acceptTopo(Integer pTopoId);
 }

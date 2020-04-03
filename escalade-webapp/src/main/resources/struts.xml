@@ -66,7 +66,7 @@
             <result name="success">/jsp/account.jsp</result>
         </action>
 
-        <action name="own_topo" class="fr.crosart.escalade.webapp.actions.GestionTopoAction" method="doClaim">
+        <action name="claim_topo" class="fr.crosart.escalade.webapp.actions.GestionTopoAction" method="doClaim">
             <result name="success" type="redirectAction">
             <param name="actionName">site_detail</param>
             <param name="id">${ id }</param>
@@ -77,6 +77,13 @@
             <result name="success" type="redirectAction">
                 <param name="actionName">site_detail</param>
                 <param name="id">${ id }</param>
+            </result>
+        </action>
+
+        <action name="accept_topo" class="fr.crosart.escalade.webapp.actions.GestionTopoAction" method="doAccept">
+            <result name="success" type="redirectAction">
+                <param name="actionName">account</param>
+                <param name="id">${ userId }</param>
             </result>
         </action>
 

@@ -15,10 +15,6 @@
 <s:if test="user.isMember"><img src="${pageContext.request.contextPath}/resources/img/technical/member_stamp.png" alt="memberStamp" /></s:if>
 
 <s:property value="user.firstName" />&nbsp;<s:property value="user.lastName" />
-<s:if test="topoOwner == true">
-  <s:property value="user.mail" />
-  <s:property value="user.telephone" />
-</s:if>
 
 <hr>
 

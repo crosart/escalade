@@ -14,39 +14,43 @@
 </s:if>
 <s:else>
 
-<h1>ACCOUNT</h1>
+  <h1>ACCOUNT</h1>
 
-<s:property value="#session.user.firstname" />
-<s:property value="#session.user.lastname" />
-<s:property value="#session.user.nickname" />
+  <s:property value="#session.user.firstname" />
+  <s:property value="#session.user.lastname" />
+  <s:property value="#session.user.nickname" />
 
-<hr>
+  <hr>
 
-<h2>Mes topos :</h2>
+  <h2>Mes topos :</h2>
 
-<ul>
-  <s:iterator value="listTopo">
-    <li>
-      <s:param name="id" value="id" />
-      <s:property value="siteName" /> - <s:property value="siteDepartment"/>
-      <s:if test="reserved">
-        Réservé par : <s:a action="user_detail">
-          <s:param name="topoOwner" value="true" />
-          <s:param name="id" value="reservedUserId" />
-          <s:property value="reservedUserName" />
-        </s:a>
-        <s:a action="unlock_topo">
-          <s:param name="id" value="id" />
-          Remettre ce topo à disposition
-        </s:a>
-      </s:if>
-      <s:else>
-        Topo disponible
-      </s:else>
+  <ul>
+    <s:iterator value="listTopo">
+      <li>
+        <s:param name="id" value="id" />
+        <s:property value="siteName" /> - <s:property value="siteDepartment"/>
+        <s:if test="pending && !reserved">
+          <s:property value="reservedUserName" />&nbsp;a demandé l'accès au topo :&nbsp;
+          [<s:a action="accept_topo">CONFIRMER</s:a>]
+        </s:if>
+        <s:elseif test="!pending && reserved">
+          Réservé par : <s:property value="reservedUserName" />&nbsp;
+          [<s:property value="reservedUserMail" />]
+          <s:if test="reservedUserTelephone != null">
+            &nbsp;-&nbsp;<s:property value="reservedUserTelephone" />
+          </s:if>
+          <s:a action="unlock_topo">
+            <s:param name="id" value="id" />
+            Remettre ce topo à disposition
+          </s:a>
+        </s:elseif>
+        <s:else>
+          Topo disponible
+        </s:else>
 
-    </li>
-  </s:iterator>
-</ul>
+      </li>
+    </s:iterator>
+  </ul>
 </s:else>
 </body>
 </html>

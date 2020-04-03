@@ -34,7 +34,7 @@ public class TopoDaoImpl extends AbstractDaoImpl implements TopoDao {
     public List<Topo> getListTopos(Integer pUserId) {
 
         JdbcTemplate vJdbcTemplate = new JdbcTemplate(getDataSource());
-        String vSQL = "SELECT c.*, u.sitename, u.sitedepartment, v.usernickname FROM escalade.topo c INNER JOIN escalade.site u ON u.siteid = c.siteid " +
+        String vSQL = "SELECT c.*, u.sitename, u.sitedepartment, v.usernickname, v.usermail, v.usertelephone FROM escalade.topo c INNER JOIN escalade.site u ON u.siteid = c.siteid " +
                 "FULL OUTER JOIN escalade.registereduser v ON v.userid = c.reserveduserid WHERE c.userid = " + pUserId + " ORDER BY topoid DESC";
 
         try {
@@ -65,12 +65,25 @@ public class TopoDaoImpl extends AbstractDaoImpl implements TopoDao {
     public void reserveTopo(Integer pSiteId, Integer pUserId) {
 
         NamedParameterJdbcTemplate vJdbcTemplate = new NamedParameterJdbcTemplate(getDataSource());
-        String vSQL = "UPDATE escalade.topo SET reserveduserid = :reserveduserid, topoisreserved = :isreserved WHERE siteid = :siteid";
+        String vSQL = "UPDATE escalade.topo SET reserveduserid = :reserveduserid, topoispending = :ispending WHERE siteid = :siteid";
 
         MapSqlParameterSource vParams = new MapSqlParameterSource();
         vParams.addValue("reserveduserid", pUserId);
         vParams.addValue("siteid", pSiteId);
-        vParams.addValue("isreserved", true);
+        vParams.addValue("ispending", true);
+
+        vJdbcTemplate.update(vSQL, vParams);
+
+    }
+
+    @Override
+    public void acceptTopo(Integer pTopoId) {
+
+        NamedParameterJdbcTemplate vJdbcTemplate = new NamedParameterJdbcTemplate(getDataSource());
+        String vSQL = "UPDATE escalade.topo SET topoisreserved = true, topoispending = false WHERE topoid = :topoid";
+
+        MapSqlParameterSource vParams = new MapSqlParameterSource();
+        vParams.addValue("topoid", pTopoId);
 
         vJdbcTemplate.update(vSQL, vParams);
 
