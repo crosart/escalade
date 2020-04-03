@@ -9,4 +9,5 @@ public interface CommentDao {
     List<Comment> getListComments(Integer pSiteId);
     void insertNewComment(Comment pComment);
 
+    void deleteComment(Integer pCommentId);
 }

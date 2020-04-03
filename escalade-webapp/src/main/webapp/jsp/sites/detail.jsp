@@ -14,6 +14,12 @@
       </s:if></h1>
   </div>
   <s:if test="site.isOfficial"><img src="${pageContext.request.contextPath}/resources/img/technical/official_stamp.png" alt="officialStamp" /></s:if>
+  <s:elseif test="!site.isofficial && #session.user.isMember">
+    [<s:a action="official_site">
+    <s:param name="siteId" value="site.id" />
+    <s:param name="id" value="site.id" />
+    RENDRE OFFICIEL</s:a>]
+  </s:elseif>
   <div id="site_detail">
     <p>Ajouté le : <s:property value="site.creationDate" /></p>
     <p>Coordonnées GPS : <s:property value="site.latitude" /> - <s:property value="site.longitude" /></p>
@@ -26,7 +32,7 @@
       Aucun topo n'est disponible !
       <s:if test="#session.user">
         <s:a action="claim_topo">
-          <s:param name="id" value="%{ site.id }" />
+          <s:param name="siteId" value="siteId" />
           Indiquer que vous le possédez !
         </s:a>
       </s:if>
@@ -35,23 +41,23 @@
       <ul>
         <s:iterator value="listTopo">
           <li>
-              <s:if test="pending || reserved">
+            <s:if test="pending || reserved">
 
-                Topo actuellement réservé !
+              Topo actuellement réservé !
 
+            </s:if>
+
+            <s:else>
+              Topo publié le <s:property value="publishingDate" /> disponible !
+              <s:if test="#session.user">
+                &nbsp;&gt;&gt;&gt;&nbsp;
+                <s:a action="reserve_topo">
+                  <s:param name="topoId" value="id" />
+                  <s:param name="siteId" value="siteId" />
+                  RESERVER LE TOPO
+                </s:a>
               </s:if>
-
-              <s:else>
-                Topo publié le <s:property value="publishingDate" /> disponible !
-                <s:if test="#session.user">
-                  &nbsp;&gt;&gt;&gt;&nbsp;
-                  <s:a action="reserve_topo">
-                    <s:param name="topoId" value="id" />
-                    <s:param name="siteId" value="siteId" />
-                    RESERVER LE TOPO
-                  </s:a>
-                </s:if>
-              </s:else>
+            </s:else>
           </li>
         </s:iterator>
       </ul>
@@ -75,13 +81,26 @@
     <ul>
       <s:iterator value="listComment" status="status">
         <li>
-
+          <s:set var="sId" value="siteId" />
           Posté par <s:a action="user_detail">
           <s:param name="id" value="userId" />
           <s:property value="userNickname" />
         </s:a>&nbsp;le&nbsp;<s:property value="date"  />
           <p><s:property value="content" /></p>
 
+          <s:if test="#session.user.isMember">
+          <p>
+            [modifier le commentaire]
+          </p>
+          <p>
+            [<s:a action="delete_comment">
+
+            <s:param name="commentId" value="id" />
+            <s:param name="sId" value="sId" />
+            supprimer le commentaire
+            </s:a>]
+          </p>
+          </s:if>
 
 
         </li>

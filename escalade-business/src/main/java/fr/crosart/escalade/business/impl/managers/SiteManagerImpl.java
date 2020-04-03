@@ -55,4 +55,9 @@ public class SiteManagerImpl extends AbstractManager implements SiteManager {
         return siteDao.getSiteDepartments();
     }
 
+    @Override
+    public void setSiteOfficial(Integer pSiteId) {
+        siteDao.setSiteOfficial(pSiteId);
+    }
+
 }

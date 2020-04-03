@@ -290,4 +290,12 @@ public class GestionSiteAction extends ActionSupport {
         return vResult;
     }
 
+    public String doSetOfficial() {
+
+        managerFactory.getSiteManager().setSiteOfficial(id);
+
+        return ActionSupport.SUCCESS;
+
+    }
+
 }

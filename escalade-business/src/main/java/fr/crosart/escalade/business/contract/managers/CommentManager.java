@@ -9,4 +9,5 @@ public interface CommentManager {
     List<Comment> getListComment(Integer pSiteId);
     void insertComment(Comment pComment);
 
+    void deleteComment(Integer pCommentId);
 }

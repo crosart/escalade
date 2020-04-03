@@ -28,6 +28,8 @@ public class GestionCommentAction extends ActionSupport implements SessionAware 
     private Integer siteId;
     private User vUser;
     private Parameter pId;
+    private Integer sId;
+    private Integer commentId;
 
     private Map<String, Object> session;
 
@@ -66,6 +68,14 @@ public class GestionCommentAction extends ActionSupport implements SessionAware 
 
 }
 
+    public String doDelete() {
+
+        managerFactory.getCommentManager().deleteComment(commentId);
+
+        return ActionSupport.SUCCESS;
+
+    }
+
     public void setComment(Comment comment) {
         this.comment = comment;
     }
@@ -83,6 +93,22 @@ public class GestionCommentAction extends ActionSupport implements SessionAware 
     }
     public void setpId(Parameter pId) {
         this.pId = pId;
+    }
+
+    public Integer getCommentId() {
+        return commentId;
+    }
+
+    public void setCommentId(Integer commentId) {
+        this.commentId = commentId;
+    }
+
+    public Integer getsId() {
+        return sId;
+    }
+
+    public void setsId(Integer sId) {
+        this.sId = sId;
     }
 
     @Override

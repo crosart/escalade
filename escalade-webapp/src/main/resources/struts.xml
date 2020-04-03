@@ -46,6 +46,14 @@
             </result>
         </action>
 
+        <action name="delete_comment" class="fr.crosart.escalade.webapp.actions.GestionCommentAction" method="doDelete">
+            <result name="success" type="redirectAction">
+                <param name="actionName">site_detail</param>
+                <param name="id">${ sId }</param>
+            </result>
+        </action>
+
+
         <!-- Actions Login/Logout -->
         <action name="login" class="fr.crosart.escalade.webapp.actions.LoginAction" method="doLogin">
             <result name="input">/jsp/login.jsp</result>
@@ -69,7 +77,7 @@
         <action name="claim_topo" class="fr.crosart.escalade.webapp.actions.GestionTopoAction" method="doClaim">
             <result name="success" type="redirectAction">
             <param name="actionName">site_detail</param>
-            <param name="id">${ id }</param>
+            <param name="id">${ siteId }</param>
             </result>
         </action>
 
@@ -91,6 +99,13 @@
             <result name="success" type="redirectAction">
                 <param name="actionName">account</param>
                 <param name="id">${ userId }</param>
+            </result>
+        </action>
+
+        <action name="official_site" class="fr.crosart.escalade.webapp.actions.GestionSiteAction" method="doSetOfficial">
+            <result name="success" type="redirectAction">
+                <param name="actionName">site_detail</param>
+                <param name="id">${ siteId }</param>
             </result>
         </action>
 

@@ -24,4 +24,9 @@ public class CommentManagerImpl extends AbstractManager implements CommentManage
         commentDao.insertNewComment(pComment);
     }
 
+    @Override
+    public void deleteComment(Integer pCommentId) {
+        commentDao.deleteComment(pCommentId);
+    }
+
 }

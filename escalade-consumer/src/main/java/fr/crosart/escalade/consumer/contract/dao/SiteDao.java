@@ -21,4 +21,6 @@ public interface SiteDao {
     List<Site> getSiteCountries();
 
     List<Site> getSiteDepartments();
+
+    void setSiteOfficial(Integer pSiteId);
 }

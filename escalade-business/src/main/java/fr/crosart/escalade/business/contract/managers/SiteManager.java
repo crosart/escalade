@@ -38,4 +38,6 @@ public interface SiteManager {
     List<Site> getSiteCountries();
 
     List<Site> getSiteDepartments();
+
+    void setSiteOfficial(Integer pSiteId);
 }

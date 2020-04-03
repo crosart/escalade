@@ -157,4 +157,15 @@ public class SiteDaoImpl extends AbstractDaoImpl implements SiteDao {
         return vJdbcTemplate.query(vSQL, vRowMapper);
 
     }
+
+    @Override
+    public void setSiteOfficial(Integer pSiteId) {
+
+        JdbcTemplate vJdbcTemplate = new JdbcTemplate(getDataSource());
+        String vSQL = "UPDATE escalade.site SET siteisofficial = true WHERE siteid = " + pSiteId;
+
+        vJdbcTemplate.update(vSQL);
+
+    }
+
 }

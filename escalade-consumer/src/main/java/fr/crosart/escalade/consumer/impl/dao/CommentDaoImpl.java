@@ -40,4 +40,14 @@ public class CommentDaoImpl extends AbstractDaoImpl implements CommentDao {
 
     }
 
+    @Override
+    public void deleteComment(Integer pCommentId) {
+
+        JdbcTemplate vJdbcTemplate = new JdbcTemplate(getDataSource());
+        String vSQL = "DELETE FROM escalade.comment WHERE commentid = " + pCommentId;
+
+        vJdbcTemplate.update(vSQL);
+
+    }
+
 }
