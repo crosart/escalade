@@ -53,6 +53,13 @@
             </result>
         </action>
 
+        <action name="modify_comment" class="fr.crosart.escalade.webapp.actions.GestionCommentAction" method="doModify">
+            <result name="input">/jsp/comments/modify.jsp</result>
+            <result name="success" type="redirectAction">
+                <param name="actionName">site_detail</param>
+                <param name="id">${sId}</param>
+            </result>
+        </action>
 
         <!-- Actions Login/Logout -->
         <action name="login" class="fr.crosart.escalade.webapp.actions.LoginAction" method="doLogin">

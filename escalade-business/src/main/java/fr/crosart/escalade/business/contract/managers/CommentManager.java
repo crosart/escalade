@@ -7,7 +7,12 @@ import java.util.List;
 public interface CommentManager {
 
     List<Comment> getListComment(Integer pSiteId);
+
+    Comment getComment(Integer pCommentId);
+
     void insertComment(Comment pComment);
 
     void deleteComment(Integer pCommentId);
+
+    void modifyComment(String pContent, Integer pCommentId);
 }

@@ -30,6 +30,7 @@ public class GestionCommentAction extends ActionSupport implements SessionAware 
     private Parameter pId;
     private Integer sId;
     private Integer commentId;
+    private boolean commentStatus = false;
 
     private Map<String, Object> session;
 
@@ -76,9 +77,31 @@ public class GestionCommentAction extends ActionSupport implements SessionAware 
 
     }
 
+    public String doModify() {
+
+        String vResult = ActionSupport.INPUT;
+
+        comment = managerFactory.getCommentManager().getComment(commentId);
+
+        if (commentStatus) {
+            try {
+
+                managerFactory.getCommentManager().modifyComment(content, commentId);
+
+                vResult = ActionSupport.SUCCESS;
+            } catch (Exception vEx) {
+                vEx.printStackTrace();
+                this.addActionError("Erreur lors de l'ajout !");
+            }
+        }
+
+        return vResult;
+    }
+
     public void setComment(Comment comment) {
         this.comment = comment;
     }
+
     public void setContent(String content) {
         this.content = content;
     }
@@ -109,6 +132,18 @@ public class GestionCommentAction extends ActionSupport implements SessionAware 
 
     public void setsId(Integer sId) {
         this.sId = sId;
+    }
+
+    public boolean isCommentStatus() {
+        return commentStatus;
+    }
+
+    public void setCommentStatus(boolean commentStatus) {
+        this.commentStatus = commentStatus;
+    }
+
+    public Comment getComment() {
+        return comment;
     }
 
     @Override

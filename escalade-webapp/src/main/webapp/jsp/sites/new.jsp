@@ -14,8 +14,7 @@
   <s:actionerror />
   <s:form action="site_new">
     <s:textfield name="name" label="Nom" requiredLabel="true" />
-    <jsp:useBean id="departments" scope="request" type="fr.crosart.escalade.model.beans.Department"/>
-    <s:doubleselect label="Pays" list="countries" doubleList="top == 'France' ? ${ departments } : {''}" name="country" doubleName="department" requiredLabel="true" />
+    <s:doubleselect label="Pays" list="countries" doubleList="departments" name="country" doubleName="department" requiredLabel="true" />
     <s:select list="countries" label="Pays" name="country" requiredLabel="true" value="France" />
     <s:select list="departments" label="Département" name="department" requiredLabel="true" value="Département" />
     <s:textfield name="latitude" label="Latitude" requiredLabel="true" />

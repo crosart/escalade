@@ -68,7 +68,7 @@
     <h2>Commentaires</h2>
 
     <p>Ajouter Commentaire :
-      <s:if test="#session.user.isMember">
+      <s:if test="#session.user">
         <s:actionerror />
         <s:form action="add_comment">
           <s:hidden name="siteId" value="%{ site.id }" />
@@ -89,14 +89,17 @@
 
           <s:if test="#session.user.isMember">
           <p>
-            [modifier le commentaire]
+            <s:a action="modify_comment">
+            <s:param name="commentId" value="id" />
+            modifier le commentaire
+            </s:a>
           </p>
           <p>
-            [<s:a action="delete_comment">
+            <s:a action="delete_comment">
             <s:param name="sId" value="%{ site.id }" />
             <s:param name="commentId" value="id" />
             supprimer le commentaire
-            </s:a>]
+            </s:a>
           </p>
           </s:if>
 

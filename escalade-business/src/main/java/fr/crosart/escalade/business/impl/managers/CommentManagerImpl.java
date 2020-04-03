@@ -20,6 +20,11 @@ public class CommentManagerImpl extends AbstractManager implements CommentManage
     }
 
     @Override
+    public Comment getComment(Integer pCommentId) {
+        return commentDao.getComment(pCommentId);
+    }
+
+    @Override
     public void insertComment(Comment pComment) {
         commentDao.insertNewComment(pComment);
     }
@@ -27,6 +32,11 @@ public class CommentManagerImpl extends AbstractManager implements CommentManage
     @Override
     public void deleteComment(Integer pCommentId) {
         commentDao.deleteComment(pCommentId);
+    }
+
+    @Override
+    public void modifyComment(String pContent, Integer pCommentId) {
+        commentDao.modifyComment(pContent, pCommentId);
     }
 
 }

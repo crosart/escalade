@@ -24,6 +24,16 @@ public class CommentDaoImpl extends AbstractDaoImpl implements CommentDao {
     }
 
     @Override
+    public Comment getComment(Integer pCommentId) {
+        JdbcTemplate vJdbcTemplate = new JdbcTemplate(getDataSource());
+
+        String vSQL = "SELECT c.*, u.usernickname FROM escalade.comment c INNER JOIN escalade.registereduser u ON u.userid = c.userid WHERE commentid = " + pCommentId;
+
+        return vJdbcTemplate.queryForObject(vSQL, new CommentRowMapper());
+
+    }
+
+    @Override
     public void insertNewComment(Comment pComment) {
 
         NamedParameterJdbcTemplate vJdbcTemplate = new NamedParameterJdbcTemplate(getDataSource());
@@ -45,6 +55,16 @@ public class CommentDaoImpl extends AbstractDaoImpl implements CommentDao {
 
         JdbcTemplate vJdbcTemplate = new JdbcTemplate(getDataSource());
         String vSQL = "DELETE FROM escalade.comment WHERE commentid = " + pCommentId;
+
+        vJdbcTemplate.update(vSQL);
+
+    }
+
+    @Override
+    public void modifyComment(String pContent, Integer pCommentId) {
+
+        JdbcTemplate vJdbcTemplate = new JdbcTemplate(getDataSource());
+        String vSQL = "UPDATE escalade.comment SET commentcontent = '" + pContent + "' WHERE commentid = " + pCommentId;
 
         vJdbcTemplate.update(vSQL);
 
