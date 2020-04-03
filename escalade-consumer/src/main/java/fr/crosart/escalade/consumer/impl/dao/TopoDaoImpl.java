@@ -46,6 +46,16 @@ public class TopoDaoImpl extends AbstractDaoImpl implements TopoDao {
     }
 
     @Override
+    public List<Topo> getListTopoSite(Integer pSiteId) {
+
+        JdbcTemplate vJdbcTemplate = new JdbcTemplate(getDataSource());
+        String vSQL = "SELECT * FROM escalade.topo WHERE siteid = " + pSiteId + " ORDER BY topopublishingdate DESC" ;
+
+        return vJdbcTemplate.query(vSQL, new TopoRowMapper());
+
+    }
+
+    @Override
     public void insertTopo(Integer pSiteId, Integer pUserId) {
 
         NamedParameterJdbcTemplate vJdbcTemplate = new NamedParameterJdbcTemplate(getDataSource());
@@ -62,14 +72,14 @@ public class TopoDaoImpl extends AbstractDaoImpl implements TopoDao {
     }
 
     @Override
-    public void reserveTopo(Integer pSiteId, Integer pUserId) {
+    public void reserveTopo(Integer pTopoId, Integer pUserId) {
 
         NamedParameterJdbcTemplate vJdbcTemplate = new NamedParameterJdbcTemplate(getDataSource());
-        String vSQL = "UPDATE escalade.topo SET reserveduserid = :reserveduserid, topoispending = :ispending WHERE siteid = :siteid";
+        String vSQL = "UPDATE escalade.topo SET reserveduserid = :reserveduserid, topoispending = :ispending WHERE topoid = :topoid";
 
         MapSqlParameterSource vParams = new MapSqlParameterSource();
         vParams.addValue("reserveduserid", pUserId);
-        vParams.addValue("siteid", pSiteId);
+        vParams.addValue("topoid", pTopoId);
         vParams.addValue("ispending", true);
 
         vJdbcTemplate.update(vSQL, vParams);

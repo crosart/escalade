@@ -20,6 +20,7 @@ public class TopoRowMapper implements RowMapper<Topo> {
         topo.setUserId(rs.getInt("userid"));
         DateTimeFormatter dateFormatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
         topo.setPublishingDate(LocalDate.parse(rs.getString("topopublishingdate"), dateFormatter));
+        topo.setPending(rs.getBoolean("topoispending"));
         topo.setReserved(rs.getBoolean("topoisreserved"));
         topo.setReservedUserId(rs.getInt("reserveduserid"));
 

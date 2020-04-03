@@ -1,10 +1,12 @@
 package fr.crosart.escalade.webapp.actions;
 
+import com.opensymphony.xwork2.ActionContext;
 import com.opensymphony.xwork2.ActionSupport;
 import fr.crosart.escalade.business.contract.ManagerFactory;
 import fr.crosart.escalade.model.beans.*;
 import fr.crosart.escalade.model.exceptions.NotFoundException;
 import org.apache.commons.lang3.StringUtils;
+import org.apache.struts2.dispatcher.Parameter;
 
 
 import javax.inject.Inject;
@@ -27,6 +29,7 @@ public class GestionSiteAction extends ActionSupport {
 
     // -- Entrée
     private Integer id;
+    private Integer siteId;
 
 
     private String name;
@@ -55,12 +58,22 @@ public class GestionSiteAction extends ActionSupport {
     // -- Sortie
     private List<Site> listSite;
     private List<Comment> listComment;
+    private List<Topo> listTopo;
     private Site site;
     private Comment currentComment = new Comment();
     private Topo topo;
     private User user = new User();
+    private Parameter pId;
 
     // ===== Getters & Setters
+
+    public Integer getSiteId() {
+        return siteId;
+    }
+    public void setSiteId(Integer siteId) {
+        this.siteId = siteId;
+    }
+
     public void setId(Integer id) {
         this.id = id;
     }
@@ -145,6 +158,9 @@ public class GestionSiteAction extends ActionSupport {
     public String[] getCountries() {
         return countries;
     }
+    public List<Topo> getListTopo() {
+        return listTopo;
+    }
 
     public void setDepartments(String[] departments) {
         this.departments = departments;
@@ -208,13 +224,16 @@ public class GestionSiteAction extends ActionSupport {
     }
 
     public String doDetail() {
+
         if (id == null) {
             this.addActionError(getText("error.site.missing.id"));
         } else {
             try {
                 site = managerFactory.getSiteManager().getDetailSite(id);
                 listComment = managerFactory.getCommentManager().getListComment(id);
-                topo = managerFactory.getTopoManager().getTopo(id);
+                listTopo = managerFactory.getTopoManager().getListTopoSite(id);
+
+                siteId = site.getId();
 
             } catch (NotFoundException pE) {
                 this.addActionError(getText("error.site.notfound", Collections.singletonList(id)));

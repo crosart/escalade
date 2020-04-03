@@ -11,9 +11,11 @@ public interface TopoDao {
 
     List<Topo> getListTopos(Integer pUserId);
 
+    List<Topo> getListTopoSite(Integer pSiteId);
+
     void insertTopo(Integer pSiteId, Integer pUserId);
 
-    void reserveTopo(Integer pSiteId, Integer pUserId);
+    void reserveTopo(Integer pTopoId, Integer pUserId);
 
     void acceptTopo(Integer pTopoId);
 
