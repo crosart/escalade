@@ -6,13 +6,14 @@ import java.util.List;
 
 public interface CommentManager {
 
-    List<Comment> getListComment(Integer pSiteId);
-
-    Comment getComment(Integer pCommentId);
-
     void insertComment(Comment pComment);
+
+    void modifyComment(String pContent, Integer pCommentId);
 
     void deleteComment(Integer pCommentId);
 
-    void modifyComment(String pContent, Integer pCommentId);
+    Comment getComment(Integer pCommentId);
+
+    List<Comment> getCommentsList(Integer pSiteId);
+
 }

@@ -15,8 +15,10 @@ public class CommentManagerImpl extends AbstractManager implements CommentManage
     private CommentDao commentDao;
 
     @Override
-    public List<Comment> getListComment(Integer pSiteId) {
+    public List<Comment> getCommentsList(Integer pSiteId) {
+
         return commentDao.getListComments(pSiteId);
+
     }
 
     @Override

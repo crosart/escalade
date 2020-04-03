@@ -1,6 +1,5 @@
 package fr.crosart.escalade.webapp.actions;
 
-import com.opensymphony.xwork2.ActionContext;
 import com.opensymphony.xwork2.ActionSupport;
 import fr.crosart.escalade.business.contract.ManagerFactory;
 import fr.crosart.escalade.model.beans.*;
@@ -230,7 +229,7 @@ public class GestionSiteAction extends ActionSupport {
         } else {
             try {
                 site = managerFactory.getSiteManager().getDetailSite(id);
-                listComment = managerFactory.getCommentManager().getListComment(id);
+                listComment = managerFactory.getCommentManager().getCommentsList(id);
                 listTopo = managerFactory.getTopoManager().getListTopoSite(id);
 
                 sId = site.getId();
