@@ -15,6 +15,7 @@
     </annotationProcessing>
     <bytecodeTargetLevel>
       <module name="business" target="1.5" />
+      <module name="escalade_project" target="1.8" />
     </bytecodeTargetLevel>
   </component>
 </project>

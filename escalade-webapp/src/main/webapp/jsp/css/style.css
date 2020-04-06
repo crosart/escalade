@@ -1,9 +1,9 @@
 @font-face {
     font-family: 'Baloo 2 Regular';
-    src: url("../resources/font/baloo-2-v1-latin_latin-ext-regular.eot") format("embedded-opentype");
-    src: url("../resources/font/baloo-2-v1-latin_latin-ext-regular.ttf") format("truetype");
-    src: url("../resources/font/baloo-2-v1-latin_latin-ext-regular.woff") format("woff");
-    src: url("../resources/font/baloo-2-v1-latin_latin-ext-regular.woff2") format("woff2");
+    src: url("../../resources/font/baloo-2-v1-latin_latin-ext-regular.eot") format("embedded-opentype");
+    src: url("../../resources/font/baloo-2-v1-latin_latin-ext-regular.ttf") format("truetype");
+    src: url("../../resources/font/baloo-2-v1-latin_latin-ext-regular.woff") format("woff");
+    src: url("../../resources/font/baloo-2-v1-latin_latin-ext-regular.woff2") format("woff2");
 }
 
 * {
@@ -60,7 +60,7 @@ header {
     border: none;
     border-bottom: 2px solid #D4B195;
     background-color: #303030;
-    background-image: url("../resources/img/style_resources/icon_search.png");
+    background-image: url("../../resources/img/style_resources/icon_search.png");
     background-repeat: no-repeat;
     margin-left: 6px;
     padding-left: 40px;
@@ -95,7 +95,7 @@ nav {
 
 #logo_home {
     height: 500px;
-    background-image: url("../resources/img/style_resources/rock-climbing.jpg");
+    background-image: url("../../resources/img/style_resources/rock-climbing.jpg");
     background-attachment: fixed;
     background-position: center;
     background-repeat: no-repeat;
@@ -118,7 +118,7 @@ nav {
 }
 
 #login {
-    background-image: url("../resources/img/style_resources/background_login.jpg");
+    background-image: url("../../resources/img/style_resources/background_login.jpg");
 }
 
 #login input {
@@ -196,7 +196,7 @@ nav {
 }
 
 #search_button {
-    background-image: url("../resources/img/style_resources/icon_search.png");
+    background-image: url("../../resources/img/style_resources/icon_search.png");
     background-repeat: no-repeat;
     background-position: 10px 7px;
     border-radius: 4px;
@@ -233,7 +233,7 @@ nav {
 
 
 #signin {
-    background-image: url("../resources/img/style_resources/background_signin.jpg");
+    background-image: url("../../resources/img/style_resources/background_signin.jpg");
 
 }
 
@@ -303,7 +303,7 @@ h1.sitelocation {
 }
 
 .contenu.detail {
-    background-image: url("../resources/img/style_resources/background_sitedetail.jpg");
+    background-image: url("../../resources/img/style_resources/background_sitedetail.jpg");
     background-attachment: fixed;
     background-position: center;
     background-repeat: no-repeat;

@@ -1,6 +1,21 @@
 <%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 <header>
 
+  <nav>
+    <div class="nav-wrapper">
+      <a href="#" class="brand-logo">Les Amis de l'escalade</a>
+      <ul id="nav-mobile" class="right hide-on-med-and-down">
+        <li><a class="waves-effect waves-light btn">SEARCH</a></li>
+        <li>NEW SITE</li>
+        <li>ACCOUNT</li>
+        <li>LOGIN</li>
+        <li>SIGNIN</li>
+        <li>DISCONNECT</li>
+      </ul>
+    </div>
+  </nav>
+
+
     <div id="title">
       <s:a action="index"><img src="${pageContext.request.contextPath}/resources/img/style_resources/logo_title.png" alt="logo_titre" /></s:a>
     </div>
@@ -12,7 +27,7 @@
 
     </div>
 
-    <nav>
+   <!-- <nav>
       <span id="search_button">
         <s:a action="search">
           Recherche avancée
@@ -37,5 +52,5 @@
       </s:else>
 
 
-    </nav>
+    </nav>-->
 </header>
