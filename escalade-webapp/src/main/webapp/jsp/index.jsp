@@ -8,12 +8,45 @@
 <body>
 
 <%@ include file="./_include/header.jsp"%>
-<div class="contenu">
-  <div id="logo_home">
+
+<div class="container-fluid" style="padding-top: 60px;">
+  <div class="jumbotron">
     <img class="img_logo" src="${pageContext.request.contextPath}/resources/img/style_resources/logo.png" alt="logo" />
   </div>
 
-  <article class="article_index">
+  <div class="container">
+    <div class="row row-cols-1 row-cols-md-3">
+      <s:iterator value="listSite">
+        <s:param name="id" value="id" />
+        <div class="col mb-4">
+        <div class="card">
+          <div class="card-body">
+            <h5 class="card-title">
+              <s:a action="site_detail">
+                <s:param name="id" value="id" />
+                <s:property value="name" />
+              </s:a>
+              <s:if test="%{official}">
+                <span class="badge badge-success">Site Officiel</span>
+              </s:if>
+            </h5>
+            <h6 class="card-subtitle text-muted">
+              <span class="badge badge-primary"><s:property value="country" /></span>
+              <s:if test="%{department != null}">
+                <span class="badge badge-secondary"><s:property value="department" /></span>
+              </s:if>
+            </h6>
+            <p class="card-text text-truncate">
+              <s:property value="description" />
+            </p>
+          </div>
+        </div>
+        </div>
+      </s:iterator>
+    </div>
+  </div>
+
+<!--
     <h1 class="center">Derniers Sites ajoutés</h1>
 
     <ul class="liste">
@@ -33,7 +66,7 @@
         </li>
       </s:iterator>
     </ul>
-  </article>
+    -->
 </div>
 </body>
 </html>

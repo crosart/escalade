@@ -1,6 +1,14 @@
 <%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 <header>
 
+  <nav class="navbar fixed-top navbar-dark bg-dark">
+    <s:a action="index" cssClass="navbar-brand">Les amis de l'escalade</s:a>
+    <div class="btn-group" role="group" aria-label="Sign-In">
+      <button type="button" class="btn btn-secondary">Se Connecter</button>
+      <button type="button" class="btn btn-secondary">S'inscrire</button>
+    </div>
+  </nav>
+  <!--
     <div id="title">
       <s:a action="index"><img src="${pageContext.request.contextPath}/resources/img/style_resources/logo_title.png" alt="logo_titre" /></s:a>
     </div>
@@ -38,4 +46,5 @@
 
 
     </nav>
+    -->
 </header>
