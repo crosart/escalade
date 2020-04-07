@@ -10,7 +10,7 @@
 <%@ include file="./_include/header.jsp"%>
 
 <div class="container-fluid pr-0 pl-0" style="padding-top: 56px;">
-  <div class="jumbotron jumbotron-fluid" style="background: url('${pageContext.request.contextPath}/resources/img/logo_bg.jpg') no-repeat fixed center;">
+  <div class="jumbotron jumbotron-fluid" style="background: url('${pageContext.request.contextPath}/resources/img/logo_bg.jpg') no-repeat fixed center;background-size: cover">
     <div class="container">
       <img class="mx-auto d-block" src="${pageContext.request.contextPath}/resources/img/logo.png" alt="logo" />
     </div>
@@ -23,7 +23,7 @@
         <div class="col mb-5">
           <div class="card">
             <h5 class="card-header">
-              <s:a action="site_detail">
+              <s:a action="site_detail" cssClass="text-capitalize">
                 <s:param name="id" value="id" />
                 <s:property value="name" />
               </s:a>
