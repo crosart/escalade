@@ -13,9 +13,7 @@
   <div class="row h-100 justify-content-center align-items-center">
 
   <s:form action="signin" cssStyle="width: 250px;">
-    <div class="alert alert-danger" role="alert">
-      <s:actionerror cssClass="tsxt-justify" cssStyle="list-style-type: none" />
-    </div>
+    <s:actionerror cssClass="text-center btn btn-danger btn-sm" cssStyle="list-style-type: none;" />
     <s:textfield cssClass="form-control" name="mail" placeholder="E-Mail" requiredLabel="true" type="email" />
     <s:password cssClass="form-control" name="password" placeholder="Mot de passe" requiredLabel="true" />
     <s:password cssClass="form-control" name="confirmPassword" placeholder="Confirmation" requiredLabel="true" />

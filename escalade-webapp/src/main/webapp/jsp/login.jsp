@@ -12,8 +12,8 @@
 
   <div class="row h-100 justify-content-center align-items-center">
 
-    <s:actionerror />
     <s:form action="login">
+      <s:actionerror cssClass="text-center btn btn-danger btn-sm" cssStyle="list-style-type: none;" />
       <s:textfield cssClass="form-control" placeholder="E-Mail" name="mail" requiredLabel="true" />
       <s:password name="password" placeholder="Mot de passe" requiredLabel="true" cssClass="form-control mb-3"/>
       <s:submit value="Connexion" cssClass="btn btn-primary w-100" />
