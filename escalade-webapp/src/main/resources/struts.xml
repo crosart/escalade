@@ -57,7 +57,7 @@
             <result name="input">/jsp/comments/modify.jsp</result>
             <result name="success" type="redirectAction">
                 <param name="actionName">site_detail</param>
-                <param name="id">${sId}</param>
+                <param name="id">${ sId }</param>
             </result>
         </action>
 
