@@ -43,98 +43,98 @@
 
       <hr>
       <div class="container p-1">
-      <div class="card-deck">
-        <div class="card py-3 mb-1" style="min-width: 275px;">
-          <table class="my-auto">
-            <tr>
-              <td class="text-center" style="width: 50px;">
-                <i class="fas fa-location-arrow"></i>
-              </td>
-              <td>
-                <s:property value="site.latitude" />
-                -
-                <s:property value="site.longitude" />
-              </td>
-            </tr>
-            <tr>
-              <td class="text-center">
-                <i class="fas fa-layer-group"></i>
-              </td>
-              <td>
-                Difficulté de
-                <span class="badge badge-success">
+        <div class="card-deck">
+          <div class="card py-3 mb-1" style="min-width: 275px;">
+            <table class="my-auto">
+              <tr>
+                <td class="text-center" style="width: 50px;">
+                  <i class="fas fa-location-arrow"></i>
+                </td>
+                <td>
+                  <s:property value="site.latitude" />
+                  -
+                  <s:property value="site.longitude" />
+                </td>
+              </tr>
+              <tr>
+                <td class="text-center">
+                  <i class="fas fa-layer-group"></i>
+                </td>
+                <td>
+                  Difficulté de
+                  <span class="badge badge-success">
               <s:property value="site.cotationMin" />
             </span>&nbsp;à
-                <span class="badge badge-danger">
+                  <span class="badge badge-danger">
               <s:property value="site.cotationMax" />
             </span>
-              </td>
-            </tr>
-            <tr>
-              <td class="text-center">
-                <i class="fas fa-arrows-alt-v"></i>
-              </td>
-              <td>
-                Hauteur maximale de
-                <span class="badge badge-secondary">
+                </td>
+              </tr>
+              <tr>
+                <td class="text-center">
+                  <i class="fas fa-arrows-alt-v"></i>
+                </td>
+                <td>
+                  Hauteur maximale de
+                  <span class="badge badge-secondary">
               <s:property value="site.height" />m
             </span>
-              </td>
-            </tr>
-            <tr>
-              <td class="text-center">
-                <i class="fas fa-hashtag"></i>
-              </td>
-              <td>
+                </td>
+              </tr>
+              <tr>
+                <td class="text-center">
+                  <i class="fas fa-hashtag"></i>
+                </td>
+                <td>
             <span class="badge badge-secondary">
               <s:property value="site.tracks" /> voies
             </span> sur le site
-              </td>
-            </tr>
-            <tr>
-              <td class="text-center">
-                <i class="fas fa-calendar-day"></i>
-              </td>
-              <td>
-                Site ajouté le <s:property value="site.creationDate"/>
-              </td>
-            </tr>
-          </table>
-        </div>
-        <div class="card p-3 mb-1" style="min-width: 275px;">
-          <div class="my-auto">
-            <s:if test="listTopo == null">
-              Aucun topo n'est disponible pour ce site.
-            </s:if>
-            <s:else>
-              <h5>Topos</h5>
-              <hr>
-              <ul class="list-unstyled m-0">
-                <s:iterator value="listTopo">
-                  <li>
-                    <s:if test="pending || reserved">
+                </td>
+              </tr>
+              <tr>
+                <td class="text-center">
+                  <i class="fas fa-calendar-day"></i>
+                </td>
+                <td>
+                  Site ajouté le <s:property value="site.creationDate"/>
+                </td>
+              </tr>
+            </table>
+          </div>
+          <div class="card p-3 mb-1" style="min-width: 275px;">
+            <div class="my-auto">
+              <s:if test="listTopo == null">
+                Aucun topo n'est disponible pour ce site.
+              </s:if>
+              <s:else>
+                <h5>Topos</h5>
+                <hr>
+                <ul class="list-unstyled m-0">
+                  <s:iterator value="listTopo">
+                    <li>
+                      <s:if test="pending || reserved">
                       <span class="text-muted">
                         <del><s:property value="publishingDate" /></del>&nbsp;<span class="badge badge-danger">Indisponible</span>
                       </span>
-                    </s:if>
-                    <s:else>
-                      <s:property value="publishingDate" />
-                      <s:if test="#session.user">
-                        <s:a action="reserve_topo" cssClass="badge badge-success">
-                          <s:param name="topoId" value="id" />
-                          <s:param name="sId" value="site.id" />
-                          Réserver
-                        </s:a>
                       </s:if>
-                    </s:else>
-                  </li>
-                </s:iterator>
-              </ul>
-            </s:else>
+                      <s:else>
+                        <s:property value="publishingDate" />
+                        <s:if test="#session.user">
+                          <s:a action="reserve_topo" cssClass="badge badge-success">
+                            <s:param name="topoId" value="id" />
+                            <s:param name="sId" value="site.id" />
+                            Réserver
+                          </s:a>
+                        </s:if>
+                      </s:else>
+                    </li>
+                  </s:iterator>
+                </ul>
+              </s:else>
+            </div>
           </div>
-        </div>
 
-      </div>
+        </div>
       </div>
       <hr>
 
@@ -143,23 +143,31 @@
       </p>
 
       <hr>
-
-      <span class="float-right">
-        <a href="#add-comment" role="button" class="btn btn-info btn-sm"><i class="far fa-plus-square"></i>&nbsp;&nbsp;Je commente</a>
-      </span>
+      <s:if test="#session.user">
+        <span class="float-right">
+          <a href="#add-comment" role="button" class="btn btn-info btn-sm"><i class="far fa-plus-square"></i>&nbsp;&nbsp;Je commente</a>
+        </span>
+      </s:if>
 
       <h4 class="lead font-italic">Commentaires</h4>
 
       <div class="pt-2 mt-2">
-      <s:iterator value="listComment" status="status">
-        Posté par
-        <s:a action="user_detail">
-          <s:param name="id" value="userId" />
-          <s:property value="userNickname" />
-        </s:a>&nbsp;le&nbsp;<s:property value="date"  />
-        <p class="text-justify"><s:property value="content" /></p>
+        <s:iterator value="listComment" status="status">
+          <p class="mb-0 pb-0">
+            Posté par
+          <s:a action="user_detail">
+            <s:param name="id" value="userId" />
+            <s:property value="userNickname" />
+          </s:a>
+          </p>
+          <p class="text-muted mt-0 pt-0">
+            <small>
+              <s:property value="date" />
+            </small>
+          </p>
+          <p class="text-justify"><s:property value="content" /></p>
 
-        <p><s:if test="#session.user.isMember">
+          <p><s:if test="#session.user.isMember">
             <s:a action="modify_comment" cssClass="badge badge-warning">
               <s:param name="commentId" value="id" />
               Éditer
@@ -169,72 +177,26 @@
               <s:param name="commentId" value="id" />
               Supprimer
             </s:a>
-        </s:if>
-        </p>
+          </s:if>
+          </p>
 
-        <hr>
-      </s:iterator>
+          <hr>
+        </s:iterator>
       </div>
 
-      <h4 class="lead font-italic mt-0 pt-0" id="add-comment">Ajouter un commentaire</h4>
-
       <s:if test="#session.user">
-        <s:actionerror />
+        <h4 class="lead font-italic mt-0 pt-0" id="add-comment">Ajouter un commentaire</h4>
         <s:form action="add_comment" cssClass="container text-center">
           <s:hidden name="siteId" value="%{ site.id }" />
           <s:textarea name="content" required="true" cssClass="form-control" cssStyle="resize: none;"/>
-            <s:submit value="Commenter" cssClass="btn btn-primary mt-2" cssStyle="margin: auto;width: 150px;"/>
+          <s:submit value="Commenter" cssClass="btn btn-primary mt-2" cssStyle="margin: auto;width: 150px;"/>
         </s:form>
       </s:if>
-
     </div>
   </div>
 
 </div>
-<!--
-    <p>Ajouter Commentaire :
-      <s:if test="#session.user">
-        <s:actionerror />
-        <s:form action="add_comment">
-          <s:hidden name="siteId" value="%{ site.id }" />
-          <s:textarea name="content" label="Commentaire" required="true" />
-          <s:submit value="Ajouter" />
-        </s:form>
-      </s:if>
-    </p>
 
-    <ul>
-      <s:iterator value="listComment" status="status">
-        <li>
-          Posté par <s:a action="user_detail">
-          <s:param name="id" value="userId" />
-          <s:property value="userNickname" />
-        </s:a>&nbsp;le&nbsp;<s:property value="date"  />
-          <p><s:property value="content" /></p>
-
-          <s:if test="#session.user.isMember">
-          <p>
-            <s:a action="modify_comment">
-            <s:param name="commentId" value="id" />
-            modifier le commentaire
-            </s:a>
-          </p>
-          <p>
-            <s:a action="delete_comment">
-            <s:param name="sId" value="%{ site.id }" />
-            <s:param name="commentId" value="id" />
-            supprimer le commentaire
-            </s:a>
-          </p>
-          </s:if>
-
-
-        </li>
-      </s:iterator>
-    </ul>
-  </div>
-</div>
--->
 <script src="https://kit.fontawesome.com/20a90a2927.js" crossorigin="anonymous"></script>
 <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
