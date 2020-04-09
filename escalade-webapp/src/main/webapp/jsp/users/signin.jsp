@@ -12,16 +12,68 @@
 
   <div class="row h-100 justify-content-center align-items-center">
 
-  <s:form action="signin" cssStyle="width: 250px;">
+  <s:form theme="simple" action="signin" cssClass="text-center">
     <s:actionerror cssClass="text-center btn btn-danger btn-sm" cssStyle="list-style-type: none;" />
-    <s:textfield cssClass="form-control" name="mail" placeholder="E-Mail" requiredLabel="true" type="email" />
-    <s:password cssClass="form-control" name="password" placeholder="Mot de passe" requiredLabel="true" />
-    <s:password cssClass="form-control" name="confirmPassword" placeholder="Confirmation" requiredLabel="true" />
-    <s:textfield cssClass="form-control" name="nickname" placeholder="Nom d'utilisateur" requiredLabel="true" />
-    <s:textfield cssClass="form-control" name="firstname" placeholder="Prénom" requiredLabel="false" />
-    <s:textfield cssClass="form-control" name="lastname" placeholder="Nom" requiredLabel="false" />
-    <s:textfield cssClass="form-control mb-3" name="telephone" placeholder="Téléphone" requiredLabel="false" />
-    <s:submit cssClass="btn btn-primary w-100" value="S'inscrire"/>
+    <div class="input-group mb-1">
+      <div class="input-group-prepend">
+        <div class="input-group-text" style="width: 45px;">
+          <i class="fas fa-at mx-auto"></i>
+        </div>
+      </div>
+      <s:textfield cssClass="form-control" name="mail" placeholder="E-Mail" required="true" type="email" />
+    </div>
+    <div class="input-group mb-1">
+      <div class="input-group-prepend">
+        <div class="input-group-text" style="width: 45px;">
+          <i class="fas fa-key mx-auto"></i>
+        </div>
+      </div>
+      <s:password cssClass="form-control" name="password" placeholder="Mot de passe" required="true" />
+    </div>
+    <div class="input-group mb-1">
+      <div class="input-group-prepend">
+        <div class="input-group-text" style="width: 45px;">
+          <i class="fas fa-key text-warning mx-auto"></i>
+        </div>
+      </div>
+      <s:password cssClass="form-control" name="confirmPassword" placeholder="Confirmation" required="true" />
+    </div>
+    <div class="input-group mb-1">
+      <div class="input-group-prepend">
+        <div class="input-group-text" style="width: 45px;">
+          <i class="fas fa-user mx-auto"></i>
+        </div>
+      </div>
+    <s:textfield cssClass="form-control" name="nickname" placeholder="Nom d'utilisateur" required="true" />
+    </div>
+    <div class="input-group mb-1">
+      <div class="input-group-prepend">
+        <div class="input-group-text" style="width: 45px;">
+          <i class="fas fa-id-card mx-auto"></i>
+        </div>
+      </div>
+    <s:textfield cssClass="form-control" name="firstname" placeholder="Prénom" required="true" />
+    </div>
+    <div class="input-group mb-1">
+            <div class="input-group-prepend">
+              <div class="input-group-text" style="width: 45px;">
+          <i class="fas fa-id-card mx-auto"></i>
+        </div>
+      </div>
+    <s:textfield cssClass="form-control" name="lastname" placeholder="Nom" required="true" />
+    </div>
+
+
+    <div class="input-group mb-1">
+      <div class="input-group-prepend">
+        <div class="input-group-text" style="width: 45px;">
+          <i class="fas fa-phone mx-auto"></i>
+        </div>
+      </div>
+    <s:textfield cssClass="form-control" name="telephone" placeholder="Téléphone" />
+    </div>
+
+    <s:submit cssClass="btn btn-primary mt-3" value="S'inscrire" />
 
 
 
