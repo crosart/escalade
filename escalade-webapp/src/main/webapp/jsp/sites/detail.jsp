@@ -138,7 +138,7 @@
       </div>
       <hr>
 
-      <p class="text-justify">
+      <p style="white-space: pre-line;text-align: justify">
         <s:property value="site.description" />
       </p>
 
@@ -186,10 +186,10 @@
 
       <s:if test="#session.user">
         <h4 class="lead font-italic mt-0 pt-0" id="add-comment">Ajouter un commentaire</h4>
-        <s:form action="add_comment" cssClass="container text-center">
+        <s:form action="add_comment" cssClass="container align-items-center text-center mt-4">
           <s:hidden name="siteId" value="%{ site.id }" />
           <s:textarea name="content" required="true" cssClass="form-control" cssStyle="resize: none;"/>
-          <s:submit value="Commenter" cssClass="btn btn-primary mt-2" cssStyle="margin: auto;width: 150px;"/>
+          <s:submit value="Commenter" cssClass="btn btn-primary mt-2 mx-auto" />
         </s:form>
       </s:if>
     </div>
