@@ -101,20 +101,22 @@
               </tr>
             </table>
           </div>
-          <div class="card p-3 mb-1" style="min-width: 275px;">
-            <div class="my-auto">
-              <s:if test="listTopo == null">
-                Aucun topo n'est disponible pour ce site.
+          <div class="card" style="min-width: 275px;">
+            <div class="card-header pb-1">
+              <h5>Topos</h5>
+            </div>
+            <div class="card-body my-auto p-3 mb-1">
+              <s:if test="%{listTopo.isEmpty()}">
+                Aucun topo pour ce site.
               </s:if>
               <s:else>
-                <h5>Topos</h5>
-                <hr>
                 <ul class="list-unstyled m-0">
                   <s:iterator value="listTopo">
                     <li>
                       <s:if test="pending || reserved">
                       <span class="text-muted">
-                        <del><s:property value="publishingDate" /></del>&nbsp;<span class="badge badge-danger">Indisponible</span>
+                        <del><s:property value="publishingDate" /></del>&nbsp;<span class="badge badge-danger">
+                        <i class="fas fa-times"></i>&nbsp;&nbsp;Indisponible</span>
                       </span>
                       </s:if>
                       <s:else>
@@ -123,66 +125,42 @@
                           <s:a action="reserve_topo" cssClass="badge badge-success">
                             <s:param name="topoId" value="id" />
                             <s:param name="sId" value="site.id" />
-                            Réserver
+                            <i class="fas fa-check"></i>&nbsp;&nbsp;Réserver
                           </s:a>
                         </s:if>
+                        <s:else>
+                          <span class="badge badge-success"><i class="fas fa-check"></i>&nbsp;&nbsp;Disponible</span>
+                        </s:else>
                       </s:else>
                     </li>
                   </s:iterator>
                 </ul>
               </s:else>
             </div>
+            <div class="card-footer text-center">
+              <s:if test="#session.user">
+              <s:a action="claim_topo" class="btn btn-info btn-sm m-0">
+                <s:param name="id" value="site.id" />
+                <i class="far fa-plus-square"></i>&nbsp;&nbsp;Je possède ce topo</s:a>
+              </s:if>
+              <s:else>
+                <span class="badge badge-warning">Connectez-vous et ajoutez le vôtre</span>
+              </s:else>
+            </div>
+
           </div>
 
         </div>
       </div>
-      <hr>
 
-      <p style="white-space: pre-line;text-align: justify">
+      <hr class="mb-0 mt-4 pb-0">
+
+      <p class="mt-0 pt-0" style="white-space: pre-line;text-align: justify;">
         <s:property value="site.description" />
       </p>
 
-      <hr>
-      <s:if test="#session.user">
-        <span class="float-right">
-          <a href="#add-comment" role="button" class="btn btn-info btn-sm"><i class="far fa-plus-square"></i>&nbsp;&nbsp;Je commente</a>
-        </span>
-      </s:if>
+      <hr class="my-4">
 
-      <h4 class="lead font-italic">Commentaires</h4>
-
-      <div class="pt-2 mt-2">
-        <s:iterator value="listComment" status="status">
-          <p class="mb-0 pb-0">
-            Posté par
-          <s:a action="user_detail">
-            <s:param name="id" value="userId" />
-            <s:property value="userNickname" />
-          </s:a>
-          </p>
-          <p class="text-muted mt-0 pt-0">
-            <small>
-              <s:property value="date" />
-            </small>
-          </p>
-          <p class="text-justify"><s:property value="content" /></p>
-
-          <p><s:if test="#session.user.isMember">
-            <s:a action="modify_comment" cssClass="badge badge-warning">
-              <s:param name="commentId" value="id" />
-              Éditer
-            </s:a>
-            <s:a action="delete_comment" cssClass="badge badge-danger">
-              <s:param name="sId" value="%{ site.id }" />
-              <s:param name="commentId" value="id" />
-              Supprimer
-            </s:a>
-          </s:if>
-          </p>
-
-          <hr>
-        </s:iterator>
-      </div>
 
       <s:if test="#session.user">
         <h4 class="lead font-italic mt-0 pt-0" id="add-comment">Ajouter un commentaire</h4>
@@ -192,6 +170,51 @@
           <s:submit value="Commenter" cssClass="btn btn-primary mt-2 mx-auto" />
         </s:form>
       </s:if>
+
+      <hr>
+      <s:if test="%{!listComment.isEmpty()}">
+        <h4 class="lead font-italic">Commentaires</h4>
+
+        <div class="pt-2 mt-2">
+          <s:iterator value="listComment" status="status">
+            <p class="mb-0 pb-0">
+              Posté par
+              <s:a action="user_detail">
+                <s:param name="id" value="userId" />
+                <s:property value="userNickname" />
+              </s:a>
+            </p>
+            <p class="text-muted mt-0 pt-0">
+              <small>
+                <s:property value="date" />
+              </small>
+            </p>
+            <p class="text-justify"><s:property value="content" /></p>
+
+            <p><s:if test="#session.user.isMember">
+              <s:a action="modify_comment" cssClass="badge badge-warning">
+                <s:param name="commentId" value="id" />
+                Éditer
+              </s:a>
+              <s:a action="delete_comment" cssClass="badge badge-danger">
+                <s:param name="sId" value="%{ site.id }" />
+                <s:param name="commentId" value="id" />
+                Supprimer
+              </s:a>
+            </s:if>
+            </p>
+
+            <hr>
+          </s:iterator>
+        </div>
+      </s:if>
+      <s:else>
+        <h4 class="lead font-italic">Aucun commentaire</h4>
+        <hr class="my-4">
+      </s:else>
+
+
+
     </div>
   </div>
 
