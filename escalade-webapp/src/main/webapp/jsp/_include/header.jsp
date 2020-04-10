@@ -14,12 +14,13 @@
             <i class="fas fa-mountain"></i>&nbsp;&nbsp;Accueil
           </s:a>
         </li>
+        <li class="nav-item">
+          <s:a action="search" cssClass="nav-link">
+            <i class="fas fa-search"></i>&nbsp;&nbsp;Rechercher
+          </s:a>
+        </li>
         <s:if test="#session.user">
-          <li class="nav-item">
-            <s:a action="search" cssClass="nav-link">
-              <i class="fas fa-search"></i>&nbsp;&nbsp;Rechercher
-            </s:a>
-          </li>
+
           <li class="nav-item">
             <s:a action="site_new" cssClass="nav-link">
               <i class="far fa-plus-square"></i>&nbsp;&nbsp;Ajouter un site

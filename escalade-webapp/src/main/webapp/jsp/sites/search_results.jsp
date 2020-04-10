@@ -5,11 +5,11 @@
 
 <%@ include file="../_include/head.jsp"%>
 
-<body>
+<body style="background: url('${pageContext.request.contextPath}/resources/img/addsite_background.jpg') no-repeat fixed center;background-size: cover;">
 
 <%@ include file="../_include/header.jsp"%>
 
-<div class="container-fluid pr-0 pl-0" style="overflow: hidden;height: 100vh;padding-top: 56px;background: url('${pageContext.request.contextPath}/resources/img/addsite_background.jpg') no-repeat fixed center;background-size: cover;">
+<div class="container-fluid pr-0 pl-0" style="height: 100vh;padding-top: 56px;">
   <div class="container">
     <div class="jumbotron py-4 mt-5">
 
@@ -33,7 +33,7 @@
         <h4 class="lead font-italic mb-3">Résultats de votre recherche</h4>
 
         <s:iterator value="listSite">
-          <div class="card mb-2">
+          <div class="card mb-4">
             <div class="card-header">
               <h5><s:property value="name" /></h5>
               <span class="badge badge-primary"><s:property value="country" /></span>
@@ -41,7 +41,7 @@
                 <span class="badge badge-secondary"><s:property value="department" /></span>
               </s:if>
             </div>
-            <div class="card-body px-5">
+            <div class="card-body px-4">
               <div class="card-deck">
                   <div class="card py-3 my-2" style="min-width: 300px">
                     <table class="my-auto">
@@ -106,6 +106,11 @@
                   </span>
                   </div>
               </div>
+            </div>
+            <div class="card-footer">
+              <s:a action="site_detail">
+                <s:param name="id" value="id" />Plus de détails
+              </s:a>
             </div>
           </div>
         </s:iterator>

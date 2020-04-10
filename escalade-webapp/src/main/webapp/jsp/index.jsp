@@ -5,12 +5,12 @@
 
 <%@ include file="./_include/head.jsp"%>
 
-<body style="background-color: #343A40;">
+<body style="background: url('${pageContext.request.contextPath}/resources/img/logo_bg.jpg') no-repeat fixed center;background-size: cover">
 
 <%@ include file="./_include/header.jsp"%>
 
 <div class="container-fluid pr-0 pl-0" style="padding-top: 56px;">
-  <div class="jumbotron jumbotron-fluid" style="background: url('${pageContext.request.contextPath}/resources/img/logo_bg.jpg') no-repeat fixed center;background-size: cover">
+  <div class="jumbotron jumbotron-fluid bg-transparent">
     <div class="container">
       <img class="mx-auto d-block" src="${pageContext.request.contextPath}/resources/img/logo.png" alt="logo" />
     </div>
@@ -21,7 +21,7 @@
       <s:iterator value="listSite">
         <s:param name="id" value="id" />
         <div class="col mb-5">
-          <div class="card">
+          <div class="card bg-dark text-light">
             <h5 class="card-header">
               <s:a action="site_detail" cssClass="text-capitalize">
                 <s:param name="id" value="id" />

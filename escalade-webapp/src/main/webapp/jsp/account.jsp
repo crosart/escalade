@@ -5,11 +5,11 @@
 
 <%@ include file="./_include/head.jsp"%>
 
-<body>
+<body style="background: url('${pageContext.request.contextPath}/resources/img/account_background.jpg') no-repeat fixed center;background-size: cover;">
 
 <%@ include file="./_include/header.jsp"%>
 
-<div class="container-fluid pr-0 pl-0" style="padding-top: 56px;height: 100vh;background: url('${pageContext.request.contextPath}/resources/img/account_background.jpg') no-repeat fixed center;background-size: cover;">
+<div class="container-fluid pr-0 pl-0" style="padding-top: 56px;height: 100vh;">
 
   <s:if test="user.id != #session.user.id">
     <div class="alert alert-danger text-center w-50 mx-auto mt-2"><i class="fas fa-exclamation-triangle"></i>&nbsp;&nbsp;ACCES INTERDIT&nbsp;&nbsp;<i class="fas fa-exclamation-triangle"></i></div>
