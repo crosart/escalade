@@ -15,15 +15,16 @@
 
       <s:actionerror />
       <s:form action="search" theme="simple">
-        <div class="form-group row justify-content-center mx-auto my-1">
-          <s:textfield name="search" cssClass="form-control col-2 mr-1" placeholder="Nom du site" requiredLabel="false" value="%{ researchBean.textSearch }" />
-          <s:select list="countries" cssClass="form-control custom-select col-2 mr-1" name="country" requiredLabel="false" value="%{ researchBean.country }"/>
-          <s:select list="departments" cssClass="form-control custom-select col-2 mr-1" name="department" requiredLabel="false" value="%{ researchBean.department }" />
-          <s:select list="cotations" cssClass="form-control custom-select col-1 mr-1 border-success" name="cotationMin" requiredLabel="false" value="%{ researchBean.cotationMin }" />
-          <s:select list="reversedcotations" cssClass="form-control custom-select col-1 mr-3 border-danger" name="cotationMax" requiredLabel="false" value="%{ researchBean.cotationMax }" />
-          <s:submit value="Rechercher" cssClass="btn btn-primary" />
+        <div class="form-group row justify-content-center align-items-center mx-auto my-1 flex-column flex-lg-row">
+          <s:textfield name="search" cssClass="form-control col-12 col-lg-2 mr-1 my-1 my-lg-0" placeholder="Nom du site" requiredLabel="false" value="%{ researchBean.textSearch }" />
+          <s:select list="countries" cssClass="form-control custom-select col-12 col-lg-2 mr-1 my-1 my-lg-0" name="country" requiredLabel="false" value="%{ researchBean.country }"/>
+          <s:select list="departments" cssClass="form-control custom-select col-12 col-lg-2 mr-1 my-1 my-lg-0" name="department" requiredLabel="false" value="%{ researchBean.department }" />
+          <div class="flex-row col-lg-2 my-1 my-lg-0 p-0 text-center">
+            <s:select list="cotations" cssClass="form-control custom-select col-5 border-success" name="cotationMin" requiredLabel="false" value="%{ researchBean.cotationMin }" />
+            <s:select list="reversedcotations" cssClass="form-control custom-select col-5 border-danger" name="cotationMax" requiredLabel="false" value="%{ researchBean.cotationMax }" />
+          </div>
+          <s:submit type="button" cssClass="btn btn-primary col-6 col-lg-2 ml-1 mt-3 mt-lg-0"><i class="fas fa-search"></i>&nbsp;&nbsp;Rechercher</s:submit>
         </div>
-
       </s:form>
 
       <s:if test="%{!listSite.isEmpty()}">
@@ -41,8 +42,8 @@
               </s:if>
             </div>
             <div class="card-body px-5">
-              <div class="row row-cols-1 row-cols-md-2">
-                  <div class="card py-3">
+              <div class="card-deck">
+                  <div class="card py-3 my-2" style="min-width: 300px">
                     <table class="my-auto">
                       <tr>
                         <td class="text-center" style="width: 50px;">
@@ -99,8 +100,8 @@
                       </tr>
                     </table>
                   </div>
-                  <div class="card px-3 py-3">
-                  <span class="text-justify" style="overflow: hidden;text-overflow: ellipsis;display: -webkit-box;-webkit-box-orient: vertical;-webkit-line-clamp: 5;">
+                  <div class="card px-3 py-3 my-2" style="min-width: 300px">
+                    <span class="text-justify" style="overflow: hidden;text-overflow: ellipsis;display: -webkit-box;-webkit-box-orient: vertical;-webkit-line-clamp: 5;">
                     <s:property value="description" />
                   </span>
                   </div>
