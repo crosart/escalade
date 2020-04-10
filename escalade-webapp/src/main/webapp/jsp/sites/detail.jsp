@@ -51,9 +51,11 @@
                   <i class="fas fa-location-arrow"></i>
                 </td>
                 <td>
+                  <s:a href="%{'https://www.google.com/maps/place/' + site.latitude + '+' + site.longitude}" target="_blank">
                   <s:property value="site.latitude" />
                   -
                   <s:property value="site.longitude" />
+                  </s:a>
                 </td>
               </tr>
               <tr>
@@ -143,9 +145,12 @@
                 <s:param name="id" value="site.id" />
                 <i class="far fa-plus-square"></i>&nbsp;&nbsp;Je possède ce topo</s:a>
               </s:if>
-              <s:else>
+              <s:if test="%{!#session.user && listTopo.isEmpty()}">
                 <span class="badge badge-warning">Connectez-vous et ajoutez le vôtre</span>
-              </s:else>
+              </s:if>
+              <s:elseif test="%{!#session.user && !listTopo.isEmpty()}">
+                <span class="badge badge-warning">Connectez-vous pour réserver</span>
+              </s:elseif>
             </div>
 
           </div>
