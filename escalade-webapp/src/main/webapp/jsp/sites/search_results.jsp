@@ -6,41 +6,116 @@
 <%@ include file="../_include/head.jsp"%>
 
 <body>
-<article class="search">
+
 <%@ include file="../_include/header.jsp"%>
 
-  <div id="search_page">
-<s:actionerror />
-<s:form action="search">
+<div class="container-fluid pr-0 pl-0" style="overflow: hidden;height: 100vh;padding-top: 56px;background: url('${pageContext.request.contextPath}/resources/img/addsite_background.jpg') no-repeat fixed center;background-size: cover;">
+  <div class="container">
+    <div class="jumbotron py-4 mt-5">
 
-  <s:textfield name="search" placeholder="Nom du site" requiredLabel="false" theme="simple" value="%{ researchBean.textSearch }" />
-  <s:select list="countries" name="country" requiredLabel="false" theme="simple" value="%{ researchBean.country }"/>
-  <s:select list="departments" name="department" requiredLabel="false" theme="simple" value="%{ researchBean.department }" />
-  <s:select list="cotations" name="cotationMin" requiredLabel="false" theme="simple" value="%{ researchBean.cotationMin }" />
-  <s:select list="reversedcotations" name="cotationMax" requiredLabel="false" theme="simple" value="%{ researchBean.cotationMax }" />
-  <s:submit value="Rechercher" />
+      <s:actionerror />
+      <s:form action="search" theme="simple">
+        <div class="form-group row justify-content-center mx-auto my-1">
+          <s:textfield name="search" cssClass="form-control col-2 mr-1" placeholder="Nom du site" requiredLabel="false" value="%{ researchBean.textSearch }" />
+          <s:select list="countries" cssClass="form-control custom-select col-2 mr-1" name="country" requiredLabel="false" value="%{ researchBean.country }"/>
+          <s:select list="departments" cssClass="form-control custom-select col-2 mr-1" name="department" requiredLabel="false" value="%{ researchBean.department }" />
+          <s:select list="cotations" cssClass="form-control custom-select col-1 mr-1 border-success" name="cotationMin" requiredLabel="false" value="%{ researchBean.cotationMin }" />
+          <s:select list="reversedcotations" cssClass="form-control custom-select col-1 mr-3 border-danger" name="cotationMax" requiredLabel="false" value="%{ researchBean.cotationMax }" />
+          <s:submit value="Rechercher" cssClass="btn btn-primary" />
+        </div>
 
-</s:form>
-  </div>
+      </s:form>
 
-  <div>
-<h1>Résultats de votre recherche</h1>
+      <s:if test="%{!listSite.isEmpty()}">
+        <hr class="mt-4">
+
+        <h4 class="lead font-italic mb-3">Résultats de votre recherche</h4>
+
+        <s:iterator value="listSite">
+          <div class="card mb-2">
+            <div class="card-header">
+              <h5><s:property value="name" /></h5>
+              <span class="badge badge-primary"><s:property value="country" /></span>
+              <s:if test="%{department != null}">
+                <span class="badge badge-secondary"><s:property value="department" /></span>
+              </s:if>
+            </div>
+            <div class="card-body px-5">
+              <div class="row row-cols-1 row-cols-md-2">
+                  <div class="card py-3">
+                    <table class="my-auto">
+                      <tr>
+                        <td class="text-center" style="width: 50px;">
+                          <i class="fas fa-location-arrow"></i>
+                        </td>
+                        <td>
+                          <s:property value="latitude" />
+                          -
+                          <s:property value="longitude" />
+                        </td>
+                      </tr>
+                      <tr>
+                        <td class="text-center">
+                          <i class="fas fa-layer-group"></i>
+                        </td>
+                        <td>
+                          Difficulté de
+                          <span class="badge badge-success">
+              <s:property value="cotationMin" />
+            </span>&nbsp;à
+                          <span class="badge badge-danger">
+              <s:property value="cotationMax" />
+            </span>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td class="text-center">
+                          <i class="fas fa-arrows-alt-v"></i>
+                        </td>
+                        <td>
+                          Hauteur maximale de
+                          <span class="badge badge-secondary">
+              <s:property value="height" />m
+            </span>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td class="text-center">
+                          <i class="fas fa-hashtag"></i>
+                        </td>
+                        <td>
+            <span class="badge badge-secondary">
+              <s:property value="tracks" /> voies
+            </span> sur le site
+                        </td>
+                      </tr>
+                      <tr>
+                        <td class="text-center">
+                          <i class="fas fa-calendar-day"></i>
+                        </td>
+                        <td>
+                          Site ajouté le <s:property value="creationDate"/>
+                        </td>
+                      </tr>
+                    </table>
+                  </div>
+                  <div class="card px-3 py-3">
+                  <span class="text-justify" style="overflow: hidden;text-overflow: ellipsis;display: -webkit-box;-webkit-box-orient: vertical;-webkit-line-clamp: 5;">
+                    <s:property value="description" />
+                  </span>
+                  </div>
+              </div>
+            </div>
+          </div>
+        </s:iterator>
+
+      </s:if>
+    </div>
   </div>
-  <div>
-<ul>
-  <s:iterator value="listSite">
-    <li>
-      <s:param name="id" value="id" />
-      <s:property value="id" /> :
-      <s:a action="site_detail">
-        <s:param name="id" value="id" />
-        <s:property value="name"/>
-      </s:a> -
-      <s:property value="country" />
-    </li>
-  </s:iterator>
-</ul>
-  </div>
-</article>
+</div>
+<script src="https://kit.fontawesome.com/20a90a2927.js" crossorigin="anonymous"></script>
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
 </body>
 </html>
