@@ -12,11 +12,11 @@
 
   <div class="row h-100 justify-content-center align-items-center">
 
-    <s:form action="login">
+    <s:form theme="simple" action="login" cssClass="text-center">
       <s:actionerror cssClass="text-center btn btn-danger btn-sm" cssStyle="list-style-type: none;" />
-      <s:textfield cssClass="form-control" placeholder="E-Mail" name="mail" requiredLabel="true" />
-      <s:password name="password" placeholder="Mot de passe" requiredLabel="true" cssClass="form-control mb-3"/>
-      <s:submit value="Connexion" cssClass="btn btn-primary w-100" />
+      <s:textfield placeholder="E-Mail" name="mail" type="email" required="true" cssClass="form-control mb-1" />
+      <s:password name="password" placeholder="Mot de passe" required="true" cssClass="form-control" />
+      <s:submit value="Connexion" cssClass="btn btn-primary mt-3" />
     </s:form>
 
 
