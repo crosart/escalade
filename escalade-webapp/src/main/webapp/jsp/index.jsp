@@ -17,7 +17,7 @@
   </div>
 
   <div class="container">
-    <div class="row row-cols-1 row-cols-xl-3 row-cols-lg-2">
+    <div class="row row-cols-1 row-cols-lg-2 row-cols-xl-3">
       <s:iterator value="listSite">
         <s:param name="id" value="id" />
         <div class="col mb-5">
