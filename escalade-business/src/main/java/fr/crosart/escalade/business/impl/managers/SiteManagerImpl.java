@@ -18,16 +18,7 @@ public class SiteManagerImpl extends AbstractManager implements SiteManager {
 
     @Override
     public List<Site> getListSite() {
-
         return siteDao.getLastSites();
-
-    }
-
-    @Override
-    public List<Site> getListSite(String pSearch) {
-
-        return siteDao.getSearchSites(pSearch);
-
     }
 
     @Override

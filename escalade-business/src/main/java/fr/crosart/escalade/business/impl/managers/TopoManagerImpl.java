@@ -15,13 +15,6 @@ public class TopoManagerImpl extends AbstractManager implements TopoManager  {
     private TopoDao topoDao;
 
     @Override
-    public Topo getTopo(Integer pSiteId) {
-
-        return topoDao.getTopo(pSiteId);
-
-    }
-
-    @Override
     public List<Topo> getListTopos(Integer pUserId) {
         return topoDao.getListTopos(pUserId);
     }
