@@ -39,13 +39,16 @@
             <artifactId>${project.parent.artifactId}-technical</artifactId>
         </dependency>
 
-
         <!-- ===== Bibliothèques tierces ===== -->
         <dependency>
             <groupId>org.apache.bval</groupId>
             <artifactId>bval-jsr</artifactId>
         </dependency>
 
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+        </dependency>
 
         <!-- ===== Tests ===== -->
         <dependency>
