@@ -26,9 +26,12 @@ public class CommentRowMapper implements RowMapper<Comment> {
         comment.setUserId(rs.getInt("userid"));
         comment.setSiteId(rs.getInt("siteid"));
         comment.setContent(rs.getString("commentcontent"));
+        comment.setUserNickname(rs.getString("usernickname"));
         DateTimeFormatter dateFormatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
         comment.setDate(LocalDate.parse(rs.getString("commentdate"), dateFormatter));
-        comment.setUserNickname(rs.getString("usernickname"));
+        LocalDate retrievedDate = LocalDate.parse(rs.getString("commentdate"), dateFormatter);
+        DateTimeFormatter dateFormatParser = DateTimeFormatter.ofPattern("dd/MM/yyyy");
+        comment.setParsedDate(retrievedDate.format(dateFormatParser));
 
         return comment;
 

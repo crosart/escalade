@@ -18,6 +18,7 @@ public class Site {
     private String description;
     private boolean official;
     private LocalDate creationDate;
+    private String parsedCreationDate;
 
     //Constructor
     public Site() {
@@ -115,4 +116,10 @@ public class Site {
         this.creationDate = creationDate;
     }
 
+    public String getParsedCreationDate() {
+        return parsedCreationDate;
+    }
+    public void setParsedCreationDate(String parsedCreationDate) {
+        this.parsedCreationDate = parsedCreationDate;
+    }
 }

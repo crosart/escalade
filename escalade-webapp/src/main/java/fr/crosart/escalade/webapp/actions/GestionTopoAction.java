@@ -29,7 +29,7 @@ public class GestionTopoAction extends ActionSupport implements SessionAware {
 
         vUser = (User) this.session.get("user");
 
-        managerFactory.getTopoManager().insertTopo(id, vUser.getId());
+        managerFactory.getTopoManager().insertTopo(sId, vUser.getId());
 
         return ActionSupport.SUCCESS;
     }

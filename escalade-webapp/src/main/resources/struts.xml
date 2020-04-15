@@ -84,7 +84,7 @@
         <action name="claim_topo" class="fr.crosart.escalade.webapp.actions.GestionTopoAction" method="doClaim">
             <result name="success" type="redirectAction">
             <param name="actionName">site_detail</param>
-            <param name="id">${ siteId }</param>
+            <param name="id">${ sId }</param>
             </result>
         </action>
 

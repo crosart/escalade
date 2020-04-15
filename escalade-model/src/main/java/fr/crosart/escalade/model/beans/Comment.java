@@ -11,6 +11,7 @@ public class Comment {
     private Integer siteId;
     private Integer userId;
     private String userNickname;
+    private String parsedDate;
 
     //Constructor
     public Comment() {
@@ -59,4 +60,10 @@ public class Comment {
         this.userNickname = userNickname;
     }
 
+    public String getParsedDate() {
+        return parsedDate;
+    }
+    public void setParsedDate(String parsedDate) {
+        this.parsedDate = parsedDate;
+    }
 }

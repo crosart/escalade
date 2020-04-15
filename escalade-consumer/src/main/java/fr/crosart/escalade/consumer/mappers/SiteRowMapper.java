@@ -29,6 +29,9 @@ public class SiteRowMapper implements RowMapper<Site> {
         site.setOfficial(rs.getBoolean("siteisofficial"));
         DateTimeFormatter dateFormatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
         site.setCreationDate(LocalDate.parse(rs.getString("sitecreationdate"), dateFormatter));
+        LocalDate retrievedDate = LocalDate.parse(rs.getString("sitecreationdate"), dateFormatter);
+        DateTimeFormatter dateFormatParser = DateTimeFormatter.ofPattern("dd/MM/yyyy");
+        site.setParsedCreationDate(retrievedDate.format(dateFormatParser));
 
         return site;
 
