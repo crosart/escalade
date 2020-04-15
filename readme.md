@@ -2,11 +2,9 @@
 <img src="https://upload.wikimedia.org/wikipedia/fr/0/0d/Logo_OpenClassrooms.png" alt="OC logo">
 </p>
 
-# Les amis de l'escalade
-
-<hr>
-
 ### Projet OpenClassrooms - Parcours Développeur d'application Java
+# LES AMIS DE L'ESCALADE
+
 
 ##### Objectif : créer un site communautaire autour de l'escalade.
 
