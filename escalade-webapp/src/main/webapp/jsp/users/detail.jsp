@@ -48,19 +48,6 @@
                 </s:if>
               </div>
             </div>
-            <div class="card-body">
-              <s:if test="%{!pending && !reserved}">
-                <p class="text-light m-0">
-                  Ce topo est actuellement disponible.
-                </p>
-              </s:if>
-              <s:if test="%{pending || reserved}">
-                <p class="text-light m-0">
-                  Ce topo est actuellement réservé.
-                </p>
-              </s:if>
-
-            </div>
             <div class="card-footer">
                 <s:a action="site_detail">
                   <s:param name="id" value="siteId" />
