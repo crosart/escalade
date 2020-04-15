@@ -98,7 +98,7 @@
                   <i class="fas fa-calendar-day"></i>
                 </td>
                 <td>
-                  Site ajouté le <s:property value="site.creationDate"/>
+                  Site ajouté le <s:property value="site.parsedCreationDate" />
                 </td>
               </tr>
             </table>
@@ -142,7 +142,7 @@
             <div class="card-footer text-center">
               <s:if test="#session.user">
               <s:a action="claim_topo" class="btn btn-info btn-sm m-0">
-                <s:param name="id" value="site.id" />
+                <s:param name="sId" value="site.id" />
                 <i class="far fa-plus-square"></i>&nbsp;&nbsp;Je possède ce topo</s:a>
               </s:if>
               <s:if test="%{!#session.user && listTopo.isEmpty()}">
@@ -191,7 +191,7 @@
             </p>
             <p class="text-muted mt-0 pt-0">
               <small>
-                <s:property value="date" />
+                <s:property value="parsedDate" />
               </small>
             </p>
             <p class="text-justify"><s:property value="content" /></p>
