@@ -8,7 +8,7 @@
     </button>
 
     <div class="collapse navbar-collapse" id="navbarTogglerEscalade">
-      <ul class="navbar-nav mr-auto mt-2 mt-lg-0 mb-sm-3 mb-lg-0">
+      <ul class="navbar-nav mr-auto mt-0 mt-lg-0 mb-sm-3 mb-lg-0">
         <li class="nav-item">
           <s:a action="index" cssClass="nav-link">
             <i class="fas fa-mountain"></i>&nbsp;&nbsp;Accueil
@@ -31,8 +31,8 @@
     </div>
 
     <s:if test="#session.user">
-      <div class="btn-group" role="group" aria-label="Account">
-        <s:a action="account" cssClass="btn btn-primary btn-sm mr-1">
+      <div class="btn-group" role="group" aria-label="Account" style="position: absolute;right: 13px;top: 13px;">
+        <s:a action="account" cssClass="btn btn-primary btn-sm">
           <s:param name="id" value="#session.user.id" />
           <i class="fas fa-user"></i>&nbsp;
           <s:property value="#session.user.nickname" />
@@ -44,14 +44,14 @@
     </s:if>
 
     <s:else>
-      <span class="btn-group" role="group" aria-label="Sign-In">
+      <div class="btn-group" role="group" aria-label="Sign-In" style="position: absolute;right: 13px;top: 13px;">
         <s:a action="login" cssClass="btn btn-outline-primary btn-sm">
           Se connecter
         </s:a>
         <s:a action="signin" cssClass="btn btn-primary btn-sm">
           S'inscrire
         </s:a>
-      </span>
+      </div>
     </s:else>
 
   </nav>
