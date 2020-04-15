@@ -50,9 +50,11 @@
                           <i class="fas fa-location-arrow"></i>
                         </td>
                         <td>
-                          <s:property value="latitude" />
-                          -
-                          <s:property value="longitude" />
+                          <s:a href="%{'https://www.google.com/maps/place/' + latitude + '+' + longitude}" target="_blank">
+                            <s:property value="latitude" />
+                            -
+                            <s:property value="longitude" />
+                          </s:a>
                         </td>
                       </tr>
                       <tr>
@@ -95,7 +97,7 @@
                           <i class="fas fa-calendar-day"></i>
                         </td>
                         <td>
-                          Site ajouté le <s:property value="creationDate"/>
+                          Site ajouté le <s:property value="parsedCreationDate" />
                         </td>
                       </tr>
                     </table>
