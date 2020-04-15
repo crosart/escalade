@@ -13,17 +13,15 @@
 
   <div class="row h-100 justify-content-center align-items-center">
 
-
-
   <s:actionerror />
   <s:form action="site_new" cssClass="text-center" theme="simple">
-    <s:textfield name="name" label="Nom" required="true" placeholder="Nom du site" cssClass="form-control mb-1" />
-    <s:select list="countries" label="Pays" name="country" required="true" cssClass="form-control mb-1" />
-    <s:select list="departments" label="Département" name="department" required="true" value="Département" cssClass="form-control mb-1" />
-    <s:textfield name="latitude" label="Latitude" required="true" placeholder="Latitude (45°0'0\"N)" cssClass="form-control mb-1" />
-    <s:textfield name="longitude" label="Longitude" required="true" placeholder="Longitude (0°0'0\"E)" cssClass="form-control mb-1" />
-    <s:textfield name="height" label="Hauteur" required="true" placeholder="Hauteur du site (en mètres)" cssClass="form-control mb-1" />
-    <s:textfield name="tracks" label="Voies" required="true" placeholder="Nombre de voies" cssClass="form-control mb-1" />
+    <s:textfield name="name" label="Nom" required="true" placeholder="Nom du site" cssClass="form-control mb-1" cssStyle="max-width: 300px;" />
+    <s:select list="countries" label="Pays" name="country" required="true" cssClass="form-control mb-1" cssStyle="max-width: 300px;" />
+    <s:select list="departments" label="Département" name="department" required="true" value="Département" cssClass="form-control mb-1" cssStyle="max-width: 300px;" />
+    <s:textfield name="latitude" label="Latitude" required="true" placeholder="Latitude (45°0'0\"N)" cssClass="form-control mb-1" cssStyle="max-width: 300px;" />
+    <s:textfield name="longitude" label="Longitude" required="true" placeholder="Longitude (0°0'0\"E)" cssClass="form-control mb-1" cssStyle="max-width: 300px;" />
+    <s:textfield name="height" label="Hauteur" required="true" placeholder="Hauteur du site (en mètres)" cssClass="form-control mb-1" cssStyle="max-width: 300px;" />
+    <s:textfield name="tracks" label="Voies" required="true" placeholder="Nombre de voies" cssClass="form-control mb-1" cssStyle="max-width: 300px;" />
     <div class="badge badge-info mb-2">
       Difficulté
     </div>
@@ -31,7 +29,7 @@
     <s:select list="cotations" name="cotationMin" label="Cotation Minimum" required="true" cssClass="col-3 form-control mb-1 mr-1 border-success custom-select" />
     <s:select list="reversedcotations" name="cotationMax" label="Cotation Maximum" required="true" cssClass="col-3 form-control mb-1 ml-1 border-danger custom-select" />
     </div>
-      <s:textarea name="description" label="Description" placeholder="Description du site" required="true" cssClass="form-control mb-3" cssStyle="resize: none;" />
+      <s:textarea name="description" label="Description" placeholder="Description du site" required="true" cssClass="form-control mb-3" cssStyle="resize: none;max-width: 300px;" />
 
     <s:submit value="Ajouter" cssClass="btn btn-primary" />
   </s:form>
