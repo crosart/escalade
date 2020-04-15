@@ -48,6 +48,9 @@
                 </s:if>
               </div>
             </div>
+            <div class="card-body text-light">
+              Ajouté le <s:property value="parsedPublishingDate" />
+            </div>
             <div class="card-footer">
                 <s:a action="site_detail">
                   <s:param name="id" value="siteId" />
