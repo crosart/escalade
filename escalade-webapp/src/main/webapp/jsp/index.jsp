@@ -35,7 +35,7 @@
               <div class="card-subtitle mb-2">
                 <span class="badge badge-primary"><s:property value="country" /></span>
                 <s:if test="%{department != null}">
-                  <span class="badge badge-secondary"><s:property value="department" /></span>
+                  <span class="badge badge-info"><s:property value="department" /></span>
                 </s:if>
               </div>
 
