@@ -18,11 +18,14 @@ public class TopoRowMapper implements RowMapper<Topo> {
         topo.setId(rs.getInt("topoid"));
         topo.setSiteId(rs.getInt("siteid"));
         topo.setUserId(rs.getInt("userid"));
-        DateTimeFormatter dateFormatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
-        topo.setPublishingDate(LocalDate.parse(rs.getString("topopublishingdate"), dateFormatter));
         topo.setPending(rs.getBoolean("topoispending"));
         topo.setReserved(rs.getBoolean("topoisreserved"));
         topo.setReservedUserId(rs.getInt("reserveduserid"));
+        DateTimeFormatter dateFormatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
+        topo.setPublishingDate(LocalDate.parse(rs.getString("topopublishingdate"), dateFormatter));
+        LocalDate retrievedDate = LocalDate.parse(rs.getString("topopublishingdate"), dateFormatter);
+        DateTimeFormatter dateFormatParser = DateTimeFormatter.ofPattern("dd/MM/yyyy");
+        topo.setParsedPublishingDate(retrievedDate.format(dateFormatParser));
 
         return topo;
 

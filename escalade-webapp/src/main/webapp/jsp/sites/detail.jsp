@@ -117,12 +117,12 @@
                     <li>
                       <s:if test="pending || reserved">
                       <span class="text-muted">
-                        <del><s:property value="publishingDate" /></del>&nbsp;<span class="badge badge-danger">
+                        <del><s:property value="parsedPublishingDate" /></del>&nbsp;<span class="badge badge-danger">
                         <i class="fas fa-times"></i>&nbsp;&nbsp;Indisponible</span>
                       </span>
                       </s:if>
                       <s:else>
-                        <s:property value="publishingDate" />
+                        <s:property value="parsedPublishingDate" />
                         <s:if test="#session.user">
                           <s:a action="reserve_topo" cssClass="badge badge-success">
                             <s:param name="topoId" value="id" />
@@ -174,9 +174,9 @@
           <s:textarea name="content" required="true" cssClass="form-control" cssStyle="resize: none;"/>
           <s:submit value="Commenter" cssClass="btn btn-primary mt-2 mx-auto" />
         </s:form>
+        <hr>
       </s:if>
 
-      <hr>
       <s:if test="%{!listComment.isEmpty()}">
         <h4 class="lead font-italic">Commentaires</h4>
 

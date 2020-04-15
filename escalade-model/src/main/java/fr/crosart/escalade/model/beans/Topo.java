@@ -17,6 +17,7 @@ public class Topo {
     private String reservedUserName;
     private String reservedUserTelephone;
     private String reservedUserMail;
+    private String parsedPublishingDate;
 
     //Constructor
     public Topo() {
@@ -107,4 +108,10 @@ public class Topo {
         this.reservedUserMail = reservedUserMail;
     }
 
+    public String getParsedPublishingDate() {
+        return parsedPublishingDate;
+    }
+    public void setParsedPublishingDate(String parsedPublishingDate) {
+        this.parsedPublishingDate = parsedPublishingDate;
+    }
 }
