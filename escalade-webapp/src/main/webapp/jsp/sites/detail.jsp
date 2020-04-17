@@ -126,7 +126,7 @@
                         <s:if test="#session.user">
                           <s:a action="reserve_topo" cssClass="badge badge-success">
                             <s:param name="topoId" value="id" />
-                            <s:param name="sId" value="site.id" />
+                            <s:param name="siteId" value="site.id" />
                             <i class="fas fa-check"></i>&nbsp;&nbsp;Réserver
                           </s:a>
                         </s:if>
