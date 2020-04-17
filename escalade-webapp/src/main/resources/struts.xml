@@ -42,14 +42,14 @@
             <result name="input" type="redirectAction">site_detail</result>
             <result name="success" type="redirectAction">
                 <param name="actionName">site_detail</param>
-                <param name="id">${pId}</param>
+                <param name="id">${ paramSiteId }</param>
             </result>
         </action>
 
         <action name="delete_comment" class="fr.crosart.escalade.webapp.actions.GestionCommentAction" method="doDelete">
             <result name="success" type="redirectAction">
                 <param name="actionName">site_detail</param>
-                <param name="id">${sId}</param>
+                <param name="id">${ siteId }</param>
             </result>
         </action>
 
@@ -57,7 +57,7 @@
             <result name="input">/jsp/comments/modify.jsp</result>
             <result name="success" type="redirectAction">
                 <param name="actionName">site_detail</param>
-                <param name="id">${ sId }</param>
+                <param name="id">${ siteId }</param>
             </result>
         </action>
 
@@ -84,7 +84,7 @@
         <action name="claim_topo" class="fr.crosart.escalade.webapp.actions.GestionTopoAction" method="doClaim">
             <result name="success" type="redirectAction">
             <param name="actionName">site_detail</param>
-            <param name="id">${ sId }</param>
+            <param name="id">${ id }</param>
             </result>
         </action>
 
@@ -112,7 +112,7 @@
         <action name="official_site" class="fr.crosart.escalade.webapp.actions.GestionSiteAction" method="doSetOfficial">
             <result name="success" type="redirectAction">
                 <param name="actionName">site_detail</param>
-                <param name="id">${ sId }</param>
+                <param name="id">${ id }</param>
             </result>
         </action>
 

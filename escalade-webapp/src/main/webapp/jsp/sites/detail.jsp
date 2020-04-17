@@ -142,7 +142,7 @@
             <div class="card-footer text-center">
               <s:if test="#session.user">
               <s:a action="claim_topo" class="btn btn-info btn-sm m-0">
-                <s:param name="sId" value="site.id" />
+                <s:param name="id" value="%{ site.id }" />
                 <i class="far fa-plus-square"></i>&nbsp;&nbsp;Je possède ce topo</s:a>
               </s:if>
               <s:if test="%{!#session.user && listTopo.isEmpty()}">
@@ -202,7 +202,7 @@
                 Éditer
               </s:a>
               <s:a action="delete_comment" cssClass="badge badge-danger">
-                <s:param name="sId" value="%{ site.id }" />
+                <s:param name="siteId" value="%{ site.id }" />
                 <s:param name="commentId" value="id" />
                 Supprimer
               </s:a>

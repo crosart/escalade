@@ -15,7 +15,7 @@
       <h4>Édition du commentaire</h4>
       <s:hidden name="commentId" value="%{ comment.id }" />
       <s:hidden name="commentStatus" value="true" />
-      <s:hidden name="sId" value="%{ comment.siteId }" />
+      <s:hidden name="siteId" value="%{ comment.siteId }" />
       <s:textarea disabled="true" value="%{ comment.content }" cssClass="form-control w-100 mx-auto" cssStyle="max-width: 550px;resize: none;height: 9.6em" />
       <i class="fas fa-arrow-down fa-3x my-4"></i>
       <s:textarea name="content" value="%{ comment.content }" cssClass="form-control w-100 mx-auto" cssStyle="max-width: 550px;resize: none;height: 9.6em"/>
