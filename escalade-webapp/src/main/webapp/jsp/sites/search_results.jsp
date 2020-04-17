@@ -16,12 +16,12 @@
       <s:actionerror />
       <s:form action="search" theme="simple">
         <div class="form-group row justify-content-center align-items-center mx-auto my-1 flex-column flex-lg-row">
-          <s:textfield name="search" cssClass="form-control col-12 col-lg-2 mr-1 my-1 my-lg-0" placeholder="Nom du site" requiredLabel="false" value="%{ researchBean.textSearch }" />
-          <s:select list="countries" cssClass="form-control custom-select col-12 col-lg-2 mr-1 my-1 my-lg-0" name="country" requiredLabel="false" value="%{ researchBean.country }"/>
-          <s:select list="departments" cssClass="form-control custom-select col-12 col-lg-2 mr-1 my-1 my-lg-0" name="department" requiredLabel="false" value="%{ researchBean.department }" />
+          <s:textfield name="search" cssClass="form-control col-12 col-lg-2 mr-1 my-1 my-lg-0" placeholder="Nom du site" requiredLabel="false" value="%{ research.textSearch }" />
+          <s:select list="countries" cssClass="form-control custom-select col-12 col-lg-2 mr-1 my-1 my-lg-0" name="country" requiredLabel="false" value="%{ research.country }"/>
+          <s:select list="departments" cssClass="form-control custom-select col-12 col-lg-2 mr-1 my-1 my-lg-0" name="department" requiredLabel="false" value="%{ research.department }" />
           <div class="flex-row col-lg-2 my-1 my-lg-0 p-0 text-center">
-            <s:select list="cotations" cssClass="form-control custom-select col-5 border-success" name="cotationMin" requiredLabel="false" value="%{ researchBean.cotationMin }" />
-            <s:select list="reversedcotations" cssClass="form-control custom-select col-5 border-danger" name="cotationMax" requiredLabel="false" value="%{ researchBean.cotationMax }" />
+            <s:select list="cotations" cssClass="form-control custom-select col-5 border-success" name="cotationMin" requiredLabel="false" value="%{ research.cotationMin }" />
+            <s:select list="reversedcotations" cssClass="form-control custom-select col-5 border-danger" name="cotationMax" requiredLabel="false" value="%{ research.cotationMax }" />
           </div>
           <s:submit type="button" cssClass="btn btn-primary col-6 col-lg-2 ml-1 mt-3 mt-lg-0"><i class="fas fa-search"></i>&nbsp;&nbsp;Rechercher</s:submit>
         </div>

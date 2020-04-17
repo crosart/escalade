@@ -17,28 +17,37 @@
             <result>/jsp/index.jsp</result>
         </action>
 
-        <!-- Action Détail Site -->
-        <action name="site_detail" class="fr.crosart.escalade.webapp.actions.GestionSiteAction" method="doDetail">
+    <!-- ///// Sites -->
+
+        <!-- Afficher détail d'un site -->
+        <action name="site_detail" class="gestionSiteAction" method="doDetail">
             <result name="success">/jsp/sites/detail.jsp</result>
         </action>
 
-        <action name="user_detail" class="fr.crosart.escalade.webapp.actions.GestionUserAction" method="doDetail">
-            <result name="success">/jsp/users/detail.jsp</result>
-        </action>
-
-        <!-- Action Créer Site -->
-        <action name="site_new" class="fr.crosart.escalade.webapp.actions.GestionSiteAction" method="doCreate">
+        <!-- Ajouter un nouveau site -->
+        <action name="site_new" class="gestionSiteAction" method="doCreate">
             <result name="input">/jsp/sites/new.jsp</result>
             <result name="success" type="redirectAction">index</result>
         </action>
 
-        <!-- Action Recherche Avancée -->
-        <action name="search" class="fr.crosart.escalade.webapp.actions.GestionSiteAction" method="doSearch">
+        <!-- Rechercher des sites -->
+        <action name="search" class="gestionSiteAction" method="doSearch">
             <result name="input">/jsp/sites/search_results.jsp</result>
             <result name="success">/jsp/sites/search_results.jsp</result>
         </action>
 
-        <action name="add_comment" class="fr.crosart.escalade.webapp.actions.GestionCommentAction" method="doCreate">
+        <!-- Rendre un site officiel -->
+        <action name="official_site" class="fr.crosart.escalade.webapp.actions.GestionSiteAction" method="doSetOfficial">
+            <result name="success" type="redirectAction">
+                <param name="actionName">site_detail</param>
+                <param name="id">${ siteId }</param>
+            </result>
+        </action>
+
+    <!-- ///// Commentaires -->
+
+        <!-- Ajouter un commentaire -->
+        <action name="add_comment" class="gestionCommentAction" method="doCreate">
             <result name="input" type="redirectAction">site_detail</result>
             <result name="success" type="redirectAction">
                 <param name="actionName">site_detail</param>
@@ -46,14 +55,16 @@
             </result>
         </action>
 
-        <action name="delete_comment" class="fr.crosart.escalade.webapp.actions.GestionCommentAction" method="doDelete">
+        <!-- Supprimer un commentaire -->
+        <action name="delete_comment" class="gestionCommentAction" method="doDelete">
             <result name="success" type="redirectAction">
                 <param name="actionName">site_detail</param>
                 <param name="id">${ siteId }</param>
             </result>
         </action>
 
-        <action name="modify_comment" class="fr.crosart.escalade.webapp.actions.GestionCommentAction" method="doModify">
+        <!-- Modifier un commentaire -->
+        <action name="modify_comment" class="gestionCommentAction" method="doModify">
             <result name="input">/jsp/comments/modify.jsp</result>
             <result name="success" type="redirectAction">
                 <param name="actionName">site_detail</param>
@@ -61,26 +72,40 @@
             </result>
         </action>
 
-        <!-- Actions Login/Logout -->
-        <action name="login" class="fr.crosart.escalade.webapp.actions.LoginAction" method="doLogin">
+    <!-- ///// Connexion Session -->
+
+        <!-- Connexion -->
+        <action name="login" class="gestionLogAction" method="doLogIn">
             <result name="input">/jsp/login.jsp</result>
             <result name="success" type="redirectAction">index</result>
         </action>
-        <action name="logout" class="fr.crosart.escalade.webapp.actions.LoginAction" method="doLogout">
+
+        <!-- Déconnexion -->
+        <action name="logout" class="gestionLogAction" method="doLogOut">
             <result type="redirectAction">index</result>
         </action>
 
-        <!-- Action Signin -->
-        <action name="signin" class="fr.crosart.escalade.webapp.actions.LoginAction" method="doSignin">
+    <!-- ///// Utilisateurs -->
+
+        <!-- Créer un nouveau compte utilisateur -->
+        <action name="signup" class="gestionUserAction" method="doSignUp">
             <result name="input">/jsp/users/signin.jsp</result>
             <result name="success" type="redirectAction">index</result>
         </action>
 
-        <!-- Action afficher compte -->
-        <action name="account" class="fr.crosart.escalade.webapp.actions.GestionUserAction" method="doDetail">
+        <!-- Afficher le détail d'un utilisateur -->
+        <action name="user_detail" class="gestionUserAction" method="doDetail">
+            <result name="success">/jsp/users/detail.jsp</result>
+        </action>
+
+        <!-- Afficher le compte de l'utilisateur connecté -->
+        <action name="account" class="gestionUserAction" method="doDetail">
             <result name="success">/jsp/account.jsp</result>
         </action>
 
+    <!-- ///// Topos -->
+
+        <!-- Déclarer posséder un topo -->
         <action name="claim_topo" class="fr.crosart.escalade.webapp.actions.GestionTopoAction" method="doClaim">
             <result name="success" type="redirectAction">
             <param name="actionName">site_detail</param>
@@ -88,6 +113,7 @@
             </result>
         </action>
 
+        <!-- Demander la réservation d'un topo -->
         <action name="reserve_topo" class="fr.crosart.escalade.webapp.actions.GestionTopoAction" method="doReserve">
             <result name="success" type="redirectAction">
                 <param name="actionName">site_detail</param>
@@ -95,6 +121,7 @@
             </result>
         </action>
 
+        <!-- Accepter la réservation d'un topo -->
         <action name="accept_topo" class="fr.crosart.escalade.webapp.actions.GestionTopoAction" method="doAccept">
             <result name="success" type="redirectAction">
                 <param name="actionName">account</param>
@@ -102,6 +129,7 @@
             </result>
         </action>
 
+        <!-- Rendre un topo de nouveau disponible -->
         <action name="unlock_topo" class="fr.crosart.escalade.webapp.actions.GestionTopoAction" method="doUnlock">
             <result name="success" type="redirectAction">
                 <param name="actionName">account</param>
@@ -109,12 +137,6 @@
             </result>
         </action>
 
-        <action name="official_site" class="fr.crosart.escalade.webapp.actions.GestionSiteAction" method="doSetOfficial">
-            <result name="success" type="redirectAction">
-                <param name="actionName">site_detail</param>
-                <param name="id">${ id }</param>
-            </result>
-        </action>
 
     </package>
 </struts>

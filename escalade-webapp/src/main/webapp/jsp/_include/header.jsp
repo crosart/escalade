@@ -48,7 +48,7 @@
         <s:a action="login" cssClass="btn btn-outline-primary btn-sm">
           Se connecter
         </s:a>
-        <s:a action="signin" cssClass="btn btn-primary btn-sm">
+        <s:a action="signup" cssClass="btn btn-primary btn-sm">
           S'inscrire
         </s:a>
       </div>

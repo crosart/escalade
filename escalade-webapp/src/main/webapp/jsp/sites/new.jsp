@@ -17,7 +17,7 @@
   <s:form action="site_new" cssClass="text-center" theme="simple">
     <s:textfield name="name" label="Nom" required="true" placeholder="Nom du site" cssClass="form-control mb-1" cssStyle="max-width: 300px;" />
     <s:select list="countries" label="Pays" name="country" required="true" cssClass="form-control mb-1" cssStyle="max-width: 300px;" />
-    <s:select list="departments" label="Département" name="department" required="true" value="Département" cssClass="form-control mb-1" cssStyle="max-width: 300px;" />
+    <s:select list="departments" label="Département" name="department" required="true" cssClass="form-control mb-1" cssStyle="max-width: 300px;" />
     <s:textfield name="latitude" label="Latitude" required="true" placeholder="Latitude (45°0'0\"N)" cssClass="form-control mb-1" cssStyle="max-width: 300px;" />
     <s:textfield name="longitude" label="Longitude" required="true" placeholder="Longitude (0°0'0\"E)" cssClass="form-control mb-1" cssStyle="max-width: 300px;" />
     <s:textfield name="height" label="Hauteur" required="true" placeholder="Hauteur du site (en mètres)" cssClass="form-control mb-1" cssStyle="max-width: 300px;" />

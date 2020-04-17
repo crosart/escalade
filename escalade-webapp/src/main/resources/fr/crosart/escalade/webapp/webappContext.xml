@@ -32,8 +32,20 @@
           class="fr.crosart.escalade.consumer.impl.dao.CountryDaoImpl"
           scope="prototype" />
 
+    <bean id="gestionCommentAction"
+          class="fr.crosart.escalade.webapp.actions.GestionCommentAction"
+          scope="prototype" />
+
+    <bean id="gestionLogAction"
+          class="fr.crosart.escalade.webapp.actions.GestionLogAction"
+          scope="prototype" />
+
     <bean id="gestionSiteAction"
           class="fr.crosart.escalade.webapp.actions.GestionSiteAction"
+          scope="prototype" />
+
+    <bean id="gestionTopoAction"
+          class="fr.crosart.escalade.webapp.actions.GestionTopoAction"
           scope="prototype" />
 
     <bean id="gestionUserAction"

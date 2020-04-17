@@ -36,7 +36,7 @@ public class GestionTopoAction extends ActionSupport implements SessionAware {
 
     /**
      * Action > Ajoute un {@link Topo} appartenant à l'{@link User} connecté pour le {@link Site} affiché
-     * @return Action Struts2
+     * @return SUCCESS
      */
     public String doClaim() {
         vUser = (User) this.session.get("user");
@@ -47,7 +47,7 @@ public class GestionTopoAction extends ActionSupport implements SessionAware {
 
     /**
      * Action > Demande la réservation du {@link Topo} sélectionné
-     * @return Action Struts2
+     * @return SUCCESS
      */
     public String doReserve() {
         vUser = (User) this.session.get("user");
@@ -58,7 +58,7 @@ public class GestionTopoAction extends ActionSupport implements SessionAware {
 
     /**
      * Action > Accepte la réservation du {@link Topo} sélectionné
-     * @return Action Struts2
+     * @return SUCCESS
      */
     public String doAccept() {
         vUser = (User) this.session.get("user");
@@ -70,7 +70,7 @@ public class GestionTopoAction extends ActionSupport implements SessionAware {
 
     /**
      * Action > Libère la réservation du {@link Topo} sélectionné
-     * @return Action Struts 2
+     * @return SUCCESS
      */
     public String doUnlock() {
         vUser = (User) this.session.get("user");

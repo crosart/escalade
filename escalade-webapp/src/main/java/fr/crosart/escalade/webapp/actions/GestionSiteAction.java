@@ -1,179 +1,56 @@
 package fr.crosart.escalade.webapp.actions;
 
-import com.opensymphony.xwork2.ActionSupport;
 import fr.crosart.escalade.business.contract.ManagerFactory;
 import fr.crosart.escalade.model.beans.*;
 import fr.crosart.escalade.model.exceptions.NotFoundException;
 import org.apache.commons.lang3.StringUtils;
-import org.apache.struts2.dispatcher.Parameter;
-
-
-import javax.inject.Inject;
-import javax.inject.Named;
+import com.opensymphony.xwork2.ActionSupport;
 import java.time.LocalDate;
 import java.util.Collections;
 import java.util.List;
 
+import javax.inject.Inject;
+import javax.inject.Named;
+import lombok.Getter;
+import lombok.Setter;
+
 @Named("gestionSiteAction")
 public class GestionSiteAction extends ActionSupport {
-    // ===== Attributs
+
     @Inject
     private ManagerFactory managerFactory;
 
-    @Inject
-    private Site siteBean;
+    @Getter @Setter private Site site = new Site();
+    @Getter @Setter private Research research = new Research();
 
-    @Inject
-    private Research researchBean;
+    @Getter @Setter private Integer siteId;
 
-    // -- Entrée
-    private Integer id;
-    private Integer sId;
+    @Getter private String[] cotations = new String[]{"1","2","3","4","5a","5b","5c","6a","6a+","6b","6b+","6c","6c+","7a","7a+","7b","7b+","7c","7c+","8a","8a+","8b","8b+","8c","8c+","9a","9a+","9b","9b+","9c","9c+"};
+    @Getter private String[] reversedcotations = new String[]{"9c+","9c","9b+","9b","9a+","9a","8c+","8c","8b+","8b","8a+","8a","7c+","7c","7b+","7b","7a+","7a","6c+","6c","6b+","6b","6a+","6a","5c","5b","5a","4","3","2","1"};
+    @Getter private String[] departments;
+    @Getter private String[] countries;
+    @Getter private List<Site> listSite;
+    @Getter private List<Comment> listComment;
+    @Getter private List<Topo> listTopo;
 
+    @Setter private String country;
+    @Setter private String department;
+    @Setter private String cotationMin;
+    @Setter private String cotationMax;
+    @Setter private String search;
+    @Setter private Integer id;
+    @Setter private String name;
+    @Setter private String latitude;
+    @Setter private String longitude;
+    @Setter private String height;
+    @Setter private String tracks;
+    @Setter private String description;
 
-    private String name;
-    private String country;
-    private String department;
-    private String latitude;
-    private String longitude;
-    private String height;
-    private String tracks;
-    private String cotationMin;
-    private String cotationMax;
-    private String description;
-    private boolean official;
-    private LocalDate creationDate;
-    private String search;
-
-
-    private String[] departments;
-    private String[] countries;
-
-    private int currentUserId;
-    private String[] cotations = new String[]{"1","2","3","4","5a","5b","5c","6a","6a+","6b","6b+","6c","6c+","7a","7a+","7b","7b+","7c","7c+","8a","8a+","8b","8b+","8c","8c+","9a","9a+","9b","9b+","9c","9c+"};
-    private String[] reversedcotations = new String[]{"9c+","9c","9b+","9b","9a+","9a","8c+","8c","8b+","8b","8a+","8a","7c+","7c","7b+","7b","7a+","7a","6c+","6c","6b+","6b","6a+","6a","5c","5b","5a","4","3","2","1"};
-
-
-    // -- Sortie
-    private List<Site> listSite;
-    private List<Comment> listComment;
-    private List<Topo> listTopo;
-    private Site site;
-    private Comment currentComment = new Comment();
-    private Topo topo;
-    private User user = new User();
-    private Parameter pId;
-
-    // ===== Getters & Setters
-
-    public Integer getsId() {
-        return sId;
-    }
-    public void setsId(Integer sId) {
-        this.sId = sId;
-    }
-
-    public void setId(Integer id) {
-        this.id = id;
-    }
-    public List<Site> getListSite() {
-        return listSite;
-    }
-    public void setManagerFactory(ManagerFactory pManagerFactory) {
-        managerFactory = pManagerFactory;
-    }
-    public Site getSite() {
-        return site;
-    }
-    public void setSite(Site pSite) {
-        site = pSite;
-    }
-    public void setName(String name) {
-        this.name = name;
-    }
-    public void setCountry(String country) {
-        this.country = country;
-    }
-    public void setDepartment(String department) {
-        this.department = department;
-    }
-    public void setLatitude(String latitude) {
-        this.latitude = latitude;
-    }
-    public void setLongitude(String longitude) {
-        this.longitude = longitude;
-    }
-    public void setHeight(String height) {
-        this.height = height;
-    }
-    public void setTracks(String tracks) {
-        this.tracks = tracks;
-    }
-    public void setCotationMin(String cotationMin) {
-        this.cotationMin = cotationMin;
-    }
-    public void setCotationMax(String cotationMax) {
-        this.cotationMax = cotationMax;
-    }
-    public void setDescription(String description) {
-        this.description = description;
-    }
-    public void setOfficial(boolean official) {
-        this.official = official;
-    }
-    public void setCreationDate(LocalDate creationDate) {
-        this.creationDate = creationDate;
-    }
-    public String[] getCotations() {
-        return cotations;
-    }
-    public String[] getReversedcotations() {
-        return reversedcotations;
-    }
-    public List<Comment> getListComment() {
-        return listComment;
-    }
-    public String getSearch() {
-        return search;
-    }
-    public void setSearch(String search) {
-        this.search = search;
-    }
-    public Topo getTopo() {
-        return topo;
-    }
-    public void setTopo(Topo topo) {
-        this.topo = topo;
-    }
-    public Research getResearchBean() {
-        return researchBean;
-    }
-    public void setResearchBean(Research researchBean) {
-        this.researchBean = researchBean;
-    }
-    public String[] getDepartments() {
-        return departments;
-    }
-    public String[] getCountries() {
-        return countries;
-    }
-    public List<Topo> getListTopo() {
-        return listTopo;
-    }
-
-    public void setDepartments(String[] departments) {
-        this.departments = departments;
-    }
-
-    // ===== Méthodes
-
-    public String doQuickSearch() {
-        listSite = managerFactory.getSiteManager().getListSite(search);
-        return ActionSupport.SUCCESS;
-    }
-
+    /**
+     * Action > Recherche les {@link Site} selon différents critères
+     * @return INPUT | SUCCESS
+     */
     public String doSearch() {
-
         List<Site> listDepartment = managerFactory.getSiteManager().getSiteDepartments();
         departments = new String[listDepartment.size()+1];
         departments[0] = "Département";
@@ -191,39 +68,38 @@ public class GestionSiteAction extends ActionSupport {
         String vResult = ActionSupport.INPUT;
         if (!StringUtils.isEmpty(search) || !StringUtils.isEmpty(country) || !StringUtils.isEmpty(department) || !StringUtils.isEmpty(cotationMin) || !StringUtils.isEmpty(cotationMax)) {
             try {
-                if (cotationMin == null) {
-                    cotationMin = "1";
-                    cotationMax = "9c+";
-                    country = "Pays";
-                    department = "Département";
-                }
-                researchBean.setTextSearch(search);
-                researchBean.setCountry(country);
-                researchBean.setDepartment(department);
-                researchBean.setCotationMin(cotationMin);
-                researchBean.setCotationMax(cotationMax);
-
-                listSite = managerFactory.getSiteManager().getListSite(researchBean);
+                research.setTextSearch(search);
+                research.setCountry(country);
+                research.setDepartment(department);
+                research.setCotationMin(cotationMin);
+                research.setCotationMax(cotationMax);
+                listSite = managerFactory.getSiteManager().getListSite(research);
 
                 vResult = ActionSupport.SUCCESS;
-
             } catch (Exception vEx) {
                 vEx.printStackTrace();
+                String exception = vEx.getMessage();
                 this.addActionError("Erreur lors de la recherche");
             }
             return vResult;
         }
-
         return vResult;
     }
 
+    /**
+     * Action > Liste les derniers {@link Site} ajoutés
+     * @return SUCCESS
+     */
     public String doList() {
         listSite = managerFactory.getSiteManager().getListSite();
         return ActionSupport.SUCCESS;
     }
 
+    /**
+     * Action > Affiche le détail du {@link Site} déterminé
+     * @return ERROR | SUCCESS
+     */
     public String doDetail() {
-
         if (id == null) {
             this.addActionError(getText("error.site.missing.id"));
         } else {
@@ -232,8 +108,7 @@ public class GestionSiteAction extends ActionSupport {
                 listComment = managerFactory.getCommentManager().getCommentsList(id);
                 listTopo = managerFactory.getTopoManager().getListTopoSite(id);
 
-                sId = site.getId();
-
+                siteId = site.getId();
             } catch (NotFoundException pE) {
                 this.addActionError(getText("error.site.notfound", Collections.singletonList(id)));
             }
@@ -241,6 +116,10 @@ public class GestionSiteAction extends ActionSupport {
         return (this.hasErrors()) ? ActionSupport.ERROR : ActionSupport.SUCCESS;
     }
 
+    /**
+     * Action > Crée un nouveau {@link Site}
+     * @return INPUT | SUCCESS
+     */
     public String doCreate() {
         LocalDate vDate = LocalDate.now();
 
@@ -261,40 +140,38 @@ public class GestionSiteAction extends ActionSupport {
         String vResult = ActionSupport.INPUT;
         if (!StringUtils.isEmpty(name)) {
             try {
-                siteBean.setName(name);
-                siteBean.setCountry(country);
-                siteBean.setDepartment(department);
-                siteBean.setLatitude(latitude);
-                siteBean.setLongitude(longitude);
-                siteBean.setHeight(height);
-                siteBean.setTracks(tracks);
-                siteBean.setCotationMin(cotationMin);
-                siteBean.setCotationMax(cotationMax);
-                siteBean.setDescription(description);
-                siteBean.setOfficial(false);
-                siteBean.setCreationDate(vDate);
+                site.setName(name);
+                site.setCountry(country);
+                site.setDepartment(department);
+                site.setLatitude(latitude);
+                site.setLongitude(longitude);
+                site.setHeight(height);
+                site.setTracks(tracks);
+                site.setCotationMin(cotationMin);
+                site.setCotationMax(cotationMax);
+                site.setDescription(description);
+                site.setOfficial(false);
+                site.setCreationDate(vDate);
 
-                managerFactory.getSiteManager().insertSite(siteBean);
+                managerFactory.getSiteManager().insertSite(site);
 
                 vResult = ActionSupport.SUCCESS;
-
             } catch (Exception vEx) {
                 vEx.printStackTrace();
                 this.addActionError("Erreur lors de l'ajout !");
             }
-
             return vResult;
         }
-
         return vResult;
     }
 
+    /**
+     * Action > Modifie le statut d'un {@link Site} déterminé en "Officiel"
+     * @return SUCCESS
+     */
     public String doSetOfficial() {
-
         managerFactory.getSiteManager().setSiteOfficial(id);
 
         return ActionSupport.SUCCESS;
-
     }
-
 }

@@ -41,7 +41,7 @@ public class GestionCommentAction extends ActionSupport implements SessionAware 
 
     /**
      * Action > Ajoute un {@link Comment} sur le {@link Site} affiché
-     * @return Action Struts2
+     * @return ERROR | SUCCESS
      */
     public String doCreate() {
         LocalDate vDate = LocalDate.now();
@@ -69,7 +69,7 @@ public class GestionCommentAction extends ActionSupport implements SessionAware 
 
     /**
      * Action > Modifie le {@link Comment} choisi
-     * @return Action Struts2
+     * @return INPUT | SUCCESS
      */
     public String doModify() {
         String vResult = ActionSupport.INPUT;
@@ -89,7 +89,7 @@ public class GestionCommentAction extends ActionSupport implements SessionAware 
 
     /**
      * Action > Supprime le {@link Comment} choisi
-     * @return Action Struts2
+     * @return SUCCESS
      */
     public String doDelete() {
         managerFactory.getCommentManager().deleteComment(commentId);

@@ -21,7 +21,7 @@
       <s:elseif test="%{!site.isofficial && #session.user.isMember}">
         <s:a action="official_site">
           <s:param name="id" value="site.id" />
-          <s:param name="sId" value="site.id" />
+          <s:param name="siteId" value="site.id" />
           <p class="btn btn-info mb-0">
             <i class="fas fa-toggle-on"></i>&nbsp;Rendre officiel
           </p>
