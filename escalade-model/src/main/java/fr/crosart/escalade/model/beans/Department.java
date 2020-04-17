@@ -1,36 +1,15 @@
 package fr.crosart.escalade.model.beans;
 
+import lombok.Getter;
+import lombok.Setter;
+
 public class Department {
 
-    //Attributes
-    private Integer id;
-    private String code;
-    private String name;
+    @Getter @Setter private Integer id;
+    @Getter @Setter private String code;
+    @Getter @Setter private String name;
 
-    //Constructor
     public Department() {
-    }
-
-    //Getters & Setters
-    public Integer getId() {
-        return id;
-    }
-    public void setId(Integer id) {
-        this.id = id;
-    }
-
-    public String getCode() {
-        return code;
-    }
-    public void setCode(String code) {
-        this.code = code;
-    }
-
-    public String getName() {
-        return name;
-    }
-    public void setName(String name) {
-        this.name = name;
     }
 
 }
