@@ -31,6 +31,8 @@
 <hr>
 
 ## DEPLOIEMENT
+- La source du *projet* est hérbergée sur ***GitHub*** à l'adresse : *https://github.com/crosart/escalade*
+- L'application est accessible pour test à l'adresse : *https://oc.arthur.escalade.engelaere-antoine.me/*
 - Le *projet* est géré par ***Apache Maven***.
 - L'*application* se builde par Maven au format ***.war***.
 - Les *frameworks* utilisés sont :
@@ -39,3 +41,23 @@
   - ***Bootstrap 4***
 - La *base de données* est déployée sur un serveur ***PostgreSQL***.
 - L'*application* est déployée sur un serveur ***Apache Tomcat v9***
+
+## RESSOURCES
+- Le *script SQL* nécessaire pour créer la base de données sur le serveur **PostgreSQL** est située : "*/DEPLOYMENT RESOURCES/PostgreSQL_DB_CREATE_SCRIPT*.***sql***"
+- Les données à insérer dans la base se situent :
+    - "*/DEPLOYMENT RESOURCES/escalade_escalade_comment*.***csv***"
+    - "*/DEPLOYMENT RESOURCES/escalade_escalade_countries*.***csv***"
+    - "*/DEPLOYMENT RESOURCES/escalade_escalade_departments*.***csv***"
+    - "*/DEPLOYMENT RESOURCES/escalade_escalade_registereduser*.***csv***"
+    - "*/DEPLOYMENT RESOURCES/escalade_escalade_site*.***csv***"
+    - "*/DEPLOYMENT RESOURCES/escalade_escalade_topo*.***csv***"
+- Le jeu de données contient :
+    - Une liste de topos, de sites, et de commentaires afin de visualiser les fonctionnalités et l'articulation du "*site/application*".
+    - La liste des pays du monde ainsi que des départements français pour une gestion simplifiée et claire des lieux.
+    - Une liste d'utilisateurs créés au préalable :
+        - Un utilisateur venant de s'enregistrer (aucun droit particulier) :
+            - Mail : *userpasstest@outlook.fr*
+            - Mot de passe : *pass*
+        - Un utilisateur avec les droits "Membre de l'association" :
+            - Mail : *norsegod@gmail.com*
+            - Mot de passe : *asgard*
