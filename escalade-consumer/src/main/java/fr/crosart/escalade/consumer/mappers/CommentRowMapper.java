@@ -14,9 +14,6 @@ import java.time.format.DateTimeFormatter;
 
 public class CommentRowMapper implements RowMapper<Comment> {
 
-    @Inject
-    private UserDao userDao;
-
     @Override
     public Comment mapRow(ResultSet rs, int rowNum) throws SQLException {
 
