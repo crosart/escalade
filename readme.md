@@ -51,7 +51,7 @@
     - "*/DEPLOYMENT RESOURCES/escalade_escalade_registereduser*.***csv***"
     - "*/DEPLOYMENT RESOURCES/escalade_escalade_site*.***csv***"
     - "*/DEPLOYMENT RESOURCES/escalade_escalade_topo*.***csv***"
-- Le fichier de configuration pour l'accès de l'application à la base de données est situé : "*escalade-webapp/src/main/webapp/META-INF/context.xml*
+- Le fichier de configuration pour l'accès de l'application à la base de données est situé : "*escalade-webapp/src/main/webapp/META-INF/context.xml*"
 - Le jeu de données contient :
     - Une liste de topos, de sites, et de commentaires afin de visualiser les fonctionnalités et l'articulation du "*site/application*".
     - La liste des pays du monde ainsi que des départements français pour une gestion simplifiée et claire des lieux.
